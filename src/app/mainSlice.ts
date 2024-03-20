@@ -2,10 +2,14 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from './store';
 
 type InitialState = {
+  stap: number;
+  stepsQuantity: number;
   isLoading: boolean;
 };
 
 const initialState: InitialState = {
+  stap: 1,
+  stepsQuantity: 5,
   isLoading: false,
 };
 
