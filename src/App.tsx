@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './App.module.scss';
 import Header from './components/header/Header';
-import Stepper from './components/stepper/Stepper';
+import PassengerRegistrationPage from './pages/passengerRegistrationPage/PassengerRegistrationPage';
 
 function App() {
   return (
     <div className={styles.app}>
       <Header />
-      <Stepper />
+      <PassengerRegistrationPage />
     </div>
   );
 }
