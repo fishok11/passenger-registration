@@ -1,0 +1,19 @@
+.container {
+  @apply w-full flex flex-col justify-center items-center gap-3 px-2;
+
+  .text { 
+    @apply w-full text-left;
+  }
+  
+  .stepper {
+    @apply w-full flex justify-between items-center;
+
+    .step {
+      @apply flex justify-center items-center w-5 h-5 bg-gray-300 rounded-full p-1 text-gray-500 text-sm;
+    }
+
+    .line {
+      @apply max-w-full w-full border-b border-gray-300;
+    }
+  }
+}

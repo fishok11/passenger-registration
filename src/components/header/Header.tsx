@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
-import { useAppSelector } from '../../app/hooks';
-import { stateMainSlice } from '../../app/mainSlice';
 import styles from './Header.module.scss';
+import { useHeader } from './useHeader';
 
 const Header: FC = () => {
-  const state = useAppSelector(stateMainSlice);
+  const { state } = useHeader();
+
   return (
     <header className={styles.header}>
-      <h1>
+      <h2 className={styles.title}>
         {state.step === 1 && 'Choose traveller(s)'}
         {state.step === 2 && 'Choose traveller(s)'}
         {state.step === 3 && 'Choose traveller(s)'}
         {state.step === 4 && 'Choose traveller(s)'}
         {state.step === 5 && 'Choose traveller(s)'}
-      </h1>
+      </h2>
     </header>
   );
 };
