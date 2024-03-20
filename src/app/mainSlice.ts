@@ -34,7 +34,6 @@ export const mainSlice = createSlice({
       if (state.step !== initialState.step) {
         state.step -= 1;
       }
-      console.log(state.step);
     },
   },
 
