@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 import { useHeader } from './useHeader';
 
 const Header: FC = () => {
-  const { state } = useHeader();
+  const { state, handlePrevStep } = useHeader();
 
   return (
     <header className={styles.header}>

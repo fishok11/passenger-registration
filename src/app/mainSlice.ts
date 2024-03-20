@@ -24,7 +24,19 @@ export const mainSlice = createSlice({
   name: 'main',
   initialState,
 
-  reducers: {},
+  reducers: {
+    nextStep: (state) => {
+      if (state.step !== state.stepsQuantity) {
+        state.step += 1;
+      }
+    },
+    prevStep: (state) => {
+      if (state.step !== initialState.step) {
+        state.step -= 1;
+      }
+      console.log(state.step);
+    },
+  },
 
   extraReducers: (builder) => {
     builder;
@@ -41,7 +53,7 @@ export const mainSlice = createSlice({
   },
 });
 
-// export const {} = mainSlice.actions;
+export const { nextStep, prevStep } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;
 
