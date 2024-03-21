@@ -10,10 +10,23 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const CreateTravellers: FC = () => {
   const {
+    name,
+    setName,
+    surname,
+    setSurname,
+    setGender,
     nationalities,
     nationality,
     setNationality,
+    passport,
+    setPassport,
+    months,
+    month,
+    setMonth,
+    // expireDatePasport,
+    // setExpireDatePasport,
     handleHideAddTravellersWindow,
+    traveller,
   } = useCreateTravellers();
 
   return (
@@ -32,12 +45,16 @@ const CreateTravellers: FC = () => {
             type={'text'}
             placeholder={'Given name(s)'}
             helperText={'As in passport/ID'}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             id={'surnaname'}
             type={'text'}
             placeholder={'Given surname(s)'}
             helperText={'As in passport/ID'}
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
           />
           <h3 className={styles.formTitle}>Gender</h3>
           <div className={styles.radioContainer}>
@@ -47,6 +64,8 @@ const CreateTravellers: FC = () => {
                 type={'radio'}
                 className={styles.radioInput}
                 name={'gender'}
+                value={'male'}
+                onChange={(e) => setGender(e.target.value)}
               />
               <label htmlFor={'male'} className={styles.radioLabel}>
                 Male
@@ -58,6 +77,8 @@ const CreateTravellers: FC = () => {
                 type={'radio'}
                 className={styles.radioInput}
                 name={'gender'}
+                value={'female'}
+                onChange={(e) => setGender(e.target.value)}
               />
               <label htmlFor={'female'} className={styles.radioLabel}>
                 Female
@@ -78,10 +99,12 @@ const CreateTravellers: FC = () => {
         <div className={styles.travellerInformationContainer}>
           <h2 className={styles.formTitle}>Document information</h2>
           <Input
-            id={'name'}
+            id={'passport'}
             type={'text'}
             placeholder={'Passport or ID number'}
             helperText={'Reqired field'}
+            value={passport}
+            onChange={(e) => setPassport(e.target.value)}
           />
           <div className={styles.radioContainer}>
             <div className={styles.radioItem}>
@@ -99,12 +122,12 @@ const CreateTravellers: FC = () => {
           <h3 className={styles.formTitle}>Expire date</h3>
           <div className={styles.expireDateContainer}>
             <Input id={'day'} type={'text'} placeholder={'Day'} />
-            <Dropdown placeholder={'Month'} value={nationality}>
-              {nationalities.map((nationality) => (
+            <Dropdown placeholder={'Month'} value={month}>
+              {months.map((month) => (
                 <DropdownItem
-                  key={nationality}
-                  text={nationality}
-                  onClick={() => setNationality(nationality)}
+                  key={month}
+                  text={month}
+                  onClick={() => setMonth(month)}
                 />
               ))}
             </Dropdown>
@@ -112,7 +135,7 @@ const CreateTravellers: FC = () => {
           </div>
           <Button
             text={'Confirm traveller'}
-            onClick={() => console.log('Confirm traveller')}
+            onClick={() => console.log(traveller)}
           />
         </div>
       </div>

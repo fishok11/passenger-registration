@@ -4,16 +4,59 @@ import { hideAddTravellerWindow } from '../../app/mainSlice';
 
 export const useCreateTravellers = () => {
   const dispatch = useAppDispatch();
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [gender, setGender] = useState('');
   const nationalities = ['Russian', 'Enlish', 'Irish'];
   const [nationality, setNationality] = useState('');
+  const [passport, setPassport] = useState('');
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  const [month, setMonth] = useState('');
+  // const [expireDatePasport, setExpireDatePasport] = useState('');
+  const traveller = {
+    name: name,
+    surname: surname,
+    gender: gender,
+    nationality: nationality,
+    passport: passport,
+    // expireDatePasport: expireDatePasport,
+  };
+
   const handleHideAddTravellersWindow = () => {
     dispatch(hideAddTravellerWindow());
   };
 
   return {
+    name,
+    setName,
+    surname,
+    setSurname,
+    gender,
+    setGender,
     nationalities,
     nationality,
     setNationality,
+    passport,
+    setPassport,
+    months,
+    month,
+    setMonth,
+    // expireDatePasport,
+    // setExpireDatePasport,
     handleHideAddTravellersWindow,
+    traveller,
   };
 };
