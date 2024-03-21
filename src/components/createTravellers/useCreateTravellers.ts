@@ -1,3 +1,8 @@
+import { useState } from 'react';
+
 export const useCreateTravellers = () => {
-  return null;
+  const nationalities = ['Russian', 'Enlish', 'Irish'];
+  const [nationality, setNationality] = useState('');
+
+  return { nationalities, nationality, setNationality };
 };

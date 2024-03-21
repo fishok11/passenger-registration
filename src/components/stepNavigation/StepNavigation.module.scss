@@ -1,5 +1,5 @@
 .container {
-  @apply w-full flex flex-col justify-center items-center gap-3 px-2 pb-6 pt-4 border-t border-gray-300 rounded-lg absolute bottom-0;
+  @apply w-full flex flex-col justify-center items-center gap-3 px-2 pb-6 pt-4 border-t border-gray-300 rounded-xl absolute bottom-0;
 
   .textContainer {
     @apply w-full flex justify-between items-center;
