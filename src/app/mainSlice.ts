@@ -4,12 +4,14 @@ import { RootState, AppThunk } from './store';
 type InitialState = {
   step: number;
   stepsQuantity: number;
+  visibilityAddTravellerWindow: boolean;
   isLoading: boolean;
 };
 
 const initialState: InitialState = {
   step: 1,
   stepsQuantity: 5,
+  visibilityAddTravellerWindow: false,
   isLoading: false,
 };
 
@@ -35,6 +37,12 @@ export const mainSlice = createSlice({
         state.step -= 1;
       }
     },
+    openAddTravellerWindow: (state) => {
+      state.visibilityAddTravellerWindow = true;
+    },
+    hideAddTravellerWindow: (state) => {
+      state.visibilityAddTravellerWindow = false;
+    },
   },
 
   extraReducers: (builder) => {
@@ -52,7 +60,12 @@ export const mainSlice = createSlice({
   },
 });
 
-export const { nextStep, prevStep } = mainSlice.actions;
+export const {
+  nextStep,
+  prevStep,
+  openAddTravellerWindow,
+  hideAddTravellerWindow,
+} = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;
 

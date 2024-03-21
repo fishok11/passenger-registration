@@ -4,12 +4,16 @@
   .element {
     @apply bg-white rounded-t-xl h-full;
 
-    .title {
-      @apply w-full text-center font-bold p-3 mb-3 border-b border-gray-300;
+    .titleContainer {
+      @apply w-full flex p-3 mb-3 border-b border-gray-300;
+
+      .title {
+        @apply flex-auto text-center font-bold;
+      }
     }
 
     .travellerInformationContainer {
-      @apply flex flex-col gap-3 px-2 border-b border-gray-300 pb-3 mb-3;
+      @apply flex flex-col gap-4 px-2 border-b border-gray-300 pb-3 mb-3;
 
       .formTitle {
         @apply w-full text-left font-bold;
@@ -34,7 +38,7 @@
     .travellerInformationContainer:last-child {
       @apply border-hidden;
     }
-    
+
     .expireDateContainer {
       @apply grid grid-rows-1 grid-cols-3 gap-2;
     }

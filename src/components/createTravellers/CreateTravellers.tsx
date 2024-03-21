@@ -5,14 +5,26 @@ import Dropdown from '../../UI/dropdown/Dropdown';
 import DropdownItem from '../../UI/dropdown/DropdownItem';
 import { useCreateTravellers } from './useCreateTravellers';
 import Button from '../../UI/button/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const CreateTravellers: FC = () => {
-  const { nationalities, nationality, setNationality } = useCreateTravellers();
+  const {
+    nationalities,
+    nationality,
+    setNationality,
+    handleHideAddTravellersWindow,
+  } = useCreateTravellers();
 
   return (
     <div className={styles.container}>
       <div className={styles.element}>
-        <h2 className={styles.title}>Add traveller</h2>
+        <div className={styles.titleContainer}>
+          <button onClick={() => handleHideAddTravellersWindow()}>
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+          <h2 className={styles.title}>Add traveller</h2>
+        </div>
         <div className={styles.travellerInformationContainer}>
           <h2 className={styles.formTitle}>Traveller information</h2>
           <Input
