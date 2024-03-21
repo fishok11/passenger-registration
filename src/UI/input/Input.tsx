@@ -44,7 +44,7 @@ const Input: FC<Partial<InputProps>> = ({
         value={value}
         onChange={onChange}
       />
-      <p className={styles.helperText}>{helperText}</p>
+      {helperText && (<p className={styles.helperText}>{helperText}</p>)}
     </div>
   );
 };
