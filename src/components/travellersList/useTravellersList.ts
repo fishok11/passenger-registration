@@ -15,7 +15,7 @@ export const useTravellersList = () => {
 
   useEffect(() => {
     dispatch(getTravellers());
-  }, []);
+  }, [state.visibilityAddTravellerWindow]);
 
   return {
     state,
