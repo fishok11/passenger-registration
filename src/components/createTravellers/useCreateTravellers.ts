@@ -37,7 +37,11 @@ export const useCreateTravellers = () => {
     // expireDatePasport: expireDatePasport,
   };
 
-  const handleHideAddTravellersWindow = () => {
+  const handleHideAddTravellerWindow = () => {
+    dispatch(hideAddTravellerWindow());
+  };
+
+  const handleAddTraveller = () => {
     if (name === '') {
       setErrorName(true);
       return;
@@ -69,6 +73,7 @@ export const useCreateTravellers = () => {
     setMonth,
     // expireDatePasport,
     // setExpireDatePasport,
-    handleHideAddTravellersWindow,
+    handleAddTraveller,
+    handleHideAddTravellerWindow,
   };
 };

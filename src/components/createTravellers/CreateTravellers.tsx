@@ -32,7 +32,8 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
     setMonth,
     // expireDatePasport,
     // setExpireDatePasport,
-    handleHideAddTravellersWindow,
+    handleHideAddTravellerWindow,
+    handleAddTraveller,
   } = useCreateTravellers();
 
   return (
@@ -47,7 +48,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
         >
           <div className={styles.element}>
             <div className={styles.titleContainer}>
-              <button onClick={() => handleHideAddTravellersWindow()}>
+              <button onClick={() => handleHideAddTravellerWindow()}>
                 <FontAwesomeIcon icon={faXmark} />
               </button>
               <h2 className={styles.title}>Add traveller</h2>
@@ -151,7 +152,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
               </div>
               <Button
                 text={'Confirm traveller'}
-                onClick={() => handleHideAddTravellersWindow()}
+                onClick={() => handleAddTraveller()}
               />
             </div>
           </div>
