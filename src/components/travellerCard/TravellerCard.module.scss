@@ -1,55 +1,71 @@
 .defaultContainer {
-  @apply flex flex-col gap-2 p-3 border border-gray-300 rounded-lg;
+  @apply flex justify-between items-center gap-2 p-3 border border-gray-300 rounded-lg;
 
-  .input {
-    @apply absolute -z-10 opacity-0;
+  .checkboxContainer {
+    @apply w-max;
+
+    .input {
+      @apply absolute -z-10 opacity-0;
+    }
+
+    .label {
+      @apply w-max flex items-center cursor-pointer;
+    }
+
+    .customCheckbox {
+      @apply flex justify-center items-center w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+    }
+
+    .input:checked + .label .customCheckbox {
+      @apply bg-green-500 border-green-500;
+    }
+
+    .textPassport {
+      @apply w-max text-sm text-gray-400 pl-[22px];
+    }
+
+    .textWarning {
+      @apply w-max text-sm text-yellow-400 pl-[22px];
+    }
   }
 
-  .label {
-    @apply flex items-center cursor-pointer;
-  }
-
-  .customCheckbox {
-    @apply w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer;
-  }
-
-  .input:checked + .label .customCheckbox {
-    @apply bg-green-500 border-green-500;
-  }
-
-  .textPassport {
-    @apply text-sm text-gray-400;
-  }
-
-  .textWarning {
-    @apply text-sm text-yellow-400;
+  .editButton {
+    @apply w-max flex items-center justify-center gap-1 border border-gray-300 rounded-full px-2 py-1 text-sm text-violet-700 cursor-pointer;
   }
 }
 
 .checkedContainer {
-  @apply flex flex-col gap-2 p-3 border border-green-500 rounded-lg;
+  @apply flex justify-between items-center p-3 border border-green-500 rounded-lg;
 
-  .input {
-    @apply absolute -z-10 opacity-0;
+ .checkboxContainer {
+    @apply w-max;
+
+    .input {
+      @apply absolute -z-10 opacity-0;
+    }
+
+    .label {
+      @apply w-max flex items-center cursor-pointer;
+    }
+
+    .customCheckbox {
+      @apply flex justify-center items-center w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+    }
+
+    .input:checked + .label .customCheckbox {
+      @apply bg-green-500 border-green-500;
+    }
+
+    .textPassport {
+      @apply w-max text-sm text-gray-400 pl-[22px];
+    }
+
+    .textWarning {
+      @apply w-max text-sm text-yellow-400 pl-[22px];
+    }
   }
 
-  .label {
-    @apply flex items-center cursor-pointer;
-  }
-
-  .customCheckbox {
-    @apply w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer;
-  }
-
-  .input:checked + .label .customCheckbox {
-    @apply bg-green-500 border-green-500;
-  }
-
-  .textPassport {
-    @apply text-sm text-gray-400;
-  }
-
-  .textWarning {
-    @apply text-sm text-yellow-400;
+  .editButton {
+    @apply w-max flex items-center justify-center gap-1 border border-gray-300 rounded-full px-2 py-1 text-sm text-violet-700 cursor-pointer;
   }
 }
