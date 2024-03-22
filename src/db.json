@@ -1,1 +1,20 @@
-{ "travellers": [] }
+{
+  "travellers": [
+    {
+      "id": "8fb0",
+      "name": "",
+      "surname": "",
+      "gender": "",
+      "nationality": "",
+      "passport": ""
+    },
+    {
+      "id": "0868",
+      "name": "Seva",
+      "surname": "Ladygin",
+      "gender": "",
+      "nationality": "",
+      "passport": ""
+    }
+  ]
+}

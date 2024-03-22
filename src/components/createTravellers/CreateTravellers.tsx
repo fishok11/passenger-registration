@@ -19,6 +19,8 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
     setName,
     surname,
     setSurname,
+    errorName,
+    errorSurname,
     setGender,
     nationalities,
     nationality,
@@ -60,6 +62,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
                 helperText={'As in passport/ID'}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                error={errorName}
               />
               <Input
                 id={'surnaname'}
@@ -68,6 +71,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
                 helperText={'As in passport/ID'}
                 value={surname}
                 onChange={(e) => setSurname(e.target.value)}
+                error={errorSurname}
               />
               <h3 className={styles.formTitle}>Gender</h3>
               <div className={styles.radioContainer}>
@@ -148,7 +152,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
               </div>
               <Button
                 text={'Confirm traveller'}
-                onClick={() => console.log(traveller)}
+                onClick={() => handleHideAddTravellersWindow()}
               />
             </div>
           </div>

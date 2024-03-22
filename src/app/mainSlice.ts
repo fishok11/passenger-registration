@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from './store';
+import axios, { AxiosResponse } from 'axios';
+import { AddTarveller, Tarveller } from './types';
 
 type InitialState = {
   step: number;
@@ -15,12 +17,19 @@ const initialState: InitialState = {
   isLoading: false,
 };
 
-// export const incrementAsync = createAsyncThunk(
-//   'main/fetchCount',
-//   async (amount: number) => {
+export const addTarveller = createAsyncThunk<
+  AxiosResponse,
+  AddTarveller,
+  { rejectValue: string }
+>('addTarveller', async (tarveller, { rejectWithValue }) => {
+  try {
+    const data = axios.post('http://localhost:3002/travellers/', tarveller);
 
-//   }
-// );
+    return data;
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
 
 export const mainSlice = createSlice({
   name: 'main',
@@ -46,17 +55,13 @@ export const mainSlice = createSlice({
   },
 
   extraReducers: (builder) => {
-    builder;
-    // .addCase(incrementAsync.pending, (state) => {
-    //   state.status = 'loading';
-    // })
-    // .addCase(incrementAsync.fulfilled, (state, action) => {
-    //   state.status = 'idle';
-    //   state.value += action.payload;
-    // })
-    // .addCase(incrementAsync.rejected, (state) => {
-    //   state.status = 'failed';
-    // });
+    builder
+      .addCase(addTarveller.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addTarveller.fulfilled, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
-import { hideAddTravellerWindow } from '../../app/mainSlice';
+import { addTarveller, hideAddTravellerWindow } from '../../app/mainSlice';
 
 export const useCreateTravellers = () => {
   const dispatch = useAppDispatch();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
+  const [errorName, setErrorName] = useState(false);
+  const [errorSurname, setErrorSurname] = useState(false);
   const [gender, setGender] = useState('');
   const nationalities = ['Russian', 'Enlish', 'Irish'];
   const [nationality, setNationality] = useState('');
@@ -36,6 +38,15 @@ export const useCreateTravellers = () => {
   };
 
   const handleHideAddTravellersWindow = () => {
+    if (name === '') {
+      setErrorName(true);
+      return;
+    }
+    if (surname === '') {
+      setErrorSurname(true);
+      return;
+    }
+    dispatch(addTarveller(traveller));
     dispatch(hideAddTravellerWindow());
   };
 
@@ -44,6 +55,8 @@ export const useCreateTravellers = () => {
     setName,
     surname,
     setSurname,
+    errorName,
+    errorSurname,
     gender,
     setGender,
     nationalities,
