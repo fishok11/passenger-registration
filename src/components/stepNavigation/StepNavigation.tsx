@@ -14,7 +14,11 @@ const StepNavigation: FC = () => {
           <b>USD 1000</b>
         </p>
       </div>
-      <Button text={'Continue'} onClick={() => handleNextStep()} />
+      <Button
+        text={'Continue'}
+        onClick={() => handleNextStep()}
+        variant={'primary'}
+      />
     </div>
   );
 };

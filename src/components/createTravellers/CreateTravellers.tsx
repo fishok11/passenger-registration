@@ -153,6 +153,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
               <Button
                 text={'Confirm traveller'}
                 onClick={() => handleAddTraveller()}
+                variant={'primary'}
               />
             </div>
           </div>

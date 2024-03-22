@@ -4,11 +4,17 @@ import styles from './Button.module.scss';
 type ButtonProps = {
   text: string;
   onClick: () => void;
+  variant: 'primary' | 'secondary';
 };
 
-const Button: FC<ButtonProps> = ({ text, onClick }) => {
+const Button: FC<ButtonProps> = ({ text, onClick, variant }) => {
   return (
-    <button className={styles.button} onClick={() => onClick()}>
+    <button
+      className={
+        variant === 'primary' ? styles.buttonPrimary : styles.buttonSecondary
+      }
+      onClick={() => onClick()}
+    >
       {text}
     </button>
   );
