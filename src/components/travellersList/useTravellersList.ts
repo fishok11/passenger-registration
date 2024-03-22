@@ -1,5 +1,10 @@
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { openAddTravellerWindow, stateMainSlice } from '../../app/mainSlice';
+import {
+  getTravellers,
+  openAddTravellerWindow,
+  stateMainSlice,
+} from '../../app/mainSlice';
 
 export const useTravellersList = () => {
   const dispatch = useAppDispatch();
@@ -7,6 +12,10 @@ export const useTravellersList = () => {
   const handleOpenAddTravellersWindow = () => {
     dispatch(openAddTravellerWindow());
   };
+
+  useEffect(() => {
+    dispatch(getTravellers());
+  }, []);
 
   return {
     state,

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../app/hooks';
-import { addTarveller, hideAddTravellerWindow } from '../../app/mainSlice';
+import { addTraveller, hideAddTravellerWindow } from '../../app/mainSlice';
 
 export const useCreateTravellers = () => {
   const dispatch = useAppDispatch();
@@ -46,7 +46,7 @@ export const useCreateTravellers = () => {
       setErrorSurname(true);
       return;
     }
-    dispatch(addTarveller(traveller));
+    dispatch(addTraveller(traveller));
     dispatch(hideAddTravellerWindow());
   };
 
@@ -70,6 +70,5 @@ export const useCreateTravellers = () => {
     // expireDatePasport,
     // setExpireDatePasport,
     handleHideAddTravellersWindow,
-    traveller,
   };
 };

@@ -33,7 +33,6 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
     // expireDatePasport,
     // setExpireDatePasport,
     handleHideAddTravellersWindow,
-    traveller,
   } = useCreateTravellers();
 
   return (

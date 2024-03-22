@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from './store';
-import axios, { AxiosResponse } from 'axios';
-import { AddTarveller, Tarveller } from './types';
+import { RootState } from './store';
+import axios from 'axios';
+import { AddTraveller, Traveller } from './types';
 
 type InitialState = {
   step: number;
   stepsQuantity: number;
+  travellers: Traveller[];
   visibilityAddTravellerWindow: boolean;
   isLoading: boolean;
 };
@@ -13,17 +14,35 @@ type InitialState = {
 const initialState: InitialState = {
   step: 1,
   stepsQuantity: 5,
+  travellers: [],
   visibilityAddTravellerWindow: false,
   isLoading: false,
 };
 
-export const addTarveller = createAsyncThunk<
-  AxiosResponse,
-  AddTarveller,
+export const addTraveller = createAsyncThunk<
+  Traveller,
+  AddTraveller,
   { rejectValue: string }
->('addTarveller', async (tarveller, { rejectWithValue }) => {
+>('addTraveller', async (Traveller, { rejectWithValue }) => {
   try {
-    const data = axios.post('http://localhost:3002/travellers/', tarveller);
+    const { data } = await axios.post(
+      'http://localhost:3002/travellers/',
+      Traveller,
+    );
+
+    return data;
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
+
+export const getTravellers = createAsyncThunk<
+  Traveller[],
+  undefined,
+  { rejectValue: string }
+>('getTravellers', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get('http://localhost:3002/travellers');
 
     return data;
   } catch (error) {
@@ -56,12 +75,22 @@ export const mainSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(addTarveller.pending, (state) => {
+      .addCase(addTraveller.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(addTarveller.fulfilled, (state) => {
+      .addCase(addTraveller.fulfilled, (state) => {
         state.isLoading = false;
-      });
+      })
+      .addCase(getTravellers.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getTravellers.fulfilled,
+        (state, action: PayloadAction<Traveller[]>) => {
+          state.travellers = action.payload;
+          state.isLoading = false;
+        },
+      );
   },
 });
 

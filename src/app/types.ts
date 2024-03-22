@@ -1,4 +1,4 @@
-export type Tarveller = {
+export type Traveller = {
   id: string;
   name: string;
   surname: string;
@@ -8,4 +8,4 @@ export type Tarveller = {
   // expireDatePasport: expireDatePasport,
 };
 
-export type AddTarveller = Omit<Tarveller, 'id'>;
+export type AddTraveller = Omit<Traveller, 'id'>;
