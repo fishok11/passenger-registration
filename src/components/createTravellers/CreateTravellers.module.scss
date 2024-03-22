@@ -1,5 +1,5 @@
 .container {
-  @apply absolute z-10 w-full h-screen bg-black;
+  @apply w-full absolute z-10  h-screen;
 
   .element {
     @apply bg-white rounded-t-xl h-full;

@@ -1,17 +1,15 @@
 import React, { FC } from 'react';
 import { useTravellersList } from './useTravellersList';
 import CreateTravellers from '../createTravellers/CreateTravellers';
+// import styles from './TravellersList.module.scss';
 
 const TravellersList: FC = () => {
-  const {
-    state,
-    handleOpenAddTravellersWindow,
-  } = useTravellersList();
+  const { state, handleOpenAddTravellersWindow } = useTravellersList();
 
   return (
     <>
       <button onClick={() => handleOpenAddTravellersWindow()}>casca</button>
-      {state.visibilityAddTravellerWindow && <CreateTravellers />}
+      <CreateTravellers isOpen={state.visibilityAddTravellerWindow} />
     </>
   );
 };
