@@ -14,7 +14,7 @@ const Header: FC = () => {
       </button>
       <h2 className={styles.title}>
         {state.step === 1 && 'Choose traveller(s)'}
-        {state.step === 2 && 'Pick your bagages'}
+        {state.step === 2 && 'Pick your baggages'}
         {state.step === 3 && 'Travel insurance'}
         {state.step === 4 && 'Seat selector'}
         {state.step === 5 && 'Payment'}
