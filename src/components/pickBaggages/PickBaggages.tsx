@@ -1,32 +1,44 @@
 import React from 'react';
 import styles from './PickBaggages.module.scss';
 import RadioCard from '../radioCard/RadioCard';
+import { usePickBaggages } from './usePickBaggages';
 
 const PickBaggages = () => {
+  const { state } = usePickBaggages();
+
   return (
     <div className={styles.container}>
-      <div className={styles.element}>
-        <div>
-          <h3 className={styles.sectionTitle}>Cabin bag</h3>
-          <p className={styles.sectionDescription}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
+      {state.baggageCategories.map((category) => (
+        <div className={styles.element} key={category.id}>
+          <>
+            <div>
+              <h3 className={styles.sectionTitle}>{category.title}</h3>
+              <p className={styles.sectionDescription}>
+                {category.description}
+              </p>
+            </div>
+            {state.baggageVariants
+              .filter((variant) => variant.categoryId == category.id)
+              .map((variant) => (
+                <RadioCard
+                  key={variant.id}
+                  id={variant.id}
+                  label={variant.title}
+                >
+                  <div className={styles.variantDescription}>
+                    <p>{variant.description}</p>
+                    {variant.price !== 0 && (
+                      <div className={styles.price}>{variant.price}</div>
+                    )}
+                    {variant.price === 0 && (
+                      <div className={styles.priceFree}>Free</div>
+                    )}
+                  </div>
+                </RadioCard>
+              ))}
+          </>
         </div>
-        <RadioCard id={'8kg'} label={'8kg'}>
-          <p></p>
-        </RadioCard>
-      </div>
-      <div className={styles.element}>
-        <div>
-          <h3 className={styles.sectionTitle}>Checked baggages</h3>
-          <p className={styles.sectionDescription}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          </p>
-        </div>
-        <RadioCard id={'9kg'} label={'9kg'}>
-          <p></p>
-        </RadioCard>
-      </div>
+      ))}
     </div>
   );
 };
