@@ -1,0 +1,47 @@
+.defaultContainer {
+  @apply flex justify-between items-center gap-2 p-3 border border-gray-300 rounded-lg;
+
+  .checkboxContainer {
+    @apply w-max;
+
+    .input {
+      @apply absolute -z-10 opacity-0;
+    }
+
+    .label {
+      @apply w-max flex items-center cursor-pointer;
+    }
+
+    .customCheckbox {
+      @apply flex justify-center items-center w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+    }
+
+    .input:checked + .label .customCheckbox {
+      @apply bg-violet-500 border-violet-500;
+    }
+  }
+}
+
+.checkedContainer {
+  @apply flex justify-between items-center p-3 border border-violet-500 rounded-lg;
+
+ .checkboxContainer {
+    @apply w-max;
+
+    .input {
+      @apply absolute -z-10 opacity-0;
+    }
+
+    .label {
+      @apply w-max flex items-center cursor-pointer;
+    }
+
+    .customCheckbox {
+      @apply flex justify-center items-center w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+    }
+
+    .input:checked + .label .customCheckbox {
+      @apply bg-violet-500 border-violet-500;
+    }
+  }
+}
