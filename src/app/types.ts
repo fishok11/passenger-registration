@@ -1,3 +1,4 @@
+import { getBaggageCategories } from './mainSlice';
 export type Traveller = {
   id: string;
   name: string;
@@ -9,3 +10,18 @@ export type Traveller = {
 };
 
 export type AddTraveller = Omit<Traveller, 'id'>;
+
+export type BaggageCategory = {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export type BaggageVariant = {
+  id: string;
+  title: string;
+  description: string;
+  additionalInformation: string;
+  price: number;
+  categoryId: string;
+};

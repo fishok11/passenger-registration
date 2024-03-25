@@ -1,7 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 import axios from 'axios';
-import { AddTraveller, Traveller } from './types';
+import {
+  AddTraveller,
+  BaggageCategory,
+  BaggageVariant,
+  Traveller,
+} from './types';
 
 type InitialState = {
   step: number;
@@ -9,6 +14,8 @@ type InitialState = {
   travellers: Traveller[];
   traveller: Traveller;
   travellerId: string;
+  baggageCategories: BaggageCategory[];
+  baggageVariants: BaggageVariant[];
   visibilityAddTravellerWindow: boolean;
   isLoading: boolean;
 };
@@ -25,6 +32,8 @@ const initialState: InitialState = {
     nationality: '',
     passport: '',
   },
+  baggageCategories: [],
+  baggageVariants: [],
   travellerId: '',
   visibilityAddTravellerWindow: false,
   isLoading: false,
@@ -37,7 +46,7 @@ export const addTraveller = createAsyncThunk<
 >('addTraveller', async (Traveller, { rejectWithValue, getState }) => {
   try {
     const state = getState().main;
-    
+
     if (state.travellerId !== '') {
       const { data } = await axios.put(
         `http://localhost:3002/travellers/${state.travellerId}`,
@@ -88,6 +97,34 @@ export const getTravellers = createAsyncThunk<
   }
 });
 
+export const getBaggageCategories = createAsyncThunk<
+  BaggageCategory[],
+  undefined,
+  { rejectValue: string }
+>('getBaggageCategories', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get('http://localhost:3002/baggageCategories');
+
+    return data;
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
+
+export const getBaggageVariants = createAsyncThunk<
+  BaggageVariant[],
+  undefined,
+  { rejectValue: string }
+>('getBaggageVariants', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get('http://localhost:3002/baggageVariants');
+
+    return data;
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
+
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
@@ -112,7 +149,6 @@ export const mainSlice = createSlice({
       state.travellerId = action.payload;
     },
   },
-
   extraReducers: (builder) => {
     builder
       .addCase(addTraveller.pending, (state) => {
@@ -138,6 +174,26 @@ export const mainSlice = createSlice({
         getTraveller.fulfilled,
         (state, action: PayloadAction<Traveller>) => {
           state.traveller = action.payload;
+          state.isLoading = false;
+        },
+      )
+      .addCase(getBaggageCategories.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getBaggageCategories.fulfilled,
+        (state, action: PayloadAction<BaggageCategory[]>) => {
+          state.baggageCategories = action.payload;
+          state.isLoading = false;
+        },
+      )
+      .addCase(getBaggageVariants.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getBaggageVariants.fulfilled,
+        (state, action: PayloadAction<BaggageVariant[]>) => {
+          state.baggageVariants = action.payload;
           state.isLoading = false;
         },
       );

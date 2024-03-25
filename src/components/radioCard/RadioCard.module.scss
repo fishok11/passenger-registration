@@ -17,7 +17,7 @@
     }
 
     .input:checked + .label .customCheckbox {
-      @apply bg-violet-500 border-violet-500;
+      @apply p-4 bg-violet-500 border-violet-500;
     }
   }
 }
@@ -25,7 +25,7 @@
 .checkedContainer {
   @apply flex justify-between items-center p-3 border border-violet-500 rounded-lg;
 
- .checkboxContainer {
+  .checkboxContainer {
     @apply w-max;
 
     .input {
