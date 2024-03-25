@@ -17,12 +17,12 @@
       "passport": ""
     },
     {
-      "id": "d6a3",
       "name": "John",
       "surname": "Doe",
       "gender": "male",
       "nationality": "Enlish",
-      "passport": "q111111"
+      "passport": "q111111",
+      "id": "d6a3"
     }
   ],
   "baggageVariants": [

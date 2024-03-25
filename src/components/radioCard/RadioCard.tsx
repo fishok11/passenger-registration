@@ -8,26 +8,25 @@ type RadioCardProps = {
 };
 
 const RadioCard: FC<RadioCardProps> = ({ id, label, children }) => {
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   return (
     <div
-      className={checked ? styles.checkedContainer : styles.defaultContainer}
+      className={styles.defaultContainer}
     >
-      <div className={styles.checkboxContainer}>
+      <div className={styles.radioContainer}>
         <input
           id={id}
-          type="checkbox"
+          type="radio"
           name={'travellers'}
           className={styles.input}
-          onChange={() => setChecked(!checked)}
+          // onChange={() => setChecked(!checked)}
         />
         <label htmlFor={id} className={styles.label}>
-          <div className={styles.customCheckbox}></div>
           {label}
         </label>
-        {children}
       </div>
+      {children}
     </div>
   );
 };
