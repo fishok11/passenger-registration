@@ -1,8 +1,14 @@
-import { useState } from 'react';
-import { useAppDispatch } from '../../app/hooks';
-import { addTraveller, hideAddTravellerWindow } from '../../app/mainSlice';
+import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import {
+  addTraveller,
+  getTraveller,
+  hideAddTravellerWindow,
+  stateMainSlice,
+} from '../../app/mainSlice';
 
 export const useCreateTravellers = () => {
+  const state = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -53,6 +59,18 @@ export const useCreateTravellers = () => {
     dispatch(addTraveller(traveller));
     dispatch(hideAddTravellerWindow());
   };
+
+  useEffect(() => {
+    dispatch(getTraveller(state.travellerId));
+  }, [state.travellerId]);
+
+  useEffect(() => {
+    setName(state.traveller.name);
+    setSurname(state.traveller.surname);
+    setGender(state.traveller.gender);
+    setNationality(state.traveller.nationality);
+    setPassport(state.traveller.passport);
+  }, [state.traveller]);
 
   return {
     name,

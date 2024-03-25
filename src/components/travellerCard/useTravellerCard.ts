@@ -1,8 +1,18 @@
-import { useAppSelector } from '../../app/hooks';
-import { stateMainSlice } from '../../app/mainSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import {
+  openAddTravellerWindow,
+  setTravellerId,
+  stateMainSlice,
+} from '../../app/mainSlice';
 
-export const useTravellerCadr = () => {
+export const useTravellerCard = () => {
   const state = useAppSelector(stateMainSlice);
-  
-  return { state };
+  const dispatch = useAppDispatch();
+
+  const handleEditTraveller = (travellerId: string) => {
+    dispatch(setTravellerId(travellerId));
+    dispatch(openAddTravellerWindow());
+  };
+
+  return { state, handleEditTraveller };
 };

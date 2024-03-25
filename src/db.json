@@ -1,12 +1,12 @@
 {
   "travellers": [
     {
-      "id": "0868",
       "name": "Seva",
       "surname": "Ladygin",
-      "gender": "",
+      "gender": "male",
       "nationality": "",
-      "passport": ""
+      "passport": "12414141",
+      "id": "0868"
     },
     {
       "id": "b6af",

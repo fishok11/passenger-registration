@@ -7,6 +7,8 @@ type InitialState = {
   step: number;
   stepsQuantity: number;
   travellers: Traveller[];
+  traveller: Traveller;
+  travellerId: string;
   visibilityAddTravellerWindow: boolean;
   isLoading: boolean;
 };
@@ -15,6 +17,15 @@ const initialState: InitialState = {
   step: 1,
   stepsQuantity: 5,
   travellers: [],
+  traveller: {
+    id: '',
+    name: '',
+    surname: '',
+    gender: '',
+    nationality: '',
+    passport: '',
+  },
+  travellerId: '',
   visibilityAddTravellerWindow: false,
   isLoading: false,
 };
@@ -22,12 +33,39 @@ const initialState: InitialState = {
 export const addTraveller = createAsyncThunk<
   Traveller,
   AddTraveller,
-  { rejectValue: string }
->('addTraveller', async (Traveller, { rejectWithValue }) => {
+  { rejectValue: string; state: RootState }
+>('addTraveller', async (Traveller, { rejectWithValue, getState }) => {
   try {
+    const state = getState().main;
+    
+    if (state.travellerId !== '') {
+      const { data } = await axios.put(
+        `http://localhost:3002/travellers/${state.travellerId}`,
+        Traveller,
+      );
+
+      return data;
+    }
+
     const { data } = await axios.post(
       'http://localhost:3002/travellers/',
       Traveller,
+    );
+
+    return data;
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
+
+export const getTraveller = createAsyncThunk<
+  Traveller,
+  string,
+  { rejectValue: string }
+>('getTraveller', async (travellerId, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      `http://localhost:3002/travellers/${travellerId}`,
     );
 
     return data;
@@ -53,7 +91,6 @@ export const getTravellers = createAsyncThunk<
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
-
   reducers: {
     nextStep: (state) => {
       if (state.step !== state.stepsQuantity) {
@@ -70,6 +107,9 @@ export const mainSlice = createSlice({
     },
     hideAddTravellerWindow: (state) => {
       state.visibilityAddTravellerWindow = false;
+    },
+    setTravellerId: (state, action: PayloadAction<string>) => {
+      state.travellerId = action.payload;
     },
   },
 
@@ -90,6 +130,16 @@ export const mainSlice = createSlice({
           state.travellers = action.payload;
           state.isLoading = false;
         },
+      )
+      .addCase(getTraveller.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getTraveller.fulfilled,
+        (state, action: PayloadAction<Traveller>) => {
+          state.traveller = action.payload;
+          state.isLoading = false;
+        },
       );
   },
 });
@@ -99,6 +149,7 @@ export const {
   prevStep,
   openAddTravellerWindow,
   hideAddTravellerWindow,
+  setTravellerId,
 } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;

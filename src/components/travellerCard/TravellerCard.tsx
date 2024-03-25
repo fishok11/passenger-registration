@@ -2,6 +2,8 @@ import React, { FC, useState } from 'react';
 import styles from './TravellerCard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
+import { useTravellersList } from '../travellersList/useTravellersList';
+import { useTravellerCard } from './useTravellerCard';
 
 type TravellerCadrProps = {
   id: string;
@@ -16,6 +18,7 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
   surname,
   passport,
 }) => {
+  const { handleEditTraveller } = useTravellerCard();
   const [checkedTraveller, setCheckedTraveller] = useState(false);
 
   return (
@@ -42,7 +45,10 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
           {passport ? 'Passport ID:' + ' ' + passport : 'Missing information'}
         </p>
       </div>
-      <button className={styles.editButton} onClick={() => console.log(1)}>
+      <button
+        className={styles.editButton}
+        onClick={() => handleEditTraveller(id)}
+      >
         <FontAwesomeIcon icon={faPen} /> Edit
       </button>
     </div>

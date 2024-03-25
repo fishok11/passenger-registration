@@ -13,7 +13,9 @@ type CreateTravellersProps = {
   isOpen: boolean;
 };
 
-const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
+const CreateTravellers: FC<CreateTravellersProps> = ({
+  isOpen,
+}) => {
   const {
     name,
     setName,
@@ -21,6 +23,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
     setSurname,
     errorName,
     errorSurname,
+    gender,
     setGender,
     nationalities,
     nationality,
@@ -83,6 +86,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
                     name={'gender'}
                     value={'male'}
                     onChange={(e) => setGender(e.target.value)}
+                    checked={gender === 'male'}
                   />
                   <label htmlFor={'male'} className={styles.radioLabel}>
                     Male
@@ -96,6 +100,7 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
                     name={'gender'}
                     value={'female'}
                     onChange={(e) => setGender(e.target.value)}
+                    checked={gender === 'female'}
                   />
                   <label htmlFor={'female'} className={styles.radioLabel}>
                     Female
