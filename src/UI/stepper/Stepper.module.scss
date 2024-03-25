@@ -1,19 +1,31 @@
 .container {
   @apply w-full flex flex-col justify-center items-center gap-3 px-2;
 
-  .text { 
+  .text {
     @apply w-full text-left;
   }
-  
+
   .stepper {
     @apply w-full flex justify-between items-center;
 
     .step {
-      @apply flex justify-center items-center w-5 h-5 bg-gray-200 rounded-full p-1 text-gray-400 text-sm;
+      @apply z-10 flex justify-center items-center w-5 h-5 bg-gray-200 rounded-full py-1 px-2 text-gray-400 text-sm;
+    }
+
+    .currentStep {
+      @apply z-10 flex justify-center items-center w-5 h-5 bg-white rounded-full py-1 px-2 text-green-700 text-sm border border-green-700;
+    }
+
+    .completedStep {
+      @apply z-10 flex justify-center items-center w-5 h-5 bg-green-700 rounded-full py-1 px-2 text-white text-sm;
     }
 
     .line {
       @apply max-w-full w-full border-b border-gray-300;
+    }
+
+    .completedLine {
+      @apply max-w-full w-full border-b border-green-700;
     }
   }
 }
