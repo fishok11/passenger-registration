@@ -35,15 +35,23 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
           className={styles.input}
           onChange={() => setCheckedTraveller(!checkedTraveller)}
         />
-        <label htmlFor={id} className={styles.label}>
-          <div className={styles.customCheckbox}>
-            {checkedTraveller && <FontAwesomeIcon icon={faCheck} />}
-          </div>
-          {name + ' ' + surname}
-        </label>
-        <p className={passport ? styles.textPassport : styles.textWarning}>
-          {passport ? 'Passport ID:' + ' ' + passport : 'Missing information'}
-        </p>
+        <div
+          className={
+            checkedTraveller
+              ? styles.customCheckboxChecked
+              : styles.customCheckbox
+          }
+        >
+          {checkedTraveller && <FontAwesomeIcon icon={faCheck} />}
+        </div>
+        <div>
+          <label htmlFor={id} className={styles.label}>
+            {name + ' ' + surname}
+          </label>
+          <p className={passport ? styles.textPassport : styles.textWarning}>
+            {passport ? 'Passport ID:' + ' ' + passport : 'Missing information'}
+          </p>
+        </div>
       </div>
       <button
         className={styles.editButton}

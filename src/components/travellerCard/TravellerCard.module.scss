@@ -2,7 +2,7 @@
   @apply flex justify-between items-center gap-2 p-3 border border-gray-300 rounded-lg;
 
   .checkboxContainer {
-    @apply w-max;
+    @apply w-max flex items-start gap-2;
 
     .input {
       @apply absolute -z-10 opacity-0;
@@ -13,19 +13,19 @@
     }
 
     .customCheckbox {
-      @apply flex justify-center items-center w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+      @apply flex justify-center items-center w-4 h-4 mt-1 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
     }
 
-    .input:checked + .label .customCheckbox {
-      @apply bg-green-500 border-green-500;
+    .customCheckboxChecked {
+      @apply flex justify-center items-center w-4 h-4 mt-1 border rounded-full cursor-pointer text-xs text-white bg-green-500 border-green-500;
     }
 
     .textPassport {
-      @apply w-max text-sm text-gray-400 ml-[23px];
+      @apply w-max text-sm text-gray-400;
     }
 
     .textWarning {
-      @apply w-max text-sm text-yellow-400 ml-[23px];
+      @apply w-max text-sm text-yellow-400;
     }
   }
 
@@ -37,8 +37,8 @@
 .checkedContainer {
   @apply flex justify-between items-center p-3 border border-green-500 rounded-lg;
 
- .checkboxContainer {
-    @apply w-max;
+  .checkboxContainer {
+    @apply w-max flex items-start gap-2;
 
     .input {
       @apply absolute -z-10 opacity-0;
@@ -52,16 +52,16 @@
       @apply flex justify-center items-center w-4 h-4 mr-2 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
     }
 
-    .input:checked + .label .customCheckbox {
-      @apply bg-green-500 border-green-500;
+    .customCheckboxChecked {
+      @apply flex justify-center items-center w-4 h-4 mt-1 border rounded-full cursor-pointer text-xs text-white bg-green-500 border-green-500;
     }
 
     .textPassport {
-      @apply w-max text-sm text-gray-400 ml-[23px];
+      @apply w-max text-sm text-gray-400;
     }
 
     .textWarning {
-      @apply w-max text-sm text-yellow-400 ml-[23px];
+      @apply w-max text-sm text-yellow-400;
     }
   }
 

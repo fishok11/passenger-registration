@@ -6,6 +6,7 @@ import PassengerRegistrationPage from './pages/passengerRegistrationPage/Passeng
 function App() {
   return (
     <div className={styles.app}>
+      <div className={styles.bgGradient}></div>
       <Header />
       <PassengerRegistrationPage />
     </div>
