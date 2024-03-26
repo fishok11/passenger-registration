@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import styles from './TravellerCard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
-import { useTravellersList } from '../travellersList/useTravellersList';
 import { useTravellerCard } from './useTravellerCard';
 
 type TravellerCadrProps = {

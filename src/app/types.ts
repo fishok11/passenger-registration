@@ -22,6 +22,6 @@ export type BaggageVariant = {
   title: string;
   description: string;
   additionalInformation: string;
-  price: number;
+  price: number | null;
   categoryId: string;
 };

@@ -47,7 +47,7 @@
       "title": "No baggage to check in",
       "description": "",
       "additionalInformation": "",
-      "price": 0,
+      "price": null,
       "categoryId": "rfad"
     },
     {

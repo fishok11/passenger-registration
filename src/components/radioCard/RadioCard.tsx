@@ -11,9 +11,7 @@ const RadioCard: FC<RadioCardProps> = ({ id, label, children }) => {
   // const [checked, setChecked] = useState(false);
 
   return (
-    <div
-      className={styles.defaultContainer}
-    >
+    <div className={styles.defaultContainer}>
       <div className={styles.radioContainer}>
         <input
           id={id}
@@ -26,7 +24,7 @@ const RadioCard: FC<RadioCardProps> = ({ id, label, children }) => {
           {label}
         </label>
       </div>
-      {children}
+      <div className={styles.childrenContainer}>{children}</div>
     </div>
   );
 };
