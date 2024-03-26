@@ -1,11 +1,11 @@
 .container {
-  @apply w-full absolute top-0 z-10 h-screen;
+  @apply w-full absolute top-0 z-10 h-full;
 
   .element {
-    @apply bg-white rounded-t-xl h-full;
+    @apply bg-white rounded-t-xl h-full flex flex-col gap-3 justify-center items-start;
 
     .titleContainer {
-      @apply w-full flex p-3 mb-3 border-b border-gray-300;
+      @apply w-full flex p-3 border-b border-gray-300;
 
       .title {
         @apply flex-auto text-center font-bold;
@@ -13,7 +13,7 @@
     }
 
     .travellerInformationContainer {
-      @apply flex flex-col gap-4 px-2 border-b border-gray-300 pb-3 mb-3;
+      @apply flex flex-col gap-4 px-2 border-b border-gray-300 pb-3 w-full;
 
       .formTitle {
         @apply w-full text-left font-bold;
