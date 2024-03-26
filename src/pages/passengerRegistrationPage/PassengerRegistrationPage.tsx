@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-// import styles from './PassengerRegistrationPage.module.scss';
+import styles from './PassengerRegistrationPage.module.scss';
 import Stepper from '../../UI/stepper/Stepper';
 import StepNavigation from '../../components/stepNavigation/StepNavigation';
 import { usePassengerRegistrationPage } from './usePassengerRegistrationPage';
@@ -13,11 +13,13 @@ const PassengerRegistrationPage: FC = () => {
   return (
     <>
       <Stepper />
-      {state.step === 1 && <TravellersList />}
-      {state.step === 2 && <PickBaggages />}
-      {state.step === 3 && <InsurancesList />}
-      {state.step === 4 && <p>4</p>}
-      {state.step === 5 && <p>5</p>}
+      <div className={styles.container}>
+        <TravellersList />
+        <PickBaggages />
+        <InsurancesList />
+        {state.step === 4 && <p>4</p>}
+        {state.step === 5 && <p>5</p>}
+      </div>
       <StepNavigation />
     </>
   );

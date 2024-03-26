@@ -13,9 +13,7 @@ type CreateTravellersProps = {
   isOpen: boolean;
 };
 
-const CreateTravellers: FC<CreateTravellersProps> = ({
-  isOpen,
-}) => {
+const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
   const {
     name,
     setName,
