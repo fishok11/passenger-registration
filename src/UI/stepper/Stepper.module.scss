@@ -9,15 +9,15 @@
     @apply w-full flex justify-between items-center;
 
     .step {
-      @apply z-10 flex justify-center items-center w-5 h-5 bg-gray-200 rounded-full py-1 px-2 text-gray-400 text-sm;
+      @apply z-10 flex justify-center items-center w-5 h-5 bg-gray-200 rounded-full py-1 px-2 text-gray-400 text-xs;
     }
 
     .currentStep {
-      @apply z-10 flex justify-center items-center w-5 h-5 bg-gray-200 rounded-full py-1 px-2 text-green-600 text-sm border border-green-600;
+      @apply z-10 flex justify-center items-center w-5 h-5 bg-gray-200 rounded-full py-1 px-2 text-green-600 text-xs border border-green-600;
     }
 
     .completedStep {
-      @apply z-10 flex justify-center items-center w-5 h-5 bg-green-600 rounded-full py-1 px-2 text-white text-sm;
+      @apply z-10 flex justify-center items-center w-5 h-5 bg-green-600 rounded-full py-1 px-2 text-white text-xs;
     }
 
     .line {

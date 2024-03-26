@@ -176,7 +176,6 @@ export const mainSlice = createSlice({
     selectTraveller: (state, action: PayloadAction<Traveller>) => {
       state.selectedTravellers = [...state.selectedTravellers, action.payload];
       console.log(state.selectedTravellers);
-      
     },
   },
   extraReducers: (builder) => {

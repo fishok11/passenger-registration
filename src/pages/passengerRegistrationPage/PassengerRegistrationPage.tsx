@@ -7,6 +7,7 @@ import TravellersList from '../../components/travellersList/TravellersList';
 import PickBaggages from '../../components/pickBaggages/PickBaggages';
 import InsurancesList from '../../components/insurancesList/InsurancesList';
 import CreateTravellers from '../../components/createTravellers/CreateTravellers';
+import Box from '../../UI/box/Box';
 
 const PassengerRegistrationPage: FC = () => {
   const { state } = usePassengerRegistrationPage();
@@ -18,13 +19,15 @@ const PassengerRegistrationPage: FC = () => {
         <TravellersList />
         <PickBaggages />
         <InsurancesList />
-        {state.step === 4 && <p>4</p>}
-        {state.step === 5 && <p>5</p>}
+        <Box isVisible={state.step === 4}>
+          <p>4</p>
+        </Box>
+        <Box isVisible={state.step === 5}>
+          <p>5</p>
+        </Box>
       </div>
       <StepNavigation />
-      <CreateTravellers
-        isOpen={state.visibilityAddTravellerWindow && state.step === 1}
-      />
+      <CreateTravellers isOpen={state.visibilityAddTravellerWindow} />
     </>
   );
 };
