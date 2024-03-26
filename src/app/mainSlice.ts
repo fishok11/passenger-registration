@@ -173,9 +173,18 @@ export const mainSlice = createSlice({
     setTravellerId: (state, action: PayloadAction<string>) => {
       state.travellerId = action.payload;
     },
-    selectTraveller: (state, action: PayloadAction<Traveller>) => {
-      state.selectedTravellers = [...state.selectedTravellers, action.payload];
-      console.log(state.selectedTravellers);
+    addSelectTraveller: (state, action: PayloadAction<Traveller>) => {
+      if (state.selectedTravellers.includes(action.payload) === false) {
+        state.selectedTravellers = [
+          ...state.selectedTravellers,
+          action.payload,
+        ];
+      }
+    },
+    removeSelectedTraveller(state, action: PayloadAction<Traveller>) {
+      state.selectedTravellers = state.selectedTravellers.filter(
+        (traveller) => traveller.id != action.payload.id,
+      );
     },
   },
   extraReducers: (builder) => {
@@ -245,7 +254,8 @@ export const {
   openAddTravellerWindow,
   hideAddTravellerWindow,
   setTravellerId,
-  selectTraveller,
+  addSelectTraveller,
+  removeSelectedTraveller,
 } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;

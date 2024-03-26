@@ -21,14 +21,11 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
   onChange,
   checked,
 }) => {
-  const { handleEditTraveller, checkedTraveller, handleCheckboxChange } =
-    useTravellerCard({ onChange });
+  const { handleEditTraveller } = useTravellerCard();
 
   return (
     <div
-      className={
-        checkedTraveller ? styles.checkedContainer : styles.defaultContainer
-      }
+      className={checked ? styles.checkedContainer : styles.defaultContainer}
     >
       <div className={styles.checkboxContainer}>
         <input
@@ -36,17 +33,15 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
           type="checkbox"
           name={'travellers'}
           className={styles.input}
-          onChange={() => handleCheckboxChange()}
+          onChange={() => onChange()}
           checked={checked}
         />
         <div
           className={
-            checkedTraveller
-              ? styles.customCheckboxChecked
-              : styles.customCheckbox
+            checked ? styles.customCheckboxChecked : styles.customCheckbox
           }
         >
-          {checkedTraveller && <FontAwesomeIcon icon={faCheck} />}
+          {checked && <FontAwesomeIcon icon={faCheck} />}
         </div>
         <div>
           <label htmlFor={id} className={styles.label}>

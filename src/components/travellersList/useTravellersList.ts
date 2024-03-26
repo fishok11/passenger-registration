@@ -3,7 +3,8 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   getTravellers,
   openAddTravellerWindow,
-  selectTraveller,
+  addSelectTraveller,
+  removeSelectedTraveller,
   stateMainSlice,
 } from '../../app/mainSlice';
 import { Traveller } from '../../app/types';
@@ -15,7 +16,11 @@ export const useTravellersList = () => {
     dispatch(openAddTravellerWindow());
   };
   const handleSelectTraveller = (traveller: Traveller) => {
-    dispatch(selectTraveller(traveller));
+    if (state.selectedTravellers.includes(traveller)) {
+      dispatch(removeSelectedTraveller(traveller));
+      return;
+    }
+    dispatch(addSelectTraveller(traveller));
   };
 
   useEffect(() => {
