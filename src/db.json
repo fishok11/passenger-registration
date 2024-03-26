@@ -30,7 +30,7 @@
       "id": "decd",
       "title": "8kg - cabin bag",
       "description": "55 * 20 * 40 sm",
-      "additionalInformation": "",
+      "additionalInformation": null,
       "price": 0,
       "categoryId": "qwsc"
     },
@@ -45,8 +45,8 @@
     {
       "id": "6542",
       "title": "No baggage to check in",
-      "description": "",
-      "additionalInformation": "",
+      "description": null,
+      "additionalInformation": null,
       "price": null,
       "categoryId": "rfad"
     },
@@ -81,13 +81,23 @@
     {
       "id": "35g1",
       "title": "Basic travel pack",
-      "description": "",
+      "description": [
+        "Medical expenses",
+        "Trip cancellation due to your illness, accident, or death",
+        "Assistance services"
+      ],
       "price": 96
     },
     {
       "id": "3c7k",
       "title": "Pro travel pack",
-      "description": "",
+      "description": [
+        "Medical expenses",
+        "Trip cancellation due to your illness, accident, or death",
+        "Assistance services",
+        "Lost baggage insurnce",
+        "Air travel insurance"
+      ],
       "price": 143
     }
   ]

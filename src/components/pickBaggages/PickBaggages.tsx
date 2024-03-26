@@ -19,7 +19,7 @@ const PickBaggages = () => {
             .map((variant) => (
               <RadioCard key={variant.id} id={variant.id} label={variant.title}>
                 <div className={styles.variantDescription}>
-                  <p>{variant.description}</p>
+                  {variant.description && <p>{variant.description}</p>}
                   {variant.price !== 0 && variant.price !== null && (
                     <div className={styles.price}>USD {variant.price}</div>
                   )}

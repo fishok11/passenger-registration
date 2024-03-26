@@ -5,6 +5,7 @@ import StepNavigation from '../../components/stepNavigation/StepNavigation';
 import { usePassengerRegistrationPage } from './usePassengerRegistrationPage';
 import TravellersList from '../../components/travellersList/TravellersList';
 import PickBaggages from '../../components/pickBaggages/PickBaggages';
+import InsurancesList from '../../components/insurancesList/InsurancesList';
 
 const PassengerRegistrationPage: FC = () => {
   const { state } = usePassengerRegistrationPage();
@@ -14,7 +15,7 @@ const PassengerRegistrationPage: FC = () => {
       <Stepper />
       {state.step === 1 && <TravellersList />}
       {state.step === 2 && <PickBaggages />}
-      {state.step === 3 && <p>3</p>}
+      {state.step === 3 && <InsurancesList />}
       {state.step === 4 && <p>4</p>}
       {state.step === 5 && <p>5</p>}
       <StepNavigation />
