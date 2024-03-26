@@ -20,6 +20,7 @@ type InitialState = {
   insurances: Insurance[];
   visibilityAddTravellerWindow: boolean;
   isLoading: boolean;
+  movingForwardInSteps: boolean;
 };
 
 const initialState: InitialState = {
@@ -40,6 +41,7 @@ const initialState: InitialState = {
   insurances: [],
   visibilityAddTravellerWindow: false,
   isLoading: false,
+  movingForwardInSteps: true,
 };
 
 export const addTraveller = createAsyncThunk<
@@ -150,11 +152,13 @@ export const mainSlice = createSlice({
       if (state.step !== state.stepsQuantity) {
         state.step += 1;
       }
+      state.movingForwardInSteps = true;
     },
     prevStep: (state) => {
       if (state.step !== initialState.step) {
         state.step -= 1;
       }
+      state.movingForwardInSteps = false;
     },
     openAddTravellerWindow: (state) => {
       state.visibilityAddTravellerWindow = true;

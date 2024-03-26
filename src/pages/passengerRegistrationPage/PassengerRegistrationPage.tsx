@@ -6,6 +6,7 @@ import { usePassengerRegistrationPage } from './usePassengerRegistrationPage';
 import TravellersList from '../../components/travellersList/TravellersList';
 import PickBaggages from '../../components/pickBaggages/PickBaggages';
 import InsurancesList from '../../components/insurancesList/InsurancesList';
+import CreateTravellers from '../../components/createTravellers/CreateTravellers';
 
 const PassengerRegistrationPage: FC = () => {
   const { state } = usePassengerRegistrationPage();
@@ -21,6 +22,9 @@ const PassengerRegistrationPage: FC = () => {
         {state.step === 5 && <p>5</p>}
       </div>
       <StepNavigation />
+      <CreateTravellers
+        isOpen={state.visibilityAddTravellerWindow && state.step === 1}
+      />
     </>
   );
 };

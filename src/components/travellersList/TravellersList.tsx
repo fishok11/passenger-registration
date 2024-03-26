@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { useTravellersList } from './useTravellersList';
-import CreateTravellers from '../createTravellers/CreateTravellers';
 import Button from '../../UI/button/Button';
 import styles from './TravellersList.module.scss';
 import TravellerCadr from '../travellerCard/TravellerCard';
@@ -27,7 +26,6 @@ const TravellersList: FC = () => {
           variant={'secondary'}
         />
       </div>
-      <CreateTravellers isOpen={state.visibilityAddTravellerWindow} />
     </Box>
   );
 };
