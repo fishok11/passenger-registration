@@ -6,12 +6,12 @@ import {
 } from '../../app/mainSlice';
 
 export const useTravellerCard = () => {
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
   const handleEditTraveller = (travellerId: string) => {
     dispatch(setTravellerId(travellerId));
     dispatch(openAddTravellerWindow());
   };
 
-  return { state, handleEditTraveller };
+  return { mainState, handleEditTraveller };
 };

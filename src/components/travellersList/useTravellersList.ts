@@ -3,20 +3,24 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   getTravellers,
   openAddTravellerWindow,
-  addSelectTraveller,
-  removeSelectedTraveller,
   stateMainSlice,
 } from '../../app/mainSlice';
+import {
+  addSelectTraveller,
+  removeSelectedTraveller,
+  stateRegistrationProcess,
+} from '../../app/registrationProcessSlice';
 import { Traveller } from '../../app/types';
 
 export const useTravellersList = () => {
   const dispatch = useAppDispatch();
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
+  const registrationProcessState = useAppSelector(stateRegistrationProcess);
   const handleOpenAddTravellersWindow = () => {
     dispatch(openAddTravellerWindow());
   };
   const handleSelectTraveller = (traveller: Traveller) => {
-    if (state.selectedTravellers.includes(traveller)) {
+    if (registrationProcessState.selectedTravellers.includes(traveller)) {
       dispatch(removeSelectedTraveller(traveller));
       return;
     }
@@ -25,10 +29,11 @@ export const useTravellersList = () => {
 
   useEffect(() => {
     dispatch(getTravellers());
-  }, [state.visibilityAddTravellerWindow]);
+  }, [mainState.visibilityAddTravellerWindow]);
 
   return {
-    state,
+    mainState,
+    registrationProcessState,
     handleOpenAddTravellersWindow,
     handleSelectTraveller,
   };

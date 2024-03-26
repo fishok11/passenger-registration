@@ -8,7 +8,7 @@ type RadioCardProps = {
 };
 
 const RadioCard: FC<RadioCardProps> = ({ id, label, children }) => {
-  // const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = usemainState(false);
 
   return (
     <div className={styles.defaultContainer}>

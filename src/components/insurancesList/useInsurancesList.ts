@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getInsurances, stateMainSlice } from '../../app/mainSlice';
 
 export const useInsurancesList = () => {
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -11,6 +11,6 @@ export const useInsurancesList = () => {
   }, []);
 
   return {
-    state,
+    mainState,
   };
 };

@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import mainReducer from './mainSlice';
+import registrationProcessReducer from './registrationProcessSlice';
 
 export const store = configureStore({
   reducer: {
     main: mainReducer,
+    registrationProcess: registrationProcessReducer,
   },
 });
 

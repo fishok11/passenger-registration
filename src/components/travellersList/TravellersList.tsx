@@ -6,20 +6,26 @@ import TravellerCadr from '../travellerCard/TravellerCard';
 import Box from '../../UI/box/Box';
 
 const TravellersList: FC = () => {
-  const { state, handleOpenAddTravellersWindow, handleSelectTraveller } =
-    useTravellersList();
+  const {
+    mainState,
+    registrationProcessState,
+    handleOpenAddTravellersWindow,
+    handleSelectTraveller,
+  } = useTravellersList();
 
   return (
-    <Box isVisible={state.step === 1}>
+    <Box isVisible={mainState.step === 1}>
       <div className={styles.container}>
-        {state.travellers.map((traveller) => (
+        {mainState.travellers.map((traveller) => (
           <TravellerCadr
             key={traveller.id}
             id={traveller.id}
             name={traveller.name}
             surname={traveller.surname}
             passport={traveller.passport}
-            checked={state.selectedTravellers.includes(traveller)}
+            checked={registrationProcessState.selectedTravellers.includes(
+              traveller,
+            )}
             onChange={() => handleSelectTraveller(traveller)}
           />
         ))}

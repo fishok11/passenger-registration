@@ -15,7 +15,6 @@ type InitialState = {
   travellerId: string;
   traveller: Traveller;
   travellers: Traveller[];
-  selectedTravellers: Traveller[];
   baggageCategories: BaggageCategory[];
   baggageVariants: BaggageVariant[];
   insurances: Insurance[];
@@ -38,7 +37,6 @@ const initialState: InitialState = {
     passport: '',
   },
   travellers: [],
-  selectedTravellers: [],
   baggageCategories: [],
   baggageVariants: [],
   insurances: [],
@@ -173,19 +171,6 @@ export const mainSlice = createSlice({
     setTravellerId: (state, action: PayloadAction<string>) => {
       state.travellerId = action.payload;
     },
-    addSelectTraveller: (state, action: PayloadAction<Traveller>) => {
-      if (state.selectedTravellers.includes(action.payload) === false) {
-        state.selectedTravellers = [
-          ...state.selectedTravellers,
-          action.payload,
-        ];
-      }
-    },
-    removeSelectedTraveller(state, action: PayloadAction<Traveller>) {
-      state.selectedTravellers = state.selectedTravellers.filter(
-        (traveller) => traveller.id != action.payload.id,
-      );
-    },
   },
   extraReducers: (builder) => {
     builder
@@ -254,8 +239,6 @@ export const {
   openAddTravellerWindow,
   hideAddTravellerWindow,
   setTravellerId,
-  addSelectTraveller,
-  removeSelectedTraveller,
 } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;

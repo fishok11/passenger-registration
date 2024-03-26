@@ -2,7 +2,7 @@ import { useAppSelector } from '../../app/hooks';
 import { stateMainSlice } from '../../app/mainSlice';
 
 export const usePassengerRegistrationPage = () => {
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
 
-  return { state };
+  return { mainState };
 };

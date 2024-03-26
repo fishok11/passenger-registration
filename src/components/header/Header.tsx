@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Header: FC = () => {
-  const { state, handlePrevStep } = useHeader();
+  const { mainState, handlePrevStep } = useHeader();
 
   return (
     <header className={styles.header}>
@@ -13,11 +13,11 @@ const Header: FC = () => {
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
       <h2 className={styles.title}>
-        {state.step === 1 && 'Choose traveller(s)'}
-        {state.step === 2 && 'Pick your baggages'}
-        {state.step === 3 && 'Travel insurance'}
-        {state.step === 4 && 'Seat selector'}
-        {state.step === 5 && 'Payment'}
+        {mainState.step === 1 && 'Choose traveller(s)'}
+        {mainState.step === 2 && 'Pick your baggages'}
+        {mainState.step === 3 && 'Travel insurance'}
+        {mainState.step === 4 && 'Seat selector'}
+        {mainState.step === 5 && 'Payment'}
       </h2>
     </header>
   );

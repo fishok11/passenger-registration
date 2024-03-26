@@ -8,7 +8,7 @@ import {
 } from '../../app/mainSlice';
 
 export const useCreateTravellers = () => {
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
@@ -33,7 +33,7 @@ export const useCreateTravellers = () => {
     'Dec',
   ];
   const [month, setMonth] = useState('');
-  // const [expireDatePasport, setExpireDatePasport] = useState('');
+  // const [expireDatePasport, setExpireDatePasport] = usemainState('');
   const traveller = {
     name: name,
     surname: surname,
@@ -61,16 +61,16 @@ export const useCreateTravellers = () => {
   };
 
   useEffect(() => {
-    dispatch(getTraveller(state.travellerId));
-  }, [state.travellerId]);
+    dispatch(getTraveller(mainState.travellerId));
+  }, [mainState.travellerId]);
 
   useEffect(() => {
-    setName(state.traveller.name);
-    setSurname(state.traveller.surname);
-    setGender(state.traveller.gender);
-    setNationality(state.traveller.nationality);
-    setPassport(state.traveller.passport);
-  }, [state.traveller]);
+    setName(mainState.traveller.name);
+    setSurname(mainState.traveller.surname);
+    setGender(mainState.traveller.gender);
+    setNationality(mainState.traveller.nationality);
+    setPassport(mainState.traveller.passport);
+  }, [mainState.traveller]);
 
   return {
     name,

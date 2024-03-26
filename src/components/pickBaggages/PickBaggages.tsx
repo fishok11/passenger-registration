@@ -5,12 +5,12 @@ import { usePickBaggages } from './usePickBaggages';
 import Box from '../../UI/box/Box';
 
 const PickBaggages = () => {
-  const { state } = usePickBaggages();
+  const { mainState } = usePickBaggages();
 
   return (
-    <Box isVisible={state.step === 2}>
+    <Box isVisible={mainState.step === 2}>
       <div className={styles.container}>
-        {state.baggageCategories.map((category) => (
+        {mainState.baggageCategories.map((category) => (
           <form className={styles.element} key={category.id}>
             <div>
               <h3 className={styles.sectionTitle}>{category.title}</h3>
@@ -18,7 +18,7 @@ const PickBaggages = () => {
                 {category.description}
               </p>
             </div>
-            {state.baggageVariants
+            {mainState.baggageVariants
               .filter((variant) => variant.categoryId == category.id)
               .map((variant) => (
                 <RadioCard

@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { useEffect } from 'react';
 
 export const usePickBaggages = () => {
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,6 +16,6 @@ export const usePickBaggages = () => {
   }, []);
 
   return {
-    state,
+    mainState,
   };
 };

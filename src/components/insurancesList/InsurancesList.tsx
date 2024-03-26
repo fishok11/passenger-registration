@@ -5,12 +5,12 @@ import RadioCard from '../radioCard/RadioCard';
 import Box from '../../UI/box/Box';
 
 const InsurancesList: FC = () => {
-  const { state } = useInsurancesList();
+  const { mainState } = useInsurancesList();
 
   return (
-    <Box isVisible={state.step === 3}>
+    <Box isVisible={mainState.step === 3}>
       <form className={styles.container}>
-        {state.insurances.map((insurance) => (
+        {mainState.insurances.map((insurance) => (
           <RadioCard
             key={insurance.id}
             id={insurance.id}

@@ -10,9 +10,9 @@ type BoxProps = {
 };
 
 const Box: FC<BoxProps> = ({ children, isVisible }) => {
-  const state = useAppSelector(stateMainSlice);
+  const mainState = useAppSelector(stateMainSlice);
   const initial = {
-    x: state.movingForwardInSteps ? '100%' : '-100%',
+    x: mainState.movingForwardInSteps ? '100%' : '-100%',
     opacity: 0,
   };
   const animate = { x: '0%', opacity: 1 };
