@@ -5,6 +5,7 @@ import {
   AddTraveller,
   BaggageCategory,
   BaggageVariant,
+  Insurance,
   Traveller,
 } from './types';
 
@@ -16,6 +17,7 @@ type InitialState = {
   travellerId: string;
   baggageCategories: BaggageCategory[];
   baggageVariants: BaggageVariant[];
+  insurances: Insurance[];
   visibilityAddTravellerWindow: boolean;
   isLoading: boolean;
 };
@@ -32,9 +34,10 @@ const initialState: InitialState = {
     nationality: '',
     passport: '',
   },
+  travellerId: '',
   baggageCategories: [],
   baggageVariants: [],
-  travellerId: '',
+  insurances: [],
   visibilityAddTravellerWindow: false,
   isLoading: false,
 };
@@ -125,6 +128,20 @@ export const getBaggageVariants = createAsyncThunk<
   }
 });
 
+export const getInsurances = createAsyncThunk<
+  Insurance[],
+  undefined,
+  { rejectValue: string }
+>('getInsurances', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get('http://localhost:3002/insurances');
+
+    return data;
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
+
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
@@ -194,6 +211,16 @@ export const mainSlice = createSlice({
         getBaggageVariants.fulfilled,
         (state, action: PayloadAction<BaggageVariant[]>) => {
           state.baggageVariants = action.payload;
+          state.isLoading = false;
+        },
+      )
+      .addCase(getInsurances.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getInsurances.fulfilled,
+        (state, action: PayloadAction<Insurance[]>) => {
+          state.insurances = action.payload;
           state.isLoading = false;
         },
       );

@@ -70,5 +70,25 @@
       "title": "Checked baggages",
       "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
     }
+  ],
+  "insurances": [
+    {
+      "id": "ytrb",
+      "title": "No insurance",
+      "description": null,
+      "price": null
+    },
+    {
+      "id": "35g1",
+      "title": "Basic travel pack",
+      "description": "",
+      "price": 96
+    },
+    {
+      "id": "3c7k",
+      "title": "Pro travel pack",
+      "description": "",
+      "price": 143
+    }
   ]
 }

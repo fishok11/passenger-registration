@@ -25,3 +25,10 @@ export type BaggageVariant = {
   price: number | null;
   categoryId: string;
 };
+
+export type Insurance = {
+  id: string;
+  title: string;
+  description: string | null;
+  price: number | null;
+};
