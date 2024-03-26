@@ -9,6 +9,8 @@ type TravellerCadrProps = {
   name: string;
   surname: string;
   passport: string;
+  onChange: () => void;
+  checked: boolean;
 };
 
 const TravellerCadr: FC<TravellerCadrProps> = ({
@@ -16,9 +18,11 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
   name,
   surname,
   passport,
+  onChange,
+  checked,
 }) => {
-  const { handleEditTraveller } = useTravellerCard();
-  const [checkedTraveller, setCheckedTraveller] = useState(false);
+  const { handleEditTraveller, checkedTraveller, handleCheckboxChange } =
+    useTravellerCard({ onChange });
 
   return (
     <div
@@ -32,7 +36,8 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
           type="checkbox"
           name={'travellers'}
           className={styles.input}
-          onChange={() => setCheckedTraveller(!checkedTraveller)}
+          onChange={() => handleCheckboxChange()}
+          checked={checked}
         />
         <div
           className={

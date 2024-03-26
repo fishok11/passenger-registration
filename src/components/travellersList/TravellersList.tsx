@@ -6,7 +6,8 @@ import TravellerCadr from '../travellerCard/TravellerCard';
 import Box from '../../UI/box/Box';
 
 const TravellersList: FC = () => {
-  const { state, handleOpenAddTravellersWindow } = useTravellersList();
+  const { state, handleOpenAddTravellersWindow, handleSelectTraveller } =
+    useTravellersList();
 
   return (
     <Box isVisible={state.step === 1}>
@@ -18,6 +19,8 @@ const TravellersList: FC = () => {
             name={traveller.name}
             surname={traveller.surname}
             passport={traveller.passport}
+            checked={state.selectedTravellers.includes(traveller)}
+            onChange={() => handleSelectTraveller(traveller)}
           />
         ))}
         <Button

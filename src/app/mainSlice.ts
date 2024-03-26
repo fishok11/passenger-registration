@@ -12,21 +12,23 @@ import {
 type InitialState = {
   step: number;
   stepsQuantity: number;
-  travellers: Traveller[];
-  traveller: Traveller;
   travellerId: string;
+  traveller: Traveller;
+  travellers: Traveller[];
+  selectedTravellers: Traveller[];
   baggageCategories: BaggageCategory[];
   baggageVariants: BaggageVariant[];
   insurances: Insurance[];
   visibilityAddTravellerWindow: boolean;
-  isLoading: boolean;
   movingForwardInSteps: boolean;
+  totalPrice: number;
+  isLoading: boolean;
 };
 
 const initialState: InitialState = {
   step: 1,
   stepsQuantity: 5,
-  travellers: [],
+  travellerId: '',
   traveller: {
     id: '',
     name: '',
@@ -35,13 +37,15 @@ const initialState: InitialState = {
     nationality: '',
     passport: '',
   },
-  travellerId: '',
+  travellers: [],
+  selectedTravellers: [],
   baggageCategories: [],
   baggageVariants: [],
   insurances: [],
   visibilityAddTravellerWindow: false,
-  isLoading: false,
   movingForwardInSteps: true,
+  totalPrice: 0,
+  isLoading: false,
 };
 
 export const addTraveller = createAsyncThunk<
@@ -169,6 +173,11 @@ export const mainSlice = createSlice({
     setTravellerId: (state, action: PayloadAction<string>) => {
       state.travellerId = action.payload;
     },
+    selectTraveller: (state, action: PayloadAction<Traveller>) => {
+      state.selectedTravellers = [...state.selectedTravellers, action.payload];
+      console.log(state.selectedTravellers);
+      
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -237,6 +246,7 @@ export const {
   openAddTravellerWindow,
   hideAddTravellerWindow,
   setTravellerId,
+  selectTraveller,
 } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;

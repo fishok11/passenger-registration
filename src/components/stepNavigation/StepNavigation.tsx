@@ -4,14 +4,14 @@ import Button from '../../UI/button/Button';
 import { useStepNavigation } from './useStepNavigation';
 
 const StepNavigation: FC = () => {
-  const { handleNextStep } = useStepNavigation();
+  const { state, handleNextStep } = useStepNavigation();
 
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
         <p>Total due</p>
         <p>
-          <b>USD 1000</b>
+          <b>USD {state.totalPrice}</b>
         </p>
       </div>
       <Button
