@@ -32,6 +32,9 @@ export const registrationProcessSlice = createSlice({
       );
     },
     addSelectBag(state, action: PayloadAction<BaggageVariant>) {
+      state.selectedBaggages = state.selectedBaggages.filter(
+        (baggage) => baggage.categoryId != action.payload.categoryId,
+      );
       state.selectedBaggages = [...state.selectedBaggages, action.payload];
     },
   },
