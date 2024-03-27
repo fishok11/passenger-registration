@@ -9,10 +9,8 @@
 body {
   margin: 0;
   font-family: Monaco, sans-serif;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 390px;
+  width: 100%;
   h2 {
     font-size: 1em;
   }
@@ -22,5 +20,5 @@ body {
 }
 
 // code {
-  
+
 // }
