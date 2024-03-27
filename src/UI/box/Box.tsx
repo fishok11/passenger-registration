@@ -26,9 +26,9 @@ const Box: FC<BoxProps> = ({ children, isVisible }) => {
           animate={animate}
           exit={exit}
           transition={{
-            // type: 'spring',
             stiffness: 300,
             damping: 30,
+            duration: 0.2,
           }}
           className={styles.box}
         >

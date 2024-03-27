@@ -9,12 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { motion, AnimatePresence } from 'framer-motion';
 
-type CreateTravellersProps = {
-  isOpen: boolean;
-};
-
-const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
+const CreateTravellers: FC = () => {
   const {
+    mainState,
     name,
     setName,
     surname,
@@ -39,12 +36,12 @@ const CreateTravellers: FC<CreateTravellersProps> = ({ isOpen }) => {
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {mainState.visibilityAddTravellerWindow && (
         <motion.div
           initial={{ y: '100vh' }}
-          animate={{ y: isOpen ? 0 : '100vh' }}
+          animate={{ y: mainState.visibilityAddTravellerWindow ? 0 : '100vh' }}
           exit={{ y: '100vh' }}
-          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+          transition={{ stiffness: 300, damping: 30, duration: 0.2 }}
           className={styles.container}
         >
           <div className={styles.element}>

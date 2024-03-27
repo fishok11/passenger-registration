@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from './TravellerCard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ type TravellerCadrProps = {
   checked: boolean;
 };
 
-const TravellerCadr: FC<TravellerCadrProps> = ({
+const TravellerCard: FC<TravellerCadrProps> = ({
   id,
   name,
   surname,
@@ -22,6 +22,10 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
   checked,
 }) => {
   const { handleEditTraveller } = useTravellerCard();
+  useEffect(() => {
+    console.log(checked);
+    console.log('render');
+  }, []);
 
   return (
     <div
@@ -62,4 +66,4 @@ const TravellerCadr: FC<TravellerCadrProps> = ({
   );
 };
 
-export default TravellerCadr;
+export default TravellerCard;

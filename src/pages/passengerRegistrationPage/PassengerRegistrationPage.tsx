@@ -27,7 +27,7 @@ const PassengerRegistrationPage: FC = () => {
         </Box>
       </div>
       <StepNavigation />
-      <CreateTravellers isOpen={mainState.visibilityAddTravellerWindow} />
+      <CreateTravellers />
     </>
   );
 };

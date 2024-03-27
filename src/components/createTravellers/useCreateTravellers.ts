@@ -73,6 +73,7 @@ export const useCreateTravellers = () => {
   }, [mainState.traveller]);
 
   return {
+    mainState,
     name,
     setName,
     surname,
