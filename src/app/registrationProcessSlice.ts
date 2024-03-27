@@ -4,10 +4,12 @@ import { Traveller } from './types';
 
 type InitialState = {
   selectedTravellers: Traveller[];
+  ticketPrice: number;
 };
 
 const initialState: InitialState = {
   selectedTravellers: [],
+  ticketPrice: 1300,
 };
 
 export const registrationProcessSlice = createSlice({

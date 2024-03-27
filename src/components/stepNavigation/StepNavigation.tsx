@@ -5,7 +5,12 @@ import { useStepNavigation } from './useStepNavigation';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const StepNavigation: FC = () => {
-  const { handleNextStep, isOpenInfo, handleOpenInfo } = useStepNavigation();
+  const {
+    registrationProcessState,
+    handleNextStep,
+    isOpenInfo,
+    handleOpenInfo,
+  } = useStepNavigation();
 
   return (
     <AnimatePresence>
@@ -32,8 +37,14 @@ const StepNavigation: FC = () => {
               className={styles.infoContainer}
             >
               <div className={styles.infoText}>
-                <p>1 x Adult</p>
-                <p className={styles.price}>USD 0</p>
+                <p>
+                  {registrationProcessState.selectedTravellers.length}x Adult
+                </p>
+                <p className={styles.price}>
+                  USD{' '}
+                  {registrationProcessState.ticketPrice *
+                    registrationProcessState.selectedTravellers.length}
+                </p>
               </div>
               <div className={styles.infoText}>
                 <p>Baggage</p>

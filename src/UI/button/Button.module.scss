@@ -1,7 +1,7 @@
 .buttonPrimary {
-  @apply w-full h-10 bg-blue-800 text-white font-bold p-2 rounded-lg duration-200 hover:bg-blue-700;
+  @apply w-full h-10 bg-blue-800 text-white font-[500] p-2 rounded-lg duration-200 hover:bg-blue-700;
 }
 
 .buttonSecondary {
-  @apply w-full h-10 bg-violet-200 text-violet-700 font-bold p-2 rounded-lg duration-200 hover:bg-gray-300;
+  @apply w-full h-10 bg-violet-100 text-violet-700 font-[500] p-2 rounded-lg duration-200 hover:bg-violet-200;
 }
