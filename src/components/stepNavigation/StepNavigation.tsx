@@ -10,6 +10,8 @@ const StepNavigation: FC = () => {
     handleNextStep,
     isOpenInfo,
     handleOpenInfo,
+    ticketsPrice,
+    baggagePrice,
   } = useStepNavigation();
 
   return (
@@ -40,15 +42,11 @@ const StepNavigation: FC = () => {
                 <p>
                   {registrationProcessState.selectedTravellers.length}x Adult
                 </p>
-                <p className={styles.price}>
-                  USD{' '}
-                  {registrationProcessState.ticketPrice *
-                    registrationProcessState.selectedTravellers.length}
-                </p>
+                <p className={styles.price}>USD {ticketsPrice}</p>
               </div>
               <div className={styles.infoText}>
                 <p>Baggage</p>
-                <p className={styles.price}>USD 0</p>
+                <p className={styles.price}>USD {baggagePrice}</p>
               </div>
               <div className={styles.line} />
               <div className={styles.infoText}>
@@ -69,7 +67,7 @@ const StepNavigation: FC = () => {
         <div className={styles.textContainer}>
           <p>Total due</p>
           <p>
-            <b>USD 0</b>
+            <b>USD {ticketsPrice + baggagePrice}</b>
           </p>
         </div>
         <Button

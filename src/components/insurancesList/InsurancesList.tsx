@@ -15,6 +15,8 @@ const InsurancesList: FC = () => {
             key={insurance.id}
             id={insurance.id}
             label={insurance.title}
+            onChange={() => console.log(1)}
+            checked={false}
           >
             <div className={styles.descriptionContainer}>
               {insurance.description && (

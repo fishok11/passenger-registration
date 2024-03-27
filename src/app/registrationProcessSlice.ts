@@ -1,15 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
-import { Traveller } from './types';
+import { BaggageVariant, Traveller } from './types';
 
 type InitialState = {
   selectedTravellers: Traveller[];
   ticketPrice: number;
+  selectedBaggages: BaggageVariant[];
 };
 
 const initialState: InitialState = {
   selectedTravellers: [],
   ticketPrice: 1300,
+  selectedBaggages: [],
 };
 
 export const registrationProcessSlice = createSlice({
@@ -29,13 +31,16 @@ export const registrationProcessSlice = createSlice({
         (traveller) => traveller.id != action.payload.id,
       );
     },
+    addSelectBag(state, action: PayloadAction<BaggageVariant>) {
+      state.selectedBaggages = [...state.selectedBaggages, action.payload];
+    },
   },
   extraReducers: (builder) => {
     builder;
   },
 });
 
-export const { addSelectTraveller, removeSelectedTraveller } =
+export const { addSelectTraveller, removeSelectedTraveller, addSelectBag } =
   registrationProcessSlice.actions;
 
 export const stateRegistrationProcessSlice = (state: RootState) =>

@@ -16,10 +16,23 @@ export const useStepNavigation = () => {
     dispatch(nextStep());
   };
 
+  const ticketsPrice =
+    registrationProcessState.ticketPrice *
+    registrationProcessState.selectedTravellers.length;
+  let baggagePrice = 0;
+
+  registrationProcessState.selectedBaggages.forEach((item) => {
+    if (item.price) {
+      baggagePrice += item.price;
+    }
+  });
+
   return {
     registrationProcessState,
     handleNextStep,
     isOpenInfo,
     handleOpenInfo,
+    ticketsPrice,
+    baggagePrice,
   };
 };

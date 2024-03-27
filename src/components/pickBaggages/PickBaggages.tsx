@@ -5,7 +5,8 @@ import { usePickBaggages } from './usePickBaggages';
 import Box from '../../UI/box/Box';
 
 const PickBaggages = () => {
-  const { mainState } = usePickBaggages();
+  const { mainState, registrationProcessState, handleSelectBag } =
+    usePickBaggages();
 
   return (
     <Box isVisible={mainState.step === 2}>
@@ -25,14 +26,24 @@ const PickBaggages = () => {
                   key={variant.id}
                   id={variant.id}
                   label={variant.title}
+                  onChange={() => handleSelectBag(variant)}
+                  checked={registrationProcessState.selectedBaggages.includes(
+                    variant,
+                  )}
                 >
                   <div className={styles.variantDescription}>
                     {variant.description && <p>{variant.description}</p>}
-                    {variant.price !== 0 && variant.price !== null && (
-                      <div className={styles.price}>USD {variant.price}</div>
-                    )}
-                    {variant.price === 0 && variant.price !== null && (
-                      <div className={styles.priceFree}>Free</div>
+                    {variant.price !== null && (
+                      <>
+                        {variant.price !== 0 && (
+                          <div className={styles.price}>
+                            USD {variant.price}
+                          </div>
+                        )}
+                        {variant.price === 0 && (
+                          <div className={styles.priceFree}>Free</div>
+                        )}
+                      </>
                     )}
                   </div>
                 </RadioCard>

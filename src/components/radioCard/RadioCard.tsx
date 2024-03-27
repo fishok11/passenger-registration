@@ -5,9 +5,17 @@ type RadioCardProps = {
   id: string;
   label: string;
   children: React.ReactNode;
+  onChange: () => void;
+  checked: boolean;
 };
 
-const RadioCard: FC<RadioCardProps> = ({ id, label, children }) => {
+const RadioCard: FC<RadioCardProps> = ({
+  id,
+  label,
+  children,
+  onChange,
+  checked,
+}) => {
   // const [checked, setChecked] = usemainState(false);
 
   return (
@@ -18,7 +26,8 @@ const RadioCard: FC<RadioCardProps> = ({ id, label, children }) => {
           type="radio"
           name={'travellers'}
           className={styles.input}
-          // onChange={() => setChecked(!checked)}
+          onChange={() => onChange()}
+          checked={checked}
         />
         <label htmlFor={id} className={styles.label}>
           {label}
