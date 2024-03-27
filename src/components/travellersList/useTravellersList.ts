@@ -8,14 +8,16 @@ import {
 import {
   addSelectTraveller,
   removeSelectedTraveller,
-  stateRegistrationProcess,
+  stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
 import { Traveller } from '../../app/types';
 
 export const useTravellersList = () => {
   const dispatch = useAppDispatch();
   const mainState = useAppSelector(stateMainSlice);
-  const registrationProcessState = useAppSelector(stateRegistrationProcess);
+  const registrationProcessState = useAppSelector(
+    stateRegistrationProcessSlice,
+  );
   const handleOpenAddTravellersWindow = () => {
     dispatch(openAddTravellerWindow());
   };

@@ -36,7 +36,7 @@ export const registrationProcessSlice = createSlice({
 export const { addSelectTraveller, removeSelectedTraveller } =
   registrationProcessSlice.actions;
 
-export const stateRegistrationProcess = (state: RootState) =>
+export const stateRegistrationProcessSlice = (state: RootState) =>
   state.registrationProcess;
 
 export default registrationProcessSlice.reducer;

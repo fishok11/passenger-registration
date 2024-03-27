@@ -20,7 +20,6 @@ type InitialState = {
   insurances: Insurance[];
   visibilityAddTravellerWindow: boolean;
   movingForwardInSteps: boolean;
-  totalPrice: number;
   isLoading: boolean;
 };
 
@@ -42,7 +41,6 @@ const initialState: InitialState = {
   insurances: [],
   visibilityAddTravellerWindow: false,
   movingForwardInSteps: true,
-  totalPrice: 0,
   isLoading: false,
 };
 

@@ -1,12 +1,25 @@
+import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { nextStep, stateMainSlice } from '../../app/mainSlice';
+import { nextStep } from '../../app/mainSlice';
+import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
 
 export const useStepNavigation = () => {
-  const mainState = useAppSelector(stateMainSlice);
+  const registrationProcessState = useAppSelector(
+    stateRegistrationProcessSlice,
+  );
   const dispatch = useAppDispatch();
+  const [isOpenInfo, setIsOpenInfo] = useState(false);
+  const handleOpenInfo = () => {
+    setIsOpenInfo(!isOpenInfo);
+  };
   const handleNextStep = () => {
     dispatch(nextStep());
   };
 
-  return { mainState, handleNextStep };
+  return {
+    registrationProcessState,
+    handleNextStep,
+    isOpenInfo,
+    handleOpenInfo,
+  };
 };
