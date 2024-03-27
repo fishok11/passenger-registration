@@ -5,7 +5,8 @@ import RadioCard from '../radioCard/RadioCard';
 import Box from '../../UI/box/Box';
 
 const InsurancesList: FC = () => {
-  const { mainState } = useInsurancesList();
+  const { mainState, registrationProcessState, handleSelectInsurance } =
+    useInsurancesList();
 
   return (
     <Box isVisible={mainState.step === 3}>
@@ -15,8 +16,8 @@ const InsurancesList: FC = () => {
             key={insurance.id}
             id={insurance.id}
             label={insurance.title}
-            onChange={() => console.log(1)}
-            checked={false}
+            onChange={() => handleSelectInsurance(insurance)}
+            checked={registrationProcessState.selectedInsurance === insurance}
           >
             <div className={styles.descriptionContainer}>
               {insurance.description && (
