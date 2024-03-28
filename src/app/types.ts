@@ -1,4 +1,3 @@
-import { getBaggageCategories } from './mainSlice';
 export type Traveller = {
   id: string;
   name: string;
