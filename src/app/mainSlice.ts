@@ -81,11 +81,13 @@ export const getTraveller = createAsyncThunk<
   { rejectValue: string }
 >('getTraveller', async (travellerId, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(
-      `http://localhost:3002/travellers/${travellerId}`,
-    );
+    if (travellerId !== '') {
+      const { data } = await axios.get(
+        `http://localhost:3002/travellers/${travellerId}`,
+      );
 
-    return data;
+      return data;
+    }
   } catch (error) {
     return rejectWithValue('Server error!');
   }

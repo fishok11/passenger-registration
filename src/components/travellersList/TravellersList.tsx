@@ -23,9 +23,9 @@ const TravellersList: FC = () => {
             name={traveller.name}
             surname={traveller.surname}
             passport={traveller.passport}
-            checked={registrationProcessState.selectedTravellers.includes(
-              traveller,
-            )}
+            checked={registrationProcessState.selectedTravellers
+              .map((traveller) => traveller.id)
+              .includes(traveller.id)}
             onChange={() => handleSelectTraveller(traveller)}
           />
         ))}

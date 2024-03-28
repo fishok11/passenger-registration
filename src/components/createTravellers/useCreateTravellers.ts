@@ -61,7 +61,9 @@ export const useCreateTravellers = () => {
   };
 
   useEffect(() => {
-    dispatch(getTraveller(mainState.travellerId));
+    if (mainState.travellerId !== '') {
+      dispatch(getTraveller(mainState.travellerId));
+    }
   }, [mainState.travellerId]);
 
   useEffect(() => {
