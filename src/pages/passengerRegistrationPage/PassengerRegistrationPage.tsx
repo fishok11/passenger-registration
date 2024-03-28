@@ -8,6 +8,7 @@ import PickBaggages from '../../components/pickBaggages/PickBaggages';
 import InsurancesList from '../../components/insurancesList/InsurancesList';
 import CreateTravellers from '../../components/createTravellers/CreateTravellers';
 import Box from '../../UI/box/Box';
+import SeatSelection from '../../components/seatSelection/SeatSelection';
 
 const PassengerRegistrationPage: FC = () => {
   const { mainState } = usePassengerRegistrationPage();
@@ -19,9 +20,7 @@ const PassengerRegistrationPage: FC = () => {
         <TravellersList />
         <PickBaggages />
         <InsurancesList />
-        <Box isVisible={mainState.step === 4}>
-          <p>4</p>
-        </Box>
+        <SeatSelection />
         <Box isVisible={mainState.step === 5}>
           <p>5</p>
         </Box>
