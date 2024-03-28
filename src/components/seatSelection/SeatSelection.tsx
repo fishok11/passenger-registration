@@ -25,8 +25,8 @@ const SeatSelection: FC = () => {
         </div>
         <div className={styles.seatsContainer}>
           {mainState.interiorConfiguration.interior.map((interior, index) => (
-            <>
-              <div key={interior.rowId} className={styles.rowContainer}>
+            <React.Fragment key={interior.rowId}>
+              <div className={styles.rowContainer}>
                 <p className={styles.rowName}>{interior.rowId}</p>
                 {interior.row.map((seat) => (
                   <div key={seat.id} className={styles.seat}>
@@ -39,7 +39,7 @@ const SeatSelection: FC = () => {
                   <div className={styles.space} />
                 </div>
               )}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </div>

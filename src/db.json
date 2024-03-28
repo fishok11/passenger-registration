@@ -9,17 +9,27 @@
       "id": "0868"
     },
     {
-      "id": "b6af",
       "name": "Danya",
       "surname": "Ladygin",
-      "gender": "",
+      "gender": "male",
       "nationality": "",
-      "passport": ""
+      "passport": "",
+      "id": "b6af"
     },
     {
       "name": "Homer",
       "surname": "Simpson",
       "id": "CbdiYAc"
+    },
+    {
+      "name": "мывм",
+      "surname": "ымывм",
+      "id": "Q_odwf3"
+    },
+    {
+      "name": "мывммывм",
+      "surname": "ымывм",
+      "id": "rJbyOSk"
     }
   ],
   "baggageVariants": [
@@ -105,85 +115,247 @@
         {
           "rowId": "A",
           "row": [
-            { "id": "1a", "occupied": false },
-            { "id": "2a", "occupied": true },
-            { "id": "3a", "occupied": false },
-            { "id": "4a", "occupied": false },
-            { "id": "5a", "occupied": false },
-            { "id": "6a", "occupied": false },
-            { "id": "7a", "occupied": true },
-            { "id": "8a", "occupied": false },
-            { "id": "9a", "occupied": false }
+            {
+              "id": "1a",
+              "occupied": false
+            },
+            {
+              "id": "2a",
+              "occupied": true
+            },
+            {
+              "id": "3a",
+              "occupied": false
+            },
+            {
+              "id": "4a",
+              "occupied": false
+            },
+            {
+              "id": "5a",
+              "occupied": false
+            },
+            {
+              "id": "6a",
+              "occupied": false
+            },
+            {
+              "id": "7a",
+              "occupied": true
+            },
+            {
+              "id": "8a",
+              "occupied": false
+            },
+            {
+              "id": "9a",
+              "occupied": false
+            }
           ]
         },
         {
           "rowId": "B",
           "row": [
-            { "id": "1b", "occupied": true },
-            { "id": "2b", "occupied": false },
-            { "id": "3b", "occupied": false },
-            { "id": "4b", "occupied": true },
-            { "id": "5b", "occupied": false },
-            { "id": "6b", "occupied": false },
-            { "id": "7b", "occupied": true },
-            { "id": "8b", "occupied": false },
-            { "id": "9b", "occupied": false }
+            {
+              "id": "1b",
+              "occupied": true
+            },
+            {
+              "id": "2b",
+              "occupied": false
+            },
+            {
+              "id": "3b",
+              "occupied": false
+            },
+            {
+              "id": "4b",
+              "occupied": true
+            },
+            {
+              "id": "5b",
+              "occupied": false
+            },
+            {
+              "id": "6b",
+              "occupied": false
+            },
+            {
+              "id": "7b",
+              "occupied": true
+            },
+            {
+              "id": "8b",
+              "occupied": false
+            },
+            {
+              "id": "9b",
+              "occupied": false
+            }
           ]
         },
         {
           "rowId": "C",
           "row": [
-            { "id": "1c", "occupied": false },
-            { "id": "2c", "occupied": true },
-            { "id": "3c", "occupied": false },
-            { "id": "4c", "occupied": false },
-            { "id": "5c", "occupied": true },
-            { "id": "6c", "occupied": false },
-            { "id": "7c", "occupied": false },
-            { "id": "8c", "occupied": false },
-            { "id": "9c", "occupied": false }
+            {
+              "id": "1c",
+              "occupied": false
+            },
+            {
+              "id": "2c",
+              "occupied": true
+            },
+            {
+              "id": "3c",
+              "occupied": false
+            },
+            {
+              "id": "4c",
+              "occupied": false
+            },
+            {
+              "id": "5c",
+              "occupied": true
+            },
+            {
+              "id": "6c",
+              "occupied": false
+            },
+            {
+              "id": "7c",
+              "occupied": false
+            },
+            {
+              "id": "8c",
+              "occupied": false
+            },
+            {
+              "id": "9c",
+              "occupied": false
+            }
           ]
         },
         {
           "rowId": "D",
           "row": [
-            { "id": "1d", "occupied": false },
-            { "id": "2d", "occupied": false },
-            { "id": "3d", "occupied": false },
-            { "id": "4d", "occupied": false },
-            { "id": "5d", "occupied": false },
-            { "id": "6d", "occupied": false },
-            { "id": "7d", "occupied": false },
-            { "id": "8d", "occupied": true },
-            { "id": "9d", "occupied": false }
+            {
+              "id": "1d",
+              "occupied": false
+            },
+            {
+              "id": "2d",
+              "occupied": false
+            },
+            {
+              "id": "3d",
+              "occupied": false
+            },
+            {
+              "id": "4d",
+              "occupied": false
+            },
+            {
+              "id": "5d",
+              "occupied": false
+            },
+            {
+              "id": "6d",
+              "occupied": false
+            },
+            {
+              "id": "7d",
+              "occupied": false
+            },
+            {
+              "id": "8d",
+              "occupied": true
+            },
+            {
+              "id": "9d",
+              "occupied": false
+            }
           ]
         },
         {
           "rowId": "E",
           "row": [
-            { "id": "1e", "occupied": false },
-            { "id": "2e", "occupied": true },
-            { "id": "3e", "occupied": false },
-            { "id": "4e", "occupied": false },
-            { "id": "5e", "occupied": true },
-            { "id": "6e", "occupied": false },
-            { "id": "7e", "occupied": false },
-            { "id": "8e", "occupied": true },
-            { "id": "9e", "occupied": false }
+            {
+              "id": "1e",
+              "occupied": false
+            },
+            {
+              "id": "2e",
+              "occupied": true
+            },
+            {
+              "id": "3e",
+              "occupied": false
+            },
+            {
+              "id": "4e",
+              "occupied": false
+            },
+            {
+              "id": "5e",
+              "occupied": true
+            },
+            {
+              "id": "6e",
+              "occupied": false
+            },
+            {
+              "id": "7e",
+              "occupied": false
+            },
+            {
+              "id": "8e",
+              "occupied": true
+            },
+            {
+              "id": "9e",
+              "occupied": false
+            }
           ]
         },
         {
           "rowId": "F",
           "row": [
-            { "id": "1f", "occupied": false },
-            { "id": "2f", "occupied": true },
-            { "id": "3f", "occupied": false },
-            { "id": "4f", "occupied": false },
-            { "id": "5f", "occupied": false },
-            { "id": "6f", "occupied": false },
-            { "id": "7f", "occupied": true },
-            { "id": "8f", "occupied": false },
-            { "id": "9f", "occupied": false }
+            {
+              "id": "1f",
+              "occupied": false
+            },
+            {
+              "id": "2f",
+              "occupied": true
+            },
+            {
+              "id": "3f",
+              "occupied": false
+            },
+            {
+              "id": "4f",
+              "occupied": false
+            },
+            {
+              "id": "5f",
+              "occupied": false
+            },
+            {
+              "id": "6f",
+              "occupied": false
+            },
+            {
+              "id": "7f",
+              "occupied": true
+            },
+            {
+              "id": "8f",
+              "occupied": false
+            },
+            {
+              "id": "9f",
+              "occupied": false
+            }
           ]
         }
       ]
