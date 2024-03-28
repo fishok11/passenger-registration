@@ -6,6 +6,7 @@ import {
   BaggageCategory,
   BaggageVariant,
   Insurance,
+  InteriorConfiguration,
   Traveller,
 } from './types';
 
@@ -18,6 +19,7 @@ type InitialState = {
   baggageCategories: BaggageCategory[];
   baggageVariants: BaggageVariant[];
   insurances: Insurance[];
+  interiorConfiguration: InteriorConfiguration;
   visibilityAddTravellerWindow: boolean;
   movingForwardInSteps: boolean;
   isLoading: boolean;
@@ -39,6 +41,7 @@ const initialState: InitialState = {
   baggageCategories: [],
   baggageVariants: [],
   insurances: [],
+  interiorConfiguration: { id: '', interior: [] },
   visibilityAddTravellerWindow: false,
   movingForwardInSteps: true,
   isLoading: false,
@@ -144,6 +147,22 @@ export const getInsurances = createAsyncThunk<
   }
 });
 
+export const getInteriorConfiguration = createAsyncThunk<
+  InteriorConfiguration,
+  undefined,
+  { rejectValue: string }
+>('getInteriorConfiguration', async (_, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      'http://localhost:3002/interiorConfigurations',
+    );
+
+    return data[0];
+  } catch (error) {
+    return rejectWithValue('Server error!');
+  }
+});
+
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
@@ -225,6 +244,16 @@ export const mainSlice = createSlice({
         getInsurances.fulfilled,
         (state, action: PayloadAction<Insurance[]>) => {
           state.insurances = action.payload;
+          state.isLoading = false;
+        },
+      )
+      .addCase(getInteriorConfiguration.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getInteriorConfiguration.fulfilled,
+        (state, action: PayloadAction<InteriorConfiguration>) => {
+          state.interiorConfiguration = action.payload;
           state.isLoading = false;
         },
       );

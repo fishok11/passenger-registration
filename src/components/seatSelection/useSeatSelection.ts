@@ -1,5 +1,6 @@
-import { useAppSelector } from '../../app/hooks';
-import { stateMainSlice } from '../../app/mainSlice';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { getInteriorConfiguration, stateMainSlice } from '../../app/mainSlice';
 import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
 
 export const useSeatSelection = () => {
@@ -7,6 +8,11 @@ export const useSeatSelection = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getInteriorConfiguration());
+  }, []);
 
   return { mainState, registrationProcessState };
 };

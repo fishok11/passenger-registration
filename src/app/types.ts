@@ -15,7 +15,7 @@ export type BaggageCategory = {
   id: string;
   title: string;
   description: string;
-}
+};
 
 export type BaggageVariant = {
   id: string;
@@ -31,4 +31,16 @@ export type Insurance = {
   title: string;
   description: string[] | null;
   price: number | null;
+};
+
+export type InteriorConfiguration = {
+  id: string;
+  interior: InteriorRow[];
+};
+
+type InteriorRow = { rowId: string; row: Seat[] };
+
+type Seat = {
+  id: string;
+  occupied: boolean;
 };

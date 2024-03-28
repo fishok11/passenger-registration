@@ -16,4 +16,28 @@
   .passangersContainer {
     @apply flex gap-2;
   }
+
+  .seatsContainer {
+    @apply flex justify-between items-start h-max p-3 border border-gray-300 rounded-xl;
+
+    .rowContainer {
+      @apply flex flex-col gap-2 justify-between items-center;
+
+      .rowName {
+        @apply flex justify-center items-center text-xs h-8;
+      }
+
+      .seat {
+        @apply flex justify-center items-center w-11 h-8 border border-violet-700 rounded-full bg-gray-100 p-3;
+      }
+    }
+
+    .spaceContainer {
+      @apply flex justify-center items-center w-11 h-8;
+
+      .space {
+        @apply w-full rounded-lg border border-gray-400;
+      }
+    }
+  }
 }

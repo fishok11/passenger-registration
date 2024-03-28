@@ -23,6 +23,25 @@ const SeatSelection: FC = () => {
             />
           ))}
         </div>
+        <div className={styles.seatsContainer}>
+          {mainState.interiorConfiguration.interior.map((interior, index) => (
+            <>
+              <div key={interior.rowId} className={styles.rowContainer}>
+                <p className={styles.rowName}>{interior.rowId}</p>
+                {interior.row.map((seat) => (
+                  <div key={seat.id} className={styles.seat}>
+                    {seat.id}
+                  </div>
+                ))}
+              </div>
+              {index + 1 >= 3 && index + 1 < 4 && (
+                <div className={styles.spaceContainer}>
+                  <div className={styles.space} />
+                </div>
+              )}
+            </>
+          ))}
+        </div>
       </div>
     </Box>
   );
