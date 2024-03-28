@@ -1,0 +1,19 @@
+.container {
+  @apply w-full flex flex-col gap-3;
+
+  .textContainer {
+    @apply w-full flex flex-col;
+
+    .title {
+      @apply text-sm font-bold;
+    }
+
+    .text {
+      @apply text-sm text-gray-400;
+    }
+  }
+
+  .passangersContainer {
+    @apply flex gap-2;
+  }
+}

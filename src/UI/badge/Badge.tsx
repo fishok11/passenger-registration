@@ -7,8 +7,8 @@ type BadgeProps = {
 
 const Badge: FC<BadgeProps> = ({ text }) => {
   return (
-    <div>
-      <p>{text}</p>
+    <div className={styles.container}>
+      <p className={styles.text}>{text}</p>
     </div>
   );
 };
