@@ -51,14 +51,14 @@ export const addTraveller = createAsyncThunk<
   Traveller,
   AddTraveller,
   { rejectValue: string; state: RootState }
->('addTraveller', async (Traveller, { rejectWithValue, getState }) => {
+>('addTraveller', async (traveller, { rejectWithValue, getState }) => {
   try {
     const state = getState().main;
 
     if (state.travellerId !== '') {
       const { data } = await axios.put(
         `http://localhost:3002/travellers/${state.travellerId}`,
-        Traveller,
+        traveller,
       );
 
       return data;
@@ -66,7 +66,7 @@ export const addTraveller = createAsyncThunk<
 
     const { data } = await axios.post(
       'http://localhost:3002/travellers/',
-      Traveller,
+      traveller,
     );
 
     return data;
@@ -186,6 +186,8 @@ export const mainSlice = createSlice({
     },
     hideAddTravellerWindow: (state) => {
       state.visibilityAddTravellerWindow = false;
+      state.traveller = initialState.traveller;
+      state.travellerId = initialState.travellerId;
     },
     setTravellerId: (state, action: PayloadAction<string>) => {
       state.travellerId = action.payload;
