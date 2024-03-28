@@ -12,6 +12,7 @@ const StepNavigation: FC = () => {
     handleOpenInfo,
     ticketsPrice,
     baggagePrice,
+    insurancePrice,
   } = useStepNavigation();
 
   return (
@@ -51,7 +52,7 @@ const StepNavigation: FC = () => {
               <div className={styles.line} />
               <div className={styles.infoText}>
                 <p>Base fare</p>
-                <p className={styles.price}>USD 0</p>
+                <p className={styles.price}>USD {insurancePrice || 0}</p>
               </div>
               <div className={styles.infoText}>
                 <p>Our service fee</p>
@@ -67,7 +68,7 @@ const StepNavigation: FC = () => {
         <div className={styles.textContainer}>
           <p>Total due</p>
           <p>
-            <b>USD {ticketsPrice + baggagePrice}</b>
+            <b>USD {ticketsPrice + baggagePrice + insurancePrice}</b>
           </p>
         </div>
         <Button

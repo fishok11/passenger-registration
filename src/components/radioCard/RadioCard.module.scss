@@ -1,11 +1,15 @@
-.defaultContainer {
-  @apply flex flex-col justify-start items-start gap-1 p-3 border border-gray-300 rounded-lg;
+.baseContainer {
+  @apply flex flex-col justify-start items-start gap-1 p-3 border rounded-lg;
 
   .radioContainer {
     @apply w-max flex items-center gap-2;
 
     .input {
-      @apply w-4 h-4 bg-violet-500;
+      @apply w-4 h-4;
+    }
+
+    .input:checked {
+      @apply w-4 h-4 border-violet-500 bg-violet-500 focus:ring-[none] ring-offset-[none];
     }
 
     .label {
@@ -18,18 +22,10 @@
   }
 }
 
-// .checkedContainer {
-//   @apply flex flex-col justify-start items-start gap-2 p-3 border border-violet-500 rounded-lg;
+.defaultContainer {
+  @apply baseContainer border-gray-300;
+}
 
-//   .radioContainer {
-//     @apply w-max flex items-center gap-2;
-
-//     .input {
-//       @apply w-4 h-4;
-//     }
-
-//     .label {
-//       @apply flex flex-col gap-1 w-max cursor-pointer;
-//     }
-//   }
-// }
+.checkedContainer {
+  @apply baseContainer border-violet-500;
+}

@@ -26,6 +26,7 @@ export const useStepNavigation = () => {
       baggagePrice += item.price;
     }
   });
+  const insurancePrice = registrationProcessState.selectedInsurance.price || 0;
 
   return {
     registrationProcessState,
@@ -34,5 +35,6 @@ export const useStepNavigation = () => {
     handleOpenInfo,
     ticketsPrice,
     baggagePrice,
+    insurancePrice,
   };
 };

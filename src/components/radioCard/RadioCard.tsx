@@ -19,7 +19,9 @@ const RadioCard: FC<RadioCardProps> = ({
   // const [checked, setChecked] = usemainState(false);
 
   return (
-    <div className={styles.defaultContainer}>
+    <div
+      className={checked ? styles.checkedContainer : styles.defaultContainer}
+    >
       <div className={styles.radioContainer}>
         <input
           id={id}

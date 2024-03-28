@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import styles from './TravellerCard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
@@ -22,10 +22,6 @@ const TravellerCard: FC<TravellerCadrProps> = ({
   checked,
 }) => {
   const { handleEditTraveller } = useTravellerCard();
-  useEffect(() => {
-    console.log(checked);
-    console.log('render');
-  }, []);
 
   return (
     <div
