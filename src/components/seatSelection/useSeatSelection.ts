@@ -31,13 +31,30 @@ export const useSeatSelection = () => {
         registrationProcessState.selectedTravellers.forEach((traveller) => {
           if (seat.id === seatId && seat.travellerId === traveller.id) {
             seatOccupateCurrentTravellers = true;
+            return;
           }
-          return false;
+          return;
         });
       }),
     );
 
     return seatOccupateCurrentTravellers;
+  };
+
+  const findingSeatTraveller = (travellerId: string) => {
+    let seatTraveller = '';
+
+    mainState.interiorConfiguration.interior.forEach((rowData) =>
+      rowData.row.forEach((seat) => {
+        if (seat.travellerId === travellerId) {
+          seatTraveller = seat.seatNumber + rowData.rowId;
+          return;
+        }
+        return;
+      }),
+    );
+
+    return seatTraveller;
   };
 
   useEffect(() => {
@@ -50,5 +67,6 @@ export const useSeatSelection = () => {
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
     checkOccupiedSeat,
+    findingSeatTraveller,
   };
 };

@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { changeInteriorConfiguration, nextStep, stateMainSlice } from '../../app/mainSlice';
+import {
+  changeInteriorConfiguration,
+  nextStep,
+  stateMainSlice,
+} from '../../app/mainSlice';
 import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
 
 export const useStepNavigation = () => {
