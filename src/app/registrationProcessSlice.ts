@@ -7,6 +7,7 @@ type InitialState = {
   ticketPrice: number;
   selectedBaggages: BaggageVariant[];
   selectedInsurance: Insurance;
+  travellerIdForSeat: string;
 };
 
 const initialState: InitialState = {
@@ -19,6 +20,7 @@ const initialState: InitialState = {
     description: null,
     price: null,
   },
+  travellerIdForSeat: '',
 };
 
 export const registrationProcessSlice = createSlice({
@@ -33,19 +35,23 @@ export const registrationProcessSlice = createSlice({
         ];
       }
     },
-    removeSelectedTraveller(state, action: PayloadAction<Traveller>) {
+    removeSelectedTraveller: (state, action: PayloadAction<Traveller>) => {
       state.selectedTravellers = state.selectedTravellers.filter(
         (traveller) => traveller.id != action.payload.id,
       );
     },
-    addSelectBag(state, action: PayloadAction<BaggageVariant>) {
+    addSelectBag: (state, action: PayloadAction<BaggageVariant>) => {
       state.selectedBaggages = state.selectedBaggages.filter(
         (baggage) => baggage.categoryId != action.payload.categoryId,
       );
       state.selectedBaggages = [...state.selectedBaggages, action.payload];
     },
-    selectInsurance(state, action: PayloadAction<Insurance>) {
+    selectInsurance: (state, action: PayloadAction<Insurance>) => {
       state.selectedInsurance = action.payload;
+    },
+    selectTravellerIdForSeat: (state, action: PayloadAction<string>) => {
+      state.travellerIdForSeat = action.payload;
+      console.log(state.travellerIdForSeat);
     },
   },
   extraReducers: (builder) => {
@@ -58,6 +64,7 @@ export const {
   removeSelectedTraveller,
   addSelectBag,
   selectInsurance,
+  selectTravellerIdForSeat,
 } = registrationProcessSlice.actions;
 
 export const stateRegistrationProcessSlice = (state: RootState) =>

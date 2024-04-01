@@ -5,7 +5,11 @@ import { useSeatSelection } from './useSeatSelection';
 import Badge from '../../UI/badge/Badge';
 
 const SeatSelection: FC = () => {
-  const { mainState, registrationProcessState } = useSeatSelection();
+  const {
+    mainState,
+    registrationProcessState,
+    handleSelectTravellerIdForseat,
+  } = useSeatSelection();
   return (
     <Box isVisible={mainState.step === 4}>
       <div className={styles.container}>
@@ -20,6 +24,8 @@ const SeatSelection: FC = () => {
             <Badge
               key={traveller.id}
               text={traveller.name + ' ' + traveller.surname}
+              selected={registrationProcessState.travellerIdForSeat === traveller.id}
+              onClick={() => handleSelectTravellerIdForseat(traveller.id)}
             />
           ))}
         </div>

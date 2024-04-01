@@ -3,11 +3,16 @@ import styles from './Badge.module.scss';
 
 type BadgeProps = {
   text: string;
+  selected: boolean;
+  onClick: () => void;
 };
 
-const Badge: FC<BadgeProps> = ({ text }) => {
+const Badge: FC<BadgeProps> = ({ text, onClick, selected }) => {
   return (
-    <div className={styles.container}>
+    <div
+      className={selected ? styles.selectedContainer : styles.baseContainer}
+      onClick={() => onClick()}
+    >
       <p className={styles.text}>{text}</p>
     </div>
   );

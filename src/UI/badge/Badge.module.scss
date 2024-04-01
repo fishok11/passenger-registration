@@ -1,5 +1,13 @@
-.container {
+.baseContainer {
   @apply bg-white border border-gray-300 rounded-full w-max h-max py-1 px-2;
+
+  .text {
+    @apply text-sm text-gray-400;
+  }
+}
+
+.selectedContainer {
+  @apply bg-violet-100 border border-violet-700 rounded-full w-max h-max py-1 px-2;
 
   .text {
     @apply text-sm text-violet-700;

@@ -108,39 +108,48 @@
           "row": [
             {
               "id": "1a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 1
             },
             {
               "id": "2a",
-              "occupied": true
+              "userId": null,
+              "seatNumber": 2
             },
             {
               "id": "3a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 3
             },
             {
               "id": "4a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 4
             },
             {
               "id": "5a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 5
             },
             {
               "id": "6a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 6
             },
             {
               "id": "7a",
-              "occupied": true
+              "userId": null,
+              "seatNumber": 7
             },
             {
               "id": "8a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 8
             },
             {
               "id": "9a",
-              "occupied": false
+              "userId": null,
+              "seatNumber": 9
             }
           ]
         },
@@ -149,39 +158,48 @@
           "row": [
             {
               "id": "1b",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 1
             },
             {
               "id": "2b",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 2
             },
             {
               "id": "3b",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 3
             },
             {
               "id": "4b",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 4
             },
             {
               "id": "5b",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 5
             },
             {
               "id": "6b",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 6
             },
             {
               "id": "7b",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 7
             },
             {
               "id": "8b",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 8
             },
             {
               "id": "9b",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 9
             }
           ]
         },
@@ -190,39 +208,48 @@
           "row": [
             {
               "id": "1c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 1
             },
             {
               "id": "2c",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 2
             },
             {
               "id": "3c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 3
             },
             {
               "id": "4c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 4
             },
             {
               "id": "5c",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 5
             },
             {
               "id": "6c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 6
             },
             {
               "id": "7c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 7
             },
             {
               "id": "8c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 8
             },
             {
               "id": "9c",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 9
             }
           ]
         },
@@ -231,39 +258,48 @@
           "row": [
             {
               "id": "1d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 1
             },
             {
               "id": "2d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 2
             },
             {
               "id": "3d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 3
             },
             {
               "id": "4d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 4
             },
             {
               "id": "5d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 5
             },
             {
               "id": "6d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 6
             },
             {
               "id": "7d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 7
             },
             {
               "id": "8d",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 8
             },
             {
               "id": "9d",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 9
             }
           ]
         },
@@ -272,39 +308,48 @@
           "row": [
             {
               "id": "1e",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 1
             },
             {
               "id": "2e",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 2
             },
             {
               "id": "3e",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 3
             },
             {
               "id": "4e",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 4
             },
             {
               "id": "5e",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 5
             },
             {
               "id": "6e",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 6
             },
             {
               "id": "7e",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 7
             },
             {
               "id": "8e",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 8
             },
             {
               "id": "9e",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 9
             }
           ]
         },
@@ -313,39 +358,48 @@
           "row": [
             {
               "id": "1f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 1
             },
             {
               "id": "2f",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 2
             },
             {
               "id": "3f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 3
             },
             {
               "id": "4f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 4
             },
             {
               "id": "5f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 5
             },
             {
               "id": "6f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 6
             },
             {
               "id": "7f",
-              "occupied": true
+              "travellerId": null,
+              "seatNumber": 7
             },
             {
               "id": "8f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 8
             },
             {
               "id": "9f",
-              "occupied": false
+              "travellerId": null,
+              "seatNumber": 9
             }
           ]
         }
