@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { nextStep } from '../../app/mainSlice';
+import { changeInteriorConfiguration, nextStep, stateMainSlice } from '../../app/mainSlice';
 import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
 
 export const useStepNavigation = () => {
+  const mainState = useAppSelector(stateMainSlice);
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
@@ -13,6 +14,9 @@ export const useStepNavigation = () => {
     setIsOpenInfo(!isOpenInfo);
   };
   const handleNextStep = () => {
+    if (mainState.step === 4) {
+      dispatch(changeInteriorConfiguration(mainState.interiorConfiguration));
+    }
     dispatch(nextStep());
   };
 

@@ -165,6 +165,26 @@ export const getInteriorConfiguration = createAsyncThunk<
   }
 });
 
+export const changeInteriorConfiguration = createAsyncThunk<
+  InteriorConfiguration,
+  InteriorConfiguration,
+  { rejectValue: string }
+>(
+  'changeInteriorConfiguration',
+  async (newInteriorConfiguration, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.put(
+        `http://localhost:3002/interiorConfigurations/${newInteriorConfiguration.id}`,
+        newInteriorConfiguration,
+      );
+
+      return data;
+    } catch (error) {
+      return rejectWithValue('Server error!');
+    }
+  },
+);
+
 export const mainSlice = createSlice({
   name: 'main',
   initialState,
@@ -286,7 +306,13 @@ export const mainSlice = createSlice({
           state.interiorConfiguration = action.payload;
           state.isLoading = false;
         },
-      );
+      )
+      .addCase(changeInteriorConfiguration.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(changeInteriorConfiguration.fulfilled, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 
