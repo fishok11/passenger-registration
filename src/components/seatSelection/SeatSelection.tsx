@@ -9,7 +9,9 @@ const SeatSelection: FC = () => {
     mainState,
     registrationProcessState,
     handleSelectTravellerIdForseat,
+    handleSelectSeatTraveller,
   } = useSeatSelection();
+
   return (
     <Box isVisible={mainState.step === 4}>
       <div className={styles.container}>
@@ -24,7 +26,9 @@ const SeatSelection: FC = () => {
             <Badge
               key={traveller.id}
               text={traveller.name + ' ' + traveller.surname}
-              selected={registrationProcessState.travellerIdForSeat === traveller.id}
+              selected={
+                registrationProcessState.travellerIdForSeat === traveller.id
+              }
               onClick={() => handleSelectTravellerIdForseat(traveller.id)}
             />
           ))}
@@ -35,7 +39,16 @@ const SeatSelection: FC = () => {
               <div className={styles.rowContainer}>
                 <p className={styles.rowName}>{interior.rowId}</p>
                 {interior.row.map((seat) => (
-                  <div key={seat.id} className={styles.seat}>
+                  <div
+                    key={seat.id}
+                    onClick={() =>
+                      handleSelectSeatTraveller(
+                        registrationProcessState.travellerIdForSeat,
+                        seat.id,
+                      )
+                    }
+                    className={styles.seat}
+                  >
                     {seat.id}
                   </div>
                 ))}

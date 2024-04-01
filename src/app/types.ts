@@ -41,6 +41,6 @@ type InteriorRow = { rowId: string; row: Seat[] };
 
 type Seat = {
   id: string;
-  userId: string | null;
-  seatNumber: number
+  travellerId: string | null;
+  seatNumber: number;
 };

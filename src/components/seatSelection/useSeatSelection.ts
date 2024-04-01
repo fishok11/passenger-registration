@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { getInteriorConfiguration, stateMainSlice } from '../../app/mainSlice';
+import {
+  getInteriorConfiguration,
+  selectSeatTraveller,
+  stateMainSlice,
+} from '../../app/mainSlice';
 import {
   selectTravellerIdForSeat,
   stateRegistrationProcessSlice,
@@ -15,6 +19,9 @@ export const useSeatSelection = () => {
   const handleSelectTravellerIdForseat = (travellerdId: string) => {
     dispatch(selectTravellerIdForSeat(travellerdId));
   };
+  const handleSelectSeatTraveller = (travellerId: string, seatId: string) => {
+    dispatch(selectSeatTraveller({ travellerId, seatId }));
+  };
 
   useEffect(() => {
     dispatch(getInteriorConfiguration());
@@ -24,5 +31,6 @@ export const useSeatSelection = () => {
     mainState,
     registrationProcessState,
     handleSelectTravellerIdForseat,
+    handleSelectSeatTraveller,
   };
 };

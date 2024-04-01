@@ -192,6 +192,22 @@ export const mainSlice = createSlice({
     setTravellerId: (state, action: PayloadAction<string>) => {
       state.travellerId = action.payload;
     },
+    selectSeatTraveller: (
+      state,
+      action: PayloadAction<{ travellerId: string; seatId: string }>,
+    ) => {
+      state.interiorConfiguration.interior.forEach((rowData) => {
+        rowData.row.map((seat) => {
+          if (
+            seat.id === action.payload.seatId &&
+            seat.travellerId !== action.payload.travellerId
+          ) {
+            return (seat.travellerId = action.payload.travellerId);
+          }
+        });
+      });
+      console.log(state.interiorConfiguration.interior);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -270,6 +286,7 @@ export const {
   openAddTravellerWindow,
   hideAddTravellerWindow,
   setTravellerId,
+  selectSeatTraveller,
 } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;

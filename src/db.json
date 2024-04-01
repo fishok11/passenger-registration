@@ -108,47 +108,47 @@
           "row": [
             {
               "id": "1a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 1
             },
             {
               "id": "2a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 2
             },
             {
               "id": "3a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 3
             },
             {
               "id": "4a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 4
             },
             {
               "id": "5a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 5
             },
             {
               "id": "6a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 6
             },
             {
               "id": "7a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 7
             },
             {
               "id": "8a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 8
             },
             {
               "id": "9a",
-              "userId": null,
+              "travellerId": null,
               "seatNumber": 9
             }
           ]
