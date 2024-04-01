@@ -31,10 +31,14 @@ export const useStepNavigation = () => {
 
   registrationProcessState.selectedBaggages.forEach((item) => {
     if (item.price) {
-      baggagePrice += item.price;
+      baggagePrice +=
+        item.price * registrationProcessState.selectedTravellers.length;
     }
   });
-  const insurancePrice = registrationProcessState.selectedInsurance.price || 0;
+  const insurancePrice = registrationProcessState.selectedInsurance.price
+    ? registrationProcessState.selectedInsurance.price *
+      registrationProcessState.selectedTravellers.length
+    : 0;
 
   return {
     registrationProcessState,
