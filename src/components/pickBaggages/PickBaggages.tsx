@@ -27,11 +27,9 @@ const PickBaggages = () => {
                   id={variant.id}
                   label={variant.title}
                   onChange={() => handleSelectBag(variant)}
-                  checked={
-                    registrationProcessState.selectedBaggages.includes(variant)
-                    // ? true
-                    // : variant.price === 0 || variant.price === null
-                  }
+                  checked={registrationProcessState.selectedBaggages
+                    .map((bag) => bag.id)
+                    .includes(variant.id)}
                 >
                   <div className={styles.variantDescription}>
                     {variant.description && <p>{variant.description}</p>}
