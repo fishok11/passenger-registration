@@ -32,6 +32,7 @@ const SeatSelection: FC = () => {
               selected={
                 registrationProcessState.travellerIdForSeat === traveller.id
               }
+              additionalText={'1'}
               onClick={() => handleSelectTravellerIdForseat(traveller.id)}
             />
           ))}
