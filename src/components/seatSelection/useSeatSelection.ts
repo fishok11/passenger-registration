@@ -23,6 +23,23 @@ export const useSeatSelection = () => {
     dispatch(selectSeatTraveller({ travellerId, seatId }));
   };
 
+  const checkOccupiedSeat = (seatId: string) => {
+    let seatOccupateCurrentTravellers = false;
+
+    mainState.interiorConfiguration.interior.forEach((rowData) =>
+      rowData.row.forEach((seat) => {
+        registrationProcessState.selectedTravellers.forEach((traveller) => {
+          if (seat.id === seatId && seat.travellerId === traveller.id) {
+            seatOccupateCurrentTravellers = true;
+          }
+          return false;
+        });
+      }),
+    );
+
+    return seatOccupateCurrentTravellers;
+  };
+
   useEffect(() => {
     dispatch(getInteriorConfiguration());
   }, []);
@@ -32,5 +49,6 @@ export const useSeatSelection = () => {
     registrationProcessState,
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
+    checkOccupiedSeat,
   };
 };

@@ -3,6 +3,8 @@ import styles from './SeatSelection.module.scss';
 import Box from '../../UI/box/Box';
 import { useSeatSelection } from './useSeatSelection';
 import Badge from '../../UI/badge/Badge';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const SeatSelection: FC = () => {
   const {
@@ -10,6 +12,7 @@ const SeatSelection: FC = () => {
     registrationProcessState,
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
+    checkOccupiedSeat,
   } = useSeatSelection();
 
   return (
@@ -39,18 +42,31 @@ const SeatSelection: FC = () => {
               <div className={styles.rowContainer}>
                 <p className={styles.rowName}>{interior.rowId}</p>
                 {interior.row.map((seat) => (
-                  <div
-                    key={seat.id}
-                    onClick={() =>
-                      handleSelectSeatTraveller(
-                        registrationProcessState.travellerIdForSeat,
-                        seat.id,
-                      )
-                    }
-                    className={styles.seat}
-                  >
-                    {seat.id}
-                  </div>
+                  <React.Fragment key={seat.id}>
+                    {checkOccupiedSeat(seat.id) && (
+                      <div className={styles.seatOccupiedCurrentTraveller}>
+                        <FontAwesomeIcon icon={faCheck} />
+                      </div>
+                    )}
+                    {seat.travellerId !== null &&
+                      !checkOccupiedSeat(seat.id) && (
+                        <div className={styles.seatOccupied}>
+                          <FontAwesomeIcon icon={faXmark} />
+                        </div>
+                      )}
+                    {seat.travellerId === null && (
+                      <div
+                        key={seat.id}
+                        onClick={() =>
+                          handleSelectSeatTraveller(
+                            registrationProcessState.travellerIdForSeat,
+                            seat.id,
+                          )
+                        }
+                        className={styles.seat}
+                      />
+                    )}
+                  </React.Fragment>
                 ))}
               </div>
               {index + 1 >= 3 && index + 1 < 4 && (

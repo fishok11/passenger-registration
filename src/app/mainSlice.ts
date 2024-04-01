@@ -196,17 +196,27 @@ export const mainSlice = createSlice({
       state,
       action: PayloadAction<{ travellerId: string; seatId: string }>,
     ) => {
-      state.interiorConfiguration.interior.forEach((rowData) => {
-        rowData.row.map((seat) => {
-          if (
-            seat.id === action.payload.seatId &&
-            seat.travellerId !== action.payload.travellerId
-          ) {
-            return (seat.travellerId = action.payload.travellerId);
-          }
+      if (action.payload.travellerId) {
+        state.interiorConfiguration.interior.forEach((rowData) => {
+          rowData.row.map((seat) => {
+            if (seat.travellerId === action.payload.travellerId) {
+              return (seat.travellerId = null);
+            }
+          });
         });
-      });
-      console.log(state.interiorConfiguration.interior);
+
+        state.interiorConfiguration.interior.forEach((rowData) => {
+          rowData.row.map((seat) => {
+            if (
+              seat.id === action.payload.seatId &&
+              seat.travellerId !== action.payload.travellerId
+            ) {
+              return (seat.travellerId = action.payload.travellerId);
+            }
+          });
+        });
+        console.log(state.interiorConfiguration.interior);
+      }
     },
   },
   extraReducers: (builder) => {

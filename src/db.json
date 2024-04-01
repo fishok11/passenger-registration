@@ -398,7 +398,7 @@
             },
             {
               "id": "9f",
-              "travellerId": null,
+              "travellerId": "casc",
               "seatNumber": 9
             }
           ]

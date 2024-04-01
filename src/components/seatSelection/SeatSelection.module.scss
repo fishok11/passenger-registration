@@ -30,6 +30,14 @@
       .seat {
         @apply flex justify-center items-center w-11 h-8 border border-violet-700 rounded-full bg-gray-100 p-3;
       }
+
+      .seatOccupied {
+        @apply flex justify-center items-center w-11 h-8 border border-inherit rounded-full bg-gray-200 p-3 text-sm text-gray-400;
+      }
+
+      .seatOccupiedCurrentTraveller {
+        @apply flex justify-center items-center w-11 h-8 border border-inherit rounded-full bg-violet-700 p-3 text-sm text-white;
+      }
     }
 
     .spaceContainer {
