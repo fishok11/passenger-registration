@@ -40,7 +40,12 @@ const StepNavigation: FC = () => {
                 padding: '10px',
               }}
               exit={{ opacity: 0, height: 0, padding: 0 }}
-              transition={{ ease: 'linear' }}
+              transition={{
+                ease: 'linear',
+                stiffness: 300,
+                damping: 30,
+                duration: 0.1,
+              }}
               className={styles.infoContainer}
             >
               <motion.div className={styles.infoText}>

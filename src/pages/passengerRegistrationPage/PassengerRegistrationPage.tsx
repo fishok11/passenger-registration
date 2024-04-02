@@ -21,9 +21,6 @@ const PassengerRegistrationPage: FC = () => {
         <PickBaggages />
         <InsurancesList />
         <SeatSelection />
-        <Box isVisible={mainState.step === 5}>
-          <p>5</p>
-        </Box>
       </div>
       <StepNavigation />
       <CreateTravellers />

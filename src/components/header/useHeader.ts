@@ -4,7 +4,7 @@ import { prevStep, stateMainSlice } from '../../app/mainSlice';
 export const useHeader = () => {
   const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
-  const handlePrevStep = () => {
+  const handlePrevStep = () => {    
     dispatch(prevStep());
   };
 
