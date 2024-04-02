@@ -1,11 +1,11 @@
 .app {
-  @apply flex flex-col gap-4 items-center w-full h-screen relative;
+  @apply flex flex-col gap-4 items-center w-[390px] h-[844px] relative overflow-hidden;
 
   .bgGradient {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 180px;
+    height: 200px;
     z-index: -3;
     background:
       radial-gradient(

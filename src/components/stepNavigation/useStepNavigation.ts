@@ -6,6 +6,7 @@ import {
   stateMainSlice,
 } from '../../app/mainSlice';
 import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
+import toast from 'react-hot-toast';
 
 export const useStepNavigation = () => {
   const mainState = useAppSelector(stateMainSlice);
@@ -22,15 +23,18 @@ export const useStepNavigation = () => {
       mainState.step === 1 &&
       registrationProcessState.selectedTravellers.length === 0
     ) {
+      toast.error('Choose traveller(s)');
       return;
     }
     if (
       mainState.step === 2 &&
       registrationProcessState.selectedBaggages.length !== 2
     ) {
+      toast.error('Pick baggages');
       return;
     }
     if (mainState.step === 3 && !registrationProcessState.selectedInsurance) {
+      toast.error('Choose insurance');
       return;
     }
     if (
@@ -38,6 +42,7 @@ export const useStepNavigation = () => {
       checkingSelectionSeats() !==
         registrationProcessState.selectedTravellers.length
     ) {
+      toast.error('Choose seats for traveller(s)');
       return;
     }
     if (mainState.step === 4) {

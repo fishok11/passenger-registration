@@ -1,3 +1,15 @@
 .container {
-  @apply relative w-full h-full overflow-hidden;
+  @apply relative w-full h-full overflow-y-auto overflow-hidden;
+}
+
+.container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: rgba(254, 254, 255, 0);
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgba(129, 123, 123, 0.349);
 }
