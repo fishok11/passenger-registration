@@ -6,7 +6,7 @@
   }
 
   .infoContainer {
-    @apply flex flex-col gap-2 w-full bg-gray-200 p-3 rounded-lg;
+    @apply flex flex-col gap-2 w-full h-full bg-gray-200 rounded-lg;
 
     .infoText {
       @apply flex justify-between items-center;

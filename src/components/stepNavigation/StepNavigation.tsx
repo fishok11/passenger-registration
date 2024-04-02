@@ -33,35 +33,41 @@ const StepNavigation: FC = () => {
         <AnimatePresence>
           {isOpenInfo && (
             <motion.div
-              // initial={{ height: 0 }}
-              // animate={{ height: 'auto' }}
-              // exit={{ height: 0 }}
-              // transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{
+                opacity: 1,
+                height: '100%',
+                padding: '10px',
+              }}
+              exit={{ opacity: 0, height: 0, padding: 0 }}
+              transition={{ ease: 'linear' }}
               className={styles.infoContainer}
             >
-              <div className={styles.infoText}>
-                <p>
+              <motion.div className={styles.infoText}>
+                <motion.p>
                   {registrationProcessState.selectedTravellers.length}x Adult
-                </p>
-                <p className={styles.price}>USD {ticketsPrice}</p>
-              </div>
-              <div className={styles.infoText}>
-                <p>Baggage</p>
-                <p className={styles.price}>USD {baggagePrice}</p>
-              </div>
-              <div className={styles.line} />
-              <div className={styles.infoText}>
-                <p>Base fare</p>
-                <p className={styles.price}>USD {insurancePrice || 0}</p>
-              </div>
-              <div className={styles.infoText}>
-                <p>Our service fee</p>
-                <p className={styles.price}>USD 0</p>
-              </div>
-              <div className={styles.infoText}>
-                <p>Other fees and taxes</p>
-                <p className={styles.price}>USD 0</p>
-              </div>
+                </motion.p>
+                <motion.p className={styles.price}>USD {ticketsPrice}</motion.p>
+              </motion.div>
+              <motion.div className={styles.infoText}>
+                <motion.p>Baggage</motion.p>
+                <motion.p className={styles.price}>USD {baggagePrice}</motion.p>
+              </motion.div>
+              <motion.div className={styles.line} />
+              <motion.div className={styles.infoText}>
+                <motion.p>Base fare</motion.p>
+                <motion.p className={styles.price}>
+                  USD {insurancePrice || 0}
+                </motion.p>
+              </motion.div>
+              <motion.div className={styles.infoText}>
+                <motion.p>Our service fee</motion.p>
+                <motion.p className={styles.price}>USD 0</motion.p>
+              </motion.div>
+              <motion.div className={styles.infoText}>
+                <motion.p>Other fees and taxes</motion.p>
+                <motion.p className={styles.price}>USD 0</motion.p>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
