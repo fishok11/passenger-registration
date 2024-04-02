@@ -41,10 +41,10 @@
     }
 
     .spaceContainer {
-      @apply flex justify-center items-center w-11 h-8;
+      @apply flex flex-col justify-center items-center w-11 h-full;
 
       .space {
-        @apply w-full rounded-lg border border-gray-400;
+        @apply w-full rounded-lg border border-gray-400/45;
       }
     }
   }

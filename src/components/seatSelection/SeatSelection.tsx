@@ -39,45 +39,52 @@ const SeatSelection: FC = () => {
           ))}
         </div>
         <div className={styles.seatsContainer}>
-          {mainState.interiorConfiguration.interior.map((interior, index) => (
-            <React.Fragment key={interior.rowId}>
-              <div className={styles.rowContainer}>
-                <p className={styles.rowName}>{interior.rowId}</p>
-                {interior.row.map((seat) => (
-                  <React.Fragment key={seat.id}>
-                    {checkOccupiedSeat(seat.id) && (
-                      <div className={styles.seatOccupiedCurrentTraveller}>
-                        <FontAwesomeIcon icon={faCheck} />
-                      </div>
-                    )}
-                    {seat.travellerId !== null &&
-                      !checkOccupiedSeat(seat.id) && (
-                        <div className={styles.seatOccupied}>
-                          <FontAwesomeIcon icon={faXmark} />
+          {mainState.interiorConfiguration.interior.map(
+            (interior, indexInterior) => (
+              <React.Fragment key={interior.rowId}>
+                <div className={styles.rowContainer}>
+                  <p className={styles.rowName}>{interior.rowId}</p>
+                  {interior.row.map((seat) => (
+                    <React.Fragment key={seat.id}>
+                      {checkOccupiedSeat(seat.id) && (
+                        <div className={styles.seatOccupiedCurrentTraveller}>
+                          <FontAwesomeIcon icon={faCheck} />
                         </div>
                       )}
-                    {seat.travellerId === null && (
-                      <div
-                        key={seat.id}
-                        onClick={() =>
-                          handleSelectSeatTraveller(
-                            registrationProcessState.travellerIdForSeat,
-                            seat.id,
-                          )
-                        }
-                        className={styles.seat}
-                      />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-              {index + 1 >= 3 && index + 1 < 4 && (
-                <div className={styles.spaceContainer}>
-                  <div className={styles.space} />
+                      {seat.travellerId !== null &&
+                        !checkOccupiedSeat(seat.id) && (
+                          <div className={styles.seatOccupied}>
+                            <FontAwesomeIcon icon={faXmark} />
+                          </div>
+                        )}
+                      {seat.travellerId === null && (
+                        <div
+                          key={seat.id}
+                          onClick={() =>
+                            handleSelectSeatTraveller(
+                              registrationProcessState.travellerIdForSeat,
+                              seat.id,
+                            )
+                          }
+                          className={styles.seat}
+                        />
+                      )}
+                    </React.Fragment>
+                  ))}
                 </div>
-              )}
-            </React.Fragment>
-          ))}
+                {indexInterior + 1 >= 3 && indexInterior + 1 < 4 && (
+                  <div className={styles.spaceContainer}>
+                    <div className={styles.space} />
+                    {Array.from({
+                      length: mainState.interiorConfiguration.interior[0].row.length,
+                    }).map((_, index) => (
+                      <div key={index}>{index + 1}</div>
+                    ))}
+                  </div>
+                )}
+              </React.Fragment>
+            ),
+          )}
         </div>
       </div>
     </Box>
