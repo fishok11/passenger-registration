@@ -1,3 +1,23 @@
-.container {
+.wrapper {
   @apply flex flex-col justify-start items-center w-full h-full;
+
+  .container {
+    @apply flex flex-col gap-3 justify-start items-center w-full h-full;
+
+    .contactDetails {
+      @apply p-2 border border-gray-300 rounded-lg bg-white;
+
+      .title {
+        @apply font-bold;
+      }
+
+      .text {
+        @apply text-sm text-gray-400;
+      }
+
+      .contactDetailFields {
+        @apply grid grid-cols-1 gap-2 mt-2; 
+      }
+    }
+  }
 }
