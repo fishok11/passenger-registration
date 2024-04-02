@@ -46,8 +46,8 @@ export const registrationProcessSlice = createSlice({
     },
     selectTravellerIdForSeat: (state, action: PayloadAction<string>) => {
       state.travellerIdForSeat = action.payload;
-      console.log(state.travellerIdForSeat);
     },
+    resetRegistrationProcessState: () => initialState,
   },
   extraReducers: (builder) => {
     builder;
@@ -60,6 +60,7 @@ export const {
   addSelectBag,
   selectInsurance,
   selectTravellerIdForSeat,
+  resetRegistrationProcessState,
 } = registrationProcessSlice.actions;
 
 export const stateRegistrationProcessSlice = (state: RootState) =>

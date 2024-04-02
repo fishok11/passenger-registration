@@ -235,9 +235,9 @@ export const mainSlice = createSlice({
             }
           });
         });
-        console.log(state.interiorConfiguration.interior);
       }
     },
+    resetMainState: () => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -323,6 +323,7 @@ export const {
   hideAddTravellerWindow,
   setTravellerId,
   selectSeatTraveller,
+  resetMainState,
 } = mainSlice.actions;
 
 export const stateMainSlice = (state: RootState) => state.main;

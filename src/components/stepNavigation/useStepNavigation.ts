@@ -16,8 +16,6 @@ export const useStepNavigation = () => {
   const dispatch = useAppDispatch();
   const [isOpenInfo, setIsOpenInfo] = useState(false);
   const handleOpenInfo = () => {
-    console.log(isOpenInfo);
-    
     setIsOpenInfo(!isOpenInfo);
   };
   const handleNextStep = () => {

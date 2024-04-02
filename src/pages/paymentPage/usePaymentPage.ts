@@ -1,6 +1,9 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { stateMainSlice } from '../../app/mainSlice';
-import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
+import { resetMainState, stateMainSlice } from '../../app/mainSlice';
+import {
+  resetRegistrationProcessState,
+  stateRegistrationProcessSlice,
+} from '../../app/registrationProcessSlice';
 
 export const usePaymentPage = () => {
   const dispatch = useAppDispatch();
@@ -9,5 +12,10 @@ export const usePaymentPage = () => {
     stateRegistrationProcessSlice,
   );
 
-  return { mainState, registrationProcessState };
+  const handleReserState = () => {
+    dispatch(resetMainState());
+    dispatch(resetRegistrationProcessState());
+  };
+
+  return { mainState, registrationProcessState, handleReserState };
 };
