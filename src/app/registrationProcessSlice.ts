@@ -6,7 +6,7 @@ type InitialState = {
   selectedTravellers: Traveller[];
   ticketPrice: number;
   selectedBaggages: BaggageVariant[];
-  selectedInsurance: Insurance;
+  selectedInsurance: Insurance | null;
   travellerIdForSeat: string;
 };
 
@@ -14,12 +14,7 @@ const initialState: InitialState = {
   selectedTravellers: [],
   ticketPrice: 1300,
   selectedBaggages: [],
-  selectedInsurance: {
-    id: '',
-    title: '',
-    description: null,
-    price: null,
-  },
+  selectedInsurance: null,
   travellerIdForSeat: '',
 };
 

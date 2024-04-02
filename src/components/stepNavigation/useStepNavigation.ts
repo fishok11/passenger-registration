@@ -18,10 +18,48 @@ export const useStepNavigation = () => {
     setIsOpenInfo(!isOpenInfo);
   };
   const handleNextStep = () => {
+    if (
+      mainState.step === 1 &&
+      registrationProcessState.selectedTravellers.length === 0
+    ) {
+      return;
+    }
+    if (
+      mainState.step === 2 &&
+      registrationProcessState.selectedBaggages.length !== 2
+    ) {
+      return;
+    }
+    if (mainState.step === 3 && !registrationProcessState.selectedInsurance) {
+      return;
+    }
+    if (
+      mainState.step === 4 &&
+      checkingSelectionSeats() !==
+        registrationProcessState.selectedTravellers.length
+    ) {
+      return;
+    }
     if (mainState.step === 4) {
       dispatch(changeInteriorConfiguration(mainState.interiorConfiguration));
     }
     dispatch(nextStep());
+  };
+
+  const checkingSelectionSeats = () => {
+    let quantityUsersHaveSeat = 0;
+
+    mainState.interiorConfiguration.interior.forEach((row) =>
+      row.row.forEach((seat) =>
+        registrationProcessState.selectedTravellers.forEach((traveller) => {
+          if (seat.travellerId === traveller.id) {
+            quantityUsersHaveSeat++;
+          }
+        }),
+      ),
+    );
+
+    return quantityUsersHaveSeat;
   };
 
   const ticketsPrice =
@@ -35,7 +73,8 @@ export const useStepNavigation = () => {
         item.price * registrationProcessState.selectedTravellers.length;
     }
   });
-  const insurancePrice = registrationProcessState.selectedInsurance.price
+
+  const insurancePrice = registrationProcessState.selectedInsurance?.price
     ? registrationProcessState.selectedInsurance.price *
       registrationProcessState.selectedTravellers.length
     : 0;
