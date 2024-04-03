@@ -5,10 +5,9 @@ import Box from '../../UI/box/Box';
 import Button from '../../UI/button/Button';
 import Input from '../../UI/input/Input';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faAngleRight,
-  faCreditCard,
-} from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { faApplePay, faPaypal } from '@fortawesome/free-brands-svg-icons';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 const PaymentPage: FC = () => {
   const {
@@ -107,7 +106,7 @@ const PaymentPage: FC = () => {
               <label htmlFor={'applePay'} className={styles.label}>
                 Apple pay
               </label>
-              {/* <FontAwesomeIcon icon={faApplePay} /> */}
+              <FontAwesomeIcon icon={faApplePay as IconProp} />
             </div>
             <div className={styles.payVariant}>
               <input
@@ -120,7 +119,7 @@ const PaymentPage: FC = () => {
               <label htmlFor={'paypal'} className={styles.label}>
                 Paypal
               </label>
-              {/* <FontAwesomeIcon icon={faPaypal} /> */}
+              <FontAwesomeIcon icon={faPaypal as IconProp} />
             </div>
             <div className={styles.payVariant}>
               <input
