@@ -15,6 +15,7 @@ const InsurancesList: FC = () => {
           <RadioCard
             key={insurance.id}
             id={insurance.id}
+            name={'insurances'}
             label={insurance.title}
             onChange={() => handleSelectInsurance(insurance)}
             checked={

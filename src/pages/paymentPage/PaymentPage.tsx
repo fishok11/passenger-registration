@@ -18,6 +18,9 @@ const PaymentPage: FC = () => {
     baggagePrice,
     insurancePrice,
     totalPrice,
+    handleSelectPayVariant,
+    payVariant,
+    buttonText,
   } = usePaymentPage();
 
   return (
@@ -27,6 +30,10 @@ const PaymentPage: FC = () => {
           <p className={styles.descriptionText}>
             Please secure your booking within
           </p>
+          <button className={styles.promoContainer}>
+            <p className={styles.promoText}>Passanger details</p>
+            <FontAwesomeIcon icon={faAngleRight} />
+          </button>
           <div className={styles.contactDetails}>
             <h3 className={styles.title}>Contact details</h3>
             <p className={styles.text}>
@@ -97,15 +104,16 @@ const PaymentPage: FC = () => {
               <p>USD {totalPrice}</p>
             </div>
           </div>
-          <div className={styles.payVariantsContainer}>
+          <form className={styles.payVariantsContainer}>
             <div className={styles.payVariant}>
               <div className={styles.radioContainer}>
                 <input
                   id={'applePay'}
                   type={'radio'}
-                  name={'travellers'}
+                  name={'payVariants'}
                   className={styles.input}
-                  onChange={() => console.log(1)}
+                  value={'applePay'}
+                  onChange={(e) => handleSelectPayVariant(e.target.value)}
                 />
                 <label htmlFor={'applePay'} className={styles.label}>
                   Apple pay
@@ -121,9 +129,10 @@ const PaymentPage: FC = () => {
                 <input
                   id={'paypal'}
                   type={'radio'}
-                  name={'travellers'}
+                  name={'payVariants'}
                   className={styles.input}
-                  onChange={() => console.log(1)}
+                  value={'paypal'}
+                  onChange={(e) => handleSelectPayVariant(e.target.value)}
                 />
                 <label htmlFor={'paypal'} className={styles.label}>
                   Paypal
@@ -139,9 +148,11 @@ const PaymentPage: FC = () => {
                 <input
                   id={'card'}
                   type={'radio'}
-                  name={'travellers'}
+                  name={'payVariants'}
                   className={styles.input}
-                  onChange={() => console.log(1)}
+                  value={'card'}
+                  onChange={(e) => handleSelectPayVariant(e.target.value)}
+                  checked={payVariant === 'card'}
                 />
                 <label htmlFor={'card'} className={styles.label}>
                   Credit / Debit card
@@ -149,9 +160,9 @@ const PaymentPage: FC = () => {
               </div>
               <FontAwesomeIcon icon={faCreditCard} className={styles.card} />
             </div>
-          </div>
+          </form>
           <Button
-            text={'Pay'}
+            text={buttonText}
             onClick={() => console.log(1)}
             variant={'primary'}
           />

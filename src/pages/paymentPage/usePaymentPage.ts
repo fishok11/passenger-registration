@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { resetMainState, stateMainSlice } from '../../app/mainSlice';
 import {
@@ -11,6 +12,11 @@ export const usePaymentPage = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
+  const [buttonText, setButtonText] = useState('');
+  const [payVariant, setPayVariant] = useState('card');
+  const handleSelectPayVariant = (variant: string) => {
+    setPayVariant(variant);
+  };
 
   const handleResetState = () => {
     dispatch(resetMainState());
@@ -36,6 +42,18 @@ export const usePaymentPage = () => {
 
   const totalPrice = ticketsPrice + baggagePrice + insurancePrice;
 
+  useEffect(() => {
+    if (payVariant === 'card') {
+      setButtonText('Pay with Credit / Debit card');
+    }
+    if (payVariant === 'applePay') {
+      setButtonText(`Pay USD ${totalPrice} with apple pay`);
+    }
+    if (payVariant === 'paypal') {
+      setButtonText(`Pay USD ${totalPrice} with paypal`);
+    }
+  }, [payVariant]);
+
   return {
     mainState,
     registrationProcessState,
@@ -44,5 +62,8 @@ export const usePaymentPage = () => {
     baggagePrice,
     insurancePrice,
     totalPrice,
+    handleSelectPayVariant,
+    payVariant,
+    buttonText,
   };
 };

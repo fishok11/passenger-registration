@@ -3,6 +3,7 @@ import styles from './RadioCard.module.scss';
 
 type RadioCardProps = {
   id: string;
+  name: string;
   label: string;
   children: React.ReactNode;
   onChange: () => void;
@@ -11,6 +12,7 @@ type RadioCardProps = {
 
 const RadioCard: FC<RadioCardProps> = ({
   id,
+  name,
   label,
   children,
   onChange,
@@ -26,7 +28,7 @@ const RadioCard: FC<RadioCardProps> = ({
         <input
           id={id}
           type="radio"
-          name={'travellers'}
+          name={name}
           className={styles.input}
           onChange={() => onChange()}
           checked={checked}

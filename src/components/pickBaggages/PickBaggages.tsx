@@ -25,6 +25,7 @@ const PickBaggages = () => {
                 <RadioCard
                   key={variant.id}
                   id={variant.id}
+                  name={'baggageVariants'}
                   label={variant.title}
                   onChange={() => handleSelectBag(variant)}
                   checked={registrationProcessState.selectedBaggages
