@@ -13,7 +13,7 @@
 //     }
 
 .travellerInformationContainer {
-  @apply flex flex-col gap-4 px-2 border-b border-gray-300 pb-3 w-full;
+  @apply flex flex-col gap-4 border-b border-gray-300 pb-3 w-full;
 
   .formTitle {
     @apply w-full text-left font-bold;

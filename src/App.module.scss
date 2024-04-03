@@ -1,5 +1,5 @@
 .app {
-  @apply flex flex-col gap-4 items-center w-[390px] h-[844px] relative top-0 overflow-hidden;
+  @apply flex flex-col gap-4 items-center w-[390px] h-[844px] relative top-0 overflow-y-auto;
 
   .bgGradient {
     position: absolute;

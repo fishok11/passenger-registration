@@ -8,6 +8,7 @@ type InitialState = {
   selectedBaggages: BaggageVariant[];
   selectedInsurance: Insurance | null;
   travellerIdForSeat: string;
+  visibilityPassangerDetailsWindow: boolean;
 };
 
 const initialState: InitialState = {
@@ -16,6 +17,7 @@ const initialState: InitialState = {
   selectedBaggages: [],
   selectedInsurance: null,
   travellerIdForSeat: '',
+  visibilityPassangerDetailsWindow: false,
 };
 
 export const registrationProcessSlice = createSlice({
@@ -47,6 +49,12 @@ export const registrationProcessSlice = createSlice({
     selectTravellerIdForSeat: (state, action: PayloadAction<string>) => {
       state.travellerIdForSeat = action.payload;
     },
+    showPassangerDetailsWindow: (state) => {
+      state.visibilityPassangerDetailsWindow = true;
+    },
+    hidePassangerDetailsWindow: (state) => {
+      state.visibilityPassangerDetailsWindow = false;
+    },
     resetRegistrationProcessState: () => initialState,
   },
   extraReducers: (builder) => {
@@ -61,6 +69,8 @@ export const {
   selectInsurance,
   selectTravellerIdForSeat,
   resetRegistrationProcessState,
+  showPassangerDetailsWindow,
+  hidePassangerDetailsWindow,
 } = registrationProcessSlice.actions;
 
 export const stateRegistrationProcessSlice = (state: RootState) =>

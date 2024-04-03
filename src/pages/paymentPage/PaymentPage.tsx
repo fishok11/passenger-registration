@@ -8,11 +8,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faApplePay, faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import PassangerDetails from '../../components/passangerDetails/PassangerDetails';
 
 const PaymentPage: FC = () => {
   const {
     mainState,
     registrationProcessState,
+    handleShowPassangerDetailsWindow,
     handleResetState,
     ticketsPrice,
     baggagePrice,
@@ -30,7 +32,10 @@ const PaymentPage: FC = () => {
           <p className={styles.descriptionText}>
             Please secure your booking within
           </p>
-          <button className={styles.promoContainer}>
+          <button
+            className={styles.promoContainer}
+            onClick={() => handleShowPassangerDetailsWindow()}
+          >
             <p className={styles.promoText}>Passanger details</p>
             <FontAwesomeIcon icon={faAngleRight} />
           </button>
@@ -175,6 +180,7 @@ const PaymentPage: FC = () => {
           variant={'primary'}
         />
       </Box> */}
+      <PassangerDetails />
     </div>
   );
 };

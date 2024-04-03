@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { resetMainState, stateMainSlice } from '../../app/mainSlice';
 import {
   resetRegistrationProcessState,
+  showPassangerDetailsWindow,
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
 
@@ -16,6 +17,9 @@ export const usePaymentPage = () => {
   const [payVariant, setPayVariant] = useState('card');
   const handleSelectPayVariant = (variant: string) => {
     setPayVariant(variant);
+  };
+  const handleShowPassangerDetailsWindow = () => {
+    dispatch(showPassangerDetailsWindow());
   };
 
   const handleResetState = () => {
@@ -57,6 +61,7 @@ export const usePaymentPage = () => {
   return {
     mainState,
     registrationProcessState,
+    handleShowPassangerDetailsWindow,
     handleResetState,
     ticketsPrice,
     baggagePrice,

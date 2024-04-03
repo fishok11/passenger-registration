@@ -1,0 +1,19 @@
+.container {
+  @apply flex flex-col gap-3 h-full;
+
+  .travellerCard {
+    @apply flex flex-col gap-2 p-3 bg-gray-200 rounded-lg;
+
+    .travellerName {
+      @apply font-bold text-lg;
+    }
+
+    .travellerCardItem {
+      @apply flex justify-between items-center;
+
+      .highlightedText {
+        @apply text-violet-700;
+      }
+    }
+  }
+}
