@@ -1,46 +1,46 @@
-.container {
-  @apply w-full absolute top-0 z-10 h-full;
+// .container {
+//   @apply w-full absolute top-0 z-10 h-full;
 
-  .element {
-    @apply bg-white rounded-t-xl h-full flex flex-col gap-3 justify-center items-start;
+//   .element {
+//     @apply bg-white rounded-t-xl h-full flex flex-col gap-3 justify-center items-start;
 
-    .titleContainer {
-      @apply w-full flex p-3 border-b border-gray-300;
+//     .titleContainer {
+//       @apply w-full flex p-3 border-b border-gray-300;
 
-      .title {
-        @apply flex-auto text-center font-bold;
+//       .title {
+//         @apply flex-auto text-center font-bold;
+//       }
+//     }
+
+.travellerInformationContainer {
+  @apply flex flex-col gap-4 px-2 border-b border-gray-300 pb-3 w-full;
+
+  .formTitle {
+    @apply w-full text-left font-bold;
+  }
+
+  .radioContainer {
+    @apply flex flex-col border border-gray-300 rounded-lg;
+
+    .radioItem {
+      @apply w-full flex items-center gap-2 px-3 py-3 cursor-pointer;
+
+      .radioInput {
+        @apply w-4 h-4 cursor-pointer;
       }
-    }
-
-    .travellerInformationContainer {
-      @apply flex flex-col gap-4 px-2 border-b border-gray-300 pb-3 w-full;
-
-      .formTitle {
-        @apply w-full text-left font-bold;
+      .radioLabel {
+        @apply cursor-pointer;
       }
-
-      .radioContainer {
-        @apply flex flex-col border border-gray-300 rounded-lg;
-
-        .radioItem {
-          @apply w-full flex items-center gap-2 px-3 py-3 cursor-pointer;
-
-          .radioInput {
-            @apply w-4 h-4 cursor-pointer;
-          }
-          .radioLabel {
-            @apply cursor-pointer;
-          }
-        }
-      }
-    }
-
-    .travellerInformationContainer:last-child {
-      @apply border-hidden;
-    }
-
-    .expireDateContainer {
-      @apply grid grid-rows-1 grid-cols-3 gap-2;
     }
   }
 }
+
+.travellerInformationContainer:last-child {
+  @apply border-hidden;
+}
+
+.expireDateContainer {
+  @apply grid grid-rows-1 grid-cols-3 gap-2;
+}
+//   }
+// }

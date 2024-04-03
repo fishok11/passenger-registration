@@ -1,0 +1,19 @@
+.container {
+  @apply w-full absolute top-0 z-10 h-auto;
+
+  .element {
+    @apply bg-white rounded-t-xl h-full flex flex-col gap-3 justify-center items-start;
+
+    .titleContainer {
+      @apply w-full flex p-3 border-b border-gray-300;
+
+      .title {
+        @apply flex-auto text-center font-bold;
+      }
+    }
+  }
+
+  .childrenContainer {
+    @apply bg-white;
+  }
+}
