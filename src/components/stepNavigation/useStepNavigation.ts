@@ -70,8 +70,8 @@ export const useStepNavigation = () => {
   const ticketsPrice =
     registrationProcessState.ticketPrice *
     registrationProcessState.selectedTravellers.length;
-  let baggagePrice = 0;
 
+  let baggagePrice = 0;
   registrationProcessState.selectedBaggages.forEach((item) => {
     if (item.price) {
       baggagePrice +=

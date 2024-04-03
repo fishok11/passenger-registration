@@ -28,11 +28,6 @@ const Stepper: FC = () => {
           Peeck your seat before flight and pay less
         </p>
       )}
-      {mainState.step === 5 && (
-        <p className={styles.text}>
-          Please secure your booking within (00:23:43)
-        </p>
-      )}
       <div className={styles.stepper}>
         {Array.from({ length: mainState.stepsQuantity }).map((_, index) => (
           <React.Fragment key={index}>

@@ -12,10 +12,37 @@ export const usePaymentPage = () => {
     stateRegistrationProcessSlice,
   );
 
-  const handleReserState = () => {
+  const handleResetState = () => {
     dispatch(resetMainState());
     dispatch(resetRegistrationProcessState());
   };
 
-  return { mainState, registrationProcessState, handleReserState };
+  const ticketsPrice =
+    registrationProcessState.ticketPrice *
+    registrationProcessState.selectedTravellers.length;
+
+  let baggagePrice = 0;
+  registrationProcessState.selectedBaggages.forEach((item) => {
+    if (item.price) {
+      baggagePrice +=
+        item.price * registrationProcessState.selectedTravellers.length;
+    }
+  });
+
+  const insurancePrice = registrationProcessState.selectedInsurance?.price
+    ? registrationProcessState.selectedInsurance.price *
+      registrationProcessState.selectedTravellers.length
+    : 0;
+
+  const totalPrice = ticketsPrice + baggagePrice + insurancePrice;
+
+  return {
+    mainState,
+    registrationProcessState,
+    handleResetState,
+    ticketsPrice,
+    baggagePrice,
+    insurancePrice,
+    totalPrice,
+  };
 };

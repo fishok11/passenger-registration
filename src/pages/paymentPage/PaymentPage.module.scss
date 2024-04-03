@@ -5,7 +5,7 @@
     @apply flex flex-col gap-3 justify-start items-center w-full h-full;
 
     .contactDetails {
-      @apply p-2 border border-gray-300 rounded-lg bg-white;
+      @apply p-3 border border-gray-300 rounded-lg bg-white;
 
       .title {
         @apply font-bold;
@@ -16,7 +16,54 @@
       }
 
       .contactDetailFields {
-        @apply grid grid-cols-1 gap-2 mt-2; 
+        @apply grid grid-cols-1 gap-3 mt-2;
+
+        .item {
+          @apply grid grid-cols-3 gap-3;
+
+          // .codeField {
+          // }
+
+          .phoneNumberField {
+            @apply col-span-2;
+          }
+        }
+      }
+    }
+
+    .promoContainer {
+      @apply w-full flex justify-between items-center p-3 border border-gray-300 rounded-lg text-gray-400;
+
+      .promoText {
+        @apply text-black;
+      }
+    }
+
+    .infoContainer {
+      @apply flex flex-col gap-2 w-full h-full bg-gray-200 rounded-lg p-3;
+
+      .infoText {
+        @apply flex justify-between items-center;
+      }
+
+      .totalPriceText {
+        @apply flex justify-between items-center font-[500];
+      }
+
+      .line {
+        @apply w-full border-b border-gray-400;
+      }
+    }
+
+    .payVariantsContainer {
+      @apply w-full h-max border border-gray-300 rounded-lg;
+
+      .payVariant {
+        @apply p-3 border-b border-gray-300;
+      }
+
+      .payVariant:last-child {
+        @apply border-hidden;
       }
     }
   }

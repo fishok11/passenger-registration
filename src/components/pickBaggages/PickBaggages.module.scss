@@ -2,7 +2,7 @@
   @apply w-full flex flex-col gap-3;
 
   .element {
-    @apply w-full p-2 flex flex-col gap-2 border border-gray-300 rounded-lg;
+    @apply w-full p-3 flex flex-col gap-3 border border-gray-300 rounded-lg;
 
     .sectionTitle {
       @apply font-bold;
