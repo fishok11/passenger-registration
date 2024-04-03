@@ -4,6 +4,10 @@
   .container {
     @apply flex flex-col gap-3 justify-start items-center w-full h-full;
 
+    .descriptionText {
+      @apply w-full text-left;
+    }
+
     .contactDetails {
       @apply p-3 border border-gray-300 rounded-lg bg-white;
 
@@ -59,7 +63,35 @@
       @apply w-full h-max border border-gray-300 rounded-lg;
 
       .payVariant {
-        @apply p-3 border-b border-gray-300;
+        @apply flex justify-between items-center p-3 border-b border-gray-300;
+
+        .radioContainer {
+          @apply flex justify-start items-center gap-2;
+
+          .input {
+            @apply w-4 h-4 cursor-pointer;
+          }
+
+          .input:checked {
+            @apply w-4 h-4 border-violet-500 bg-violet-500 focus:ring-[none] ring-offset-[none] cursor-pointer;
+          }
+
+          .label {
+            @apply text-base cursor-pointer;
+          }
+        }
+
+        .applePay {
+          @apply text-black;
+        }
+
+        .paypal {
+          @apply text-blue-700;
+        }
+
+        .card {
+          @apply text-gray-400;
+        }
       }
 
       .payVariant:last-child {

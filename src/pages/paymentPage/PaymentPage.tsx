@@ -24,6 +24,9 @@ const PaymentPage: FC = () => {
     <div className={styles.wrapper}>
       <Box isVisible={mainState.step === mainState.stepsQuantity}>
         <div className={styles.container}>
+          <p className={styles.descriptionText}>
+            Please secure your booking within
+          </p>
           <div className={styles.contactDetails}>
             <h3 className={styles.title}>Contact details</h3>
             <p className={styles.text}>
@@ -96,43 +99,55 @@ const PaymentPage: FC = () => {
           </div>
           <div className={styles.payVariantsContainer}>
             <div className={styles.payVariant}>
-              <input
-                id={'applePay'}
-                type={'radio'}
-                name={'travellers'}
-                className={styles.input}
-                onChange={() => console.log(1)}
+              <div className={styles.radioContainer}>
+                <input
+                  id={'applePay'}
+                  type={'radio'}
+                  name={'travellers'}
+                  className={styles.input}
+                  onChange={() => console.log(1)}
+                />
+                <label htmlFor={'applePay'} className={styles.label}>
+                  Apple pay
+                </label>
+              </div>
+              <FontAwesomeIcon
+                icon={faApplePay as IconProp}
+                className={styles.applePay}
               />
-              <label htmlFor={'applePay'} className={styles.label}>
-                Apple pay
-              </label>
-              <FontAwesomeIcon icon={faApplePay as IconProp} />
             </div>
             <div className={styles.payVariant}>
-              <input
-                id={'paypal'}
-                type={'radio'}
-                name={'travellers'}
-                className={styles.input}
-                onChange={() => console.log(1)}
+              <div className={styles.radioContainer}>
+                <input
+                  id={'paypal'}
+                  type={'radio'}
+                  name={'travellers'}
+                  className={styles.input}
+                  onChange={() => console.log(1)}
+                />
+                <label htmlFor={'paypal'} className={styles.label}>
+                  Paypal
+                </label>
+              </div>
+              <FontAwesomeIcon
+                icon={faPaypal as IconProp}
+                className={styles.paypal}
               />
-              <label htmlFor={'paypal'} className={styles.label}>
-                Paypal
-              </label>
-              <FontAwesomeIcon icon={faPaypal as IconProp} />
             </div>
             <div className={styles.payVariant}>
-              <input
-                id={'card'}
-                type={'radio'}
-                name={'travellers'}
-                className={styles.input}
-                onChange={() => console.log(1)}
-              />
-              <label htmlFor={'card'} className={styles.label}>
-                Credit / Debit card
-              </label>
-              <FontAwesomeIcon icon={faCreditCard} />
+              <div className={styles.radioContainer}>
+                <input
+                  id={'card'}
+                  type={'radio'}
+                  name={'travellers'}
+                  className={styles.input}
+                  onChange={() => console.log(1)}
+                />
+                <label htmlFor={'card'} className={styles.label}>
+                  Credit / Debit card
+                </label>
+              </div>
+              <FontAwesomeIcon icon={faCreditCard} className={styles.card} />
             </div>
           </div>
           <Button
