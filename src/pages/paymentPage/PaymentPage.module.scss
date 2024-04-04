@@ -62,6 +62,10 @@
         @apply flex justify-between items-center font-[500];
       }
 
+      .promoText {
+        @apply flex justify-between items-center text-green-600;
+      }
+
       .line {
         @apply w-full border-b border-gray-400;
       }
