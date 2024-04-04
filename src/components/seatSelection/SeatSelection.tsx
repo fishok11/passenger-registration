@@ -77,12 +77,16 @@ const SeatSelection: FC = () => {
                 </div>
                 {indexInterior + 1 >= 3 && indexInterior + 1 < 4 && (
                   <div className={styles.spaceContainer}>
-                    <div className={styles.space} />
+                    <div className={styles.item}>
+                      <div className={styles.space} />
+                    </div>
                     {Array.from({
                       length:
                         mainState.interiorConfiguration.interior[0].row.length,
                     }).map((_, index) => (
-                      <div key={index}>{index + 1}</div>
+                      <div key={index} className={styles.item}>
+                        {index + 1}
+                      </div>
                     ))}
                   </div>
                 )}
