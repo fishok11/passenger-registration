@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PickBaggages.module.scss';
-import RadioCard from '../radioCard/RadioCard';
+import RadioCard from '../../UI/radioCard/RadioCard';
 import { usePickBaggages } from './usePickBaggages';
 import Box from '../../UI/box/Box';
 

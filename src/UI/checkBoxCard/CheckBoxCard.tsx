@@ -1,28 +1,21 @@
-import React, { FC } from 'react';
-import styles from './TravellerCard.module.scss';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faPen } from '@fortawesome/free-solid-svg-icons';
-import { useTravellerCard } from './useTravellerCard';
+import React, { FC } from 'react';
+import styles from './CheckBoxCard.module.scss';
 
-type TravellerCardProps = {
+type CheckBoxCardProps = {
   id: string;
-  name: string;
-  surname: string;
-  passport: string;
+  label: string;
   onChange: () => void;
   checked: boolean;
 };
 
-const TravellerCard: FC<TravellerCardProps> = ({
+const CheckBoxCard: FC<CheckBoxCardProps> = ({
   id,
-  name,
-  surname,
-  passport,
+  label,
   onChange,
   checked,
 }) => {
-  const { handleEditTraveller } = useTravellerCard();
-
   return (
     <div
       className={checked ? styles.checkedContainer : styles.defaultContainer}
@@ -45,21 +38,12 @@ const TravellerCard: FC<TravellerCardProps> = ({
         </div>
         <div>
           <label htmlFor={id} className={styles.label}>
-            {name + ' ' + surname}
+            {label}
           </label>
-          <p className={passport ? styles.textPassport : styles.textWarning}>
-            {passport ? 'Passport ID:' + ' ' + passport : 'Missing information'}
-          </p>
         </div>
       </div>
-      <button
-        className={styles.editButton}
-        onClick={() => handleEditTraveller(id)}
-      >
-        <FontAwesomeIcon icon={faPen} /> Edit
-      </button>
     </div>
   );
 };
 
-export default TravellerCard;
+export default CheckBoxCard;

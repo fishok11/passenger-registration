@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styles from './InsurancesList.module.scss';
 import { useInsurancesList } from './useInsurancesList';
-import RadioCard from '../radioCard/RadioCard';
+import RadioCard from '../../UI/radioCard/RadioCard';
 import Box from '../../UI/box/Box';
 
 const InsurancesList: FC = () => {

@@ -9,6 +9,7 @@ import { faAngleRight, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import { faApplePay, faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import PassangerDetails from '../../components/passangerDetails/PassangerDetails';
+import CheckBoxCard from '../../UI/checkBoxCard/CheckBoxCard';
 
 const PaymentPage: FC = () => {
   const {
@@ -212,6 +213,12 @@ const PaymentPage: FC = () => {
               <FontAwesomeIcon icon={faCreditCard} className={styles.card} />
             </div>
           </form>
+          <CheckBoxCard
+            id={'userPolicy'}
+            label={'User policy'}
+            onChange={() => console.log(0)}
+            checked
+          />
           <Button
             text={buttonText}
             onClick={() => console.log(1)}
