@@ -37,7 +37,7 @@ export type InteriorConfiguration = {
   interior: InteriorRow[];
 };
 
-type InteriorRow = { rowId: string; row: Seat[] };
+export type InteriorRow = { rowId: string; row: Seat[] };
 
 type Seat = {
   id: string;

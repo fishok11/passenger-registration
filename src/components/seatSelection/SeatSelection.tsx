@@ -5,6 +5,7 @@ import { useSeatSelection } from './useSeatSelection';
 import Badge from '../../UI/badge/Badge';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { findingSeatTraveller } from '../../helpers/findingSeatTraveller';
 
 const SeatSelection: FC = () => {
   const {
@@ -13,7 +14,6 @@ const SeatSelection: FC = () => {
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
     checkOccupiedSeat,
-    findingSeatTraveller,
   } = useSeatSelection();
 
   return (
@@ -33,7 +33,10 @@ const SeatSelection: FC = () => {
               selected={
                 registrationProcessState.travellerIdForSeat === traveller.id
               }
-              additionalText={findingSeatTraveller(traveller.id)}
+              additionalText={findingSeatTraveller(
+                mainState.interiorConfiguration.interior,
+                traveller.id,
+              )}
               onClick={() => handleSelectTravellerIdForseat(traveller.id)}
             />
           ))}
@@ -76,7 +79,8 @@ const SeatSelection: FC = () => {
                   <div className={styles.spaceContainer}>
                     <div className={styles.space} />
                     {Array.from({
-                      length: mainState.interiorConfiguration.interior[0].row.length,
+                      length:
+                        mainState.interiorConfiguration.interior[0].row.length,
                     }).map((_, index) => (
                       <div key={index}>{index + 1}</div>
                     ))}

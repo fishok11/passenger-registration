@@ -41,22 +41,6 @@ export const useSeatSelection = () => {
     return seatOccupateCurrentTravellers;
   };
 
-  const findingSeatTraveller = (travellerId: string) => {
-    let seatTraveller = '';
-
-    mainState.interiorConfiguration.interior.forEach((rowData) =>
-      rowData.row.forEach((seat) => {
-        if (seat.travellerId === travellerId) {
-          seatTraveller = seat.seatNumber + rowData.rowId;
-          return;
-        }
-        return;
-      }),
-    );
-
-    return seatTraveller;
-  };
-
   useEffect(() => {
     dispatch(getInteriorConfiguration());
   }, []);
@@ -67,6 +51,5 @@ export const useSeatSelection = () => {
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
     checkOccupiedSeat,
-    findingSeatTraveller,
   };
 };
