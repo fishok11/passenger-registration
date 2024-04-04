@@ -17,6 +17,7 @@ export const usePassangerDetails = () => {
   };
 
   return {
+    mainState,
     registrationProcessState,
     hanldeHidePassangerDetailsWindow,
   };
