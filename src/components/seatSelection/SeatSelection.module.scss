@@ -1,9 +1,9 @@
-@mixin seatSize {
+@mixin defaultSeatStyles {
   @apply flex justify-center items-center w-10 h-8 border rounded-full;
 }
 
 .container {
-  @apply w-full flex flex-col gap-3;
+  @apply w-full flex flex-col gap-2;
 
   .textContainer {
     @apply w-full flex flex-col;
@@ -32,18 +32,18 @@
       }
 
       .seat {
-        @include seatSize;
-        @apply border-violet-700 bg-gray-100 p-3;
+        @include defaultSeatStyles;
+        @apply border-blue-800 bg-gray-100 p-3;
       }
 
       .seatOccupied {
-        @include seatSize;
+        @include defaultSeatStyles;
         @apply border-inherit bg-gray-200 p-3 text-sm text-gray-400;
       }
 
       .seatOccupiedCurrentTraveller {
-        @include seatSize;
-        @apply border-inherit bg-violet-700 p-3 text-sm text-white;
+        @include defaultSeatStyles;
+        @apply border-inherit bg-blue-800 p-3 text-sm text-white;
       }
     }
 
@@ -51,7 +51,7 @@
       @apply flex flex-col gap-2 justify-center items-center w-10 h-full text-xs;
 
       .item {
-        @include seatSize;
+        @include defaultSeatStyles;
         @apply border-hidden;
 
         .space {
