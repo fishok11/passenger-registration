@@ -36,22 +36,6 @@ const CreateTravellers: FC = () => {
   } = useCreateTravellers();
 
   return (
-    // <AnimatePresence>
-    //   {mainState.visibilityAddTravellerWindow && (
-    //     <motion.div
-    //       initial={{ y: '100vh' }}
-    //       animate={{ y: mainState.visibilityAddTravellerWindow ? 0 : '100vh' }}
-    //       exit={{ y: '100vh' }}
-    //       transition={{ stiffness: 300, damping: 30, duration: 0.2 }}
-    //       className={styles.container}
-    //     >
-    //       <div className={styles.element}>
-    //         <div className={styles.titleContainer}>
-    //           <button onClick={() => handleHideAddTravellerWindow()}>
-    //             <FontAwesomeIcon icon={faXmark} />
-    //           </button>
-    //           <h2 className={styles.title}>Add traveller</h2>
-    //         </div>
             <SlideWindow
               isOpen={mainState.visibilityAddTravellerWindow}
               title={'Add traveller'}
@@ -163,10 +147,6 @@ const CreateTravellers: FC = () => {
                 />
               </div>
             </SlideWindow>
-    //       </div>
-    //     </motion.div>
-    //   )}
-    // </AnimatePresence>
   );
 };
 

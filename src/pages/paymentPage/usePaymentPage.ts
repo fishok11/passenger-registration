@@ -15,11 +15,21 @@ export const usePaymentPage = () => {
   );
   const [buttonText, setButtonText] = useState('');
   const [payVariant, setPayVariant] = useState('card');
+  const [isOpenPromoInput, setIsOpenPromoInput] = useState(false);
+  const [promoCode, setPromoCode] = useState('');
+  const promoCodeName = 'promo10';
+  const interestDiscount = 10;
   const handleSelectPayVariant = (variant: string) => {
     setPayVariant(variant);
   };
   const handleShowPassangerDetailsWindow = () => {
     dispatch(showPassangerDetailsWindow());
+  };
+  const handleSetPromoCode = (promo: string) => {
+    setPromoCode(promo);
+  };
+  const handleOpenPromoInput = () => {
+    setIsOpenPromoInput(!isOpenPromoInput);
   };
 
   const handleResetState = () => {
@@ -54,10 +64,10 @@ export const usePaymentPage = () => {
       setButtonText('Pay with Credit / Debit card');
     }
     if (payVariant === 'applePay') {
-      setButtonText(`Pay USD ${totalPrice} with apple pay`);
+      setButtonText(`Pay USD ${totalPrice} with Apple Pay`);
     }
     if (payVariant === 'paypal') {
-      setButtonText(`Pay USD ${totalPrice} with paypal`);
+      setButtonText(`Pay USD ${totalPrice} with Paypal`);
     }
   }, [payVariant]);
 
@@ -71,7 +81,13 @@ export const usePaymentPage = () => {
     insurancePrice,
     totalPrice,
     handleSelectPayVariant,
+    handleSetPromoCode,
+    handleOpenPromoInput,
     payVariant,
+    promoCode,
+    promoCodeName,
+    interestDiscount,
+    isOpenPromoInput,
     buttonText,
   };
 };

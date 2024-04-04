@@ -1,15 +1,15 @@
 @mixin buttonDefaultStyles {
-  @apply w-full h-10 font-[500] p-2 rounded-lg;
+  @apply w-full h-10 font-[500] p-2 rounded-lg duration-200;
 }
 
 .buttonPrimary {
   @include buttonDefaultStyles;
-  @apply bg-blue-800 text-white duration-200 hover:bg-blue-700;
+  @apply bg-blue-800 text-white hover:bg-blue-700;
 }
 
 .buttonSecondary {
   @include buttonDefaultStyles;
-  @apply bg-violet-100 text-violet-700 duration-200 hover:bg-violet-200;
+  @apply bg-violet-100 text-violet-700 hover:bg-violet-200;
 }
 
 .buttonThird {

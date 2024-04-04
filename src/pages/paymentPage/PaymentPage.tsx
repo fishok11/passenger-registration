@@ -21,7 +21,13 @@ const PaymentPage: FC = () => {
     insurancePrice,
     totalPrice,
     handleSelectPayVariant,
+    handleSetPromoCode,
+    handleOpenPromoInput,
     payVariant,
+    promoCode,
+    promoCodeName,
+    interestDiscount,
+    isOpenPromoInput,
     buttonText,
   } = usePaymentPage();
 
@@ -32,13 +38,15 @@ const PaymentPage: FC = () => {
           <p className={styles.descriptionText}>
             Please secure your booking within
           </p>
-          <button
-            className={styles.promoContainer}
-            onClick={() => handleShowPassangerDetailsWindow()}
-          >
-            <p className={styles.promoText}>Passanger details</p>
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
+          <div className={styles.promoContainer}>
+            <button
+              className={styles.promoButton}
+              onClick={() => handleShowPassangerDetailsWindow()}
+            >
+              <span className={styles.promoText}>Passanger details</span>
+              <FontAwesomeIcon icon={faAngleRight} />
+            </button>
+          </div>
           <div className={styles.contactDetails}>
             <h3 className={styles.title}>Contact details</h3>
             <p className={styles.text}>
@@ -77,10 +85,32 @@ const PaymentPage: FC = () => {
               </div>
             </div>
           </div>
-          <button className={styles.promoContainer}>
-            <p className={styles.promoText}>Promo code</p>
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
+          <div className={styles.promoContainer}>
+            <button
+              className={styles.promoButton}
+              onClick={() => handleOpenPromoInput()}
+            >
+              <span className={styles.promoText}>Promo code</span>
+              <FontAwesomeIcon icon={faAngleRight} />
+            </button>
+            {isOpenPromoInput && (
+              <div className={styles.promoActionContainer}>
+                <Input
+                  id={'promo'}
+                  type={'text'}
+                  placeholder={'Promo code'}
+                  value={promoCode}
+                  onChange={(e) => handleSetPromoCode(e.target.value)}
+                  // error={errorName}
+                />
+                {/* <Button
+                  text={'OK'}
+                  onClick={() => console.log(1)}
+                  variant={'primary'}
+                /> */}
+              </div>
+            )}
+          </div>
           <div className={styles.infoContainer}>
             <div className={styles.infoText}>
               <p>{registrationProcessState.selectedTravellers.length}x Adult</p>
@@ -104,9 +134,25 @@ const PaymentPage: FC = () => {
               <p>USD 0</p>
             </div>
             <div className={styles.line} />
+            {promoCode === promoCodeName && (
+              <>
+                <div className={styles.promoText}>
+                  <p>
+                    {promoCodeName} ({interestDiscount})%
+                  </p>
+                  <p>-USD {(totalPrice / 100) * interestDiscount}</p>
+                </div>
+                <div className={styles.line} />
+              </>
+            )}
             <div className={styles.totalPriceText}>
               <b>Total price</b>
-              <p>USD {totalPrice}</p>
+              <p>
+                USD{' '}
+                {promoCode === promoCodeName
+                  ? (totalPrice / 100) * (100 - interestDiscount)
+                  : totalPrice}
+              </p>
             </div>
           </div>
           <form className={styles.payVariantsContainer}>

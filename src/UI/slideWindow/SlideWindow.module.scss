@@ -2,7 +2,7 @@
   @apply w-full absolute top-0 z-10 h-full;
 
   .element {
-    @apply bg-white rounded-t-xl flex flex-col gap-3 justify-center items-start;
+    @apply bg-white rounded-t-xl flex flex-col gap-3 justify-center items-start h-[5%];
 
     .titleContainer {
       @apply w-full flex p-3 border-b border-gray-300;
@@ -14,6 +14,6 @@
   }
 
   .childrenContainer {
-    @apply bg-white p-3 h-full;
+    @apply bg-white p-3 min-h-full h-full;
   }
 }
