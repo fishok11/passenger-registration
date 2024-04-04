@@ -36,10 +36,18 @@
     }
 
     .promoContainer {
-      @apply w-full flex justify-between items-center p-3 border border-gray-300 rounded-lg text-gray-400 bg-white;
+      @apply w-full flex flex-col gap-2 justify-between items-center p-3 border border-gray-300 rounded-lg text-gray-400 bg-white;
 
-      .promoText {
-        @apply text-black;
+      .promoButton {
+        @apply w-full flex justify-between items-center;
+
+        .promoText {
+          @apply text-black;
+        }
+      }
+
+      .promoActionContainer {
+        @apply w-full;
       }
     }
 
