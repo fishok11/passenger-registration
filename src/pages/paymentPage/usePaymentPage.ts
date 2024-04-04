@@ -19,6 +19,7 @@ export const usePaymentPage = () => {
   const [promoCode, setPromoCode] = useState('');
   const promoCodeName = 'promo10';
   const interestDiscount = 10;
+  const [checkUserPolicy, setCheckUserPolicy] = useState(false);
   const handleSelectPayVariant = (variant: string) => {
     setPayVariant(variant);
   };
@@ -30,6 +31,9 @@ export const usePaymentPage = () => {
   };
   const handleOpenPromoInput = () => {
     setIsOpenPromoInput(!isOpenPromoInput);
+  };
+  const handleChangeCheckUserPolicy = () => {
+    setCheckUserPolicy(!checkUserPolicy);
   };
 
   const handleResetState = () => {
@@ -88,6 +92,8 @@ export const usePaymentPage = () => {
     promoCodeName,
     interestDiscount,
     isOpenPromoInput,
+    checkUserPolicy,
+    handleChangeCheckUserPolicy,
     buttonText,
   };
 };

@@ -6,6 +6,7 @@ import styles from './CheckBoxCard.module.scss';
 type CheckBoxCardProps = {
   id: string;
   label: string;
+  text: string;
   onChange: () => void;
   checked: boolean;
 };
@@ -13,6 +14,7 @@ type CheckBoxCardProps = {
 const CheckBoxCard: FC<CheckBoxCardProps> = ({
   id,
   label,
+  text,
   onChange,
   checked,
 }) => {
@@ -20,27 +22,30 @@ const CheckBoxCard: FC<CheckBoxCardProps> = ({
     <div
       className={checked ? styles.checkedContainer : styles.defaultContainer}
     >
-      <div className={styles.checkboxContainer}>
-        <input
-          id={id}
-          type="checkbox"
-          name={'travellers'}
-          className={styles.input}
-          onChange={() => onChange()}
-          checked={checked}
-        />
-        <div
-          className={
-            checked ? styles.customCheckboxChecked : styles.customCheckbox
-          }
-        >
-          {checked && <FontAwesomeIcon icon={faCheck} />}
+      <div className={styles.itemsContainer}>
+        <div className={styles.checkboxContainer}>
+          <input
+            id={id}
+            type="checkbox"
+            name={'travellers'}
+            className={styles.input}
+            onChange={() => onChange()}
+            checked={checked}
+          />
+          <div
+            className={
+              checked ? styles.customCheckboxChecked : styles.customCheckbox
+            }
+          >
+            {checked && <FontAwesomeIcon icon={faCheck} />}
+          </div>
+          <div>
+            <label htmlFor={id} className={styles.label}>
+              {label}
+            </label>
+          </div>
         </div>
-        <div>
-          <label htmlFor={id} className={styles.label}>
-            {label}
-          </label>
-        </div>
+        {text && <p className={styles.text}>{text}</p>}
       </div>
     </div>
   );

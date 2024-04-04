@@ -29,6 +29,8 @@ const PaymentPage: FC = () => {
     promoCodeName,
     interestDiscount,
     isOpenPromoInput,
+    checkUserPolicy,
+    handleChangeCheckUserPolicy,
     buttonText,
   } = usePaymentPage();
 
@@ -216,8 +218,11 @@ const PaymentPage: FC = () => {
           <CheckBoxCard
             id={'userPolicy'}
             label={'User policy'}
-            onChange={() => console.log(0)}
-            checked
+            text={
+              'I have read and accept the Terms & Conditions and Privacy Policy, as well as the conditions of the carriers in my booking, and i acknowledge I cant withdraw from this service agreement due to its immediate performance.'
+            }
+            onChange={() => handleChangeCheckUserPolicy()}
+            checked={checkUserPolicy}
           />
           <Button
             text={buttonText}

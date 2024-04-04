@@ -1,19 +1,27 @@
 .baseContainer {
   @apply w-full flex justify-between items-center gap-2 p-3 border rounded-lg;
 
-  .checkboxContainer {
-    @apply w-max flex items-start gap-2;
+  .itemsContainer {
+    @apply flex flex-col gap-2;
 
-    .input {
-      @apply absolute -z-10 opacity-0;
+    .checkboxContainer {
+      @apply w-max flex items-start gap-2;
+
+      .input {
+        @apply absolute -z-10 opacity-0;
+      }
+
+      .label {
+        @apply w-max flex items-center cursor-pointer;
+      }
+
+      .customCheckbox {
+        @apply flex justify-center items-center w-4 h-4 mt-1 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+      }
     }
-
-    .label {
-      @apply w-max flex items-center cursor-pointer;
-    }
-
-    .customCheckbox {
-      @apply flex justify-center items-center w-4 h-4 mt-1 border border-gray-300 rounded-full cursor-pointer text-xs text-white;
+    
+    .text {
+      @apply ml-6 text-gray-500;
     }
   }
 }
