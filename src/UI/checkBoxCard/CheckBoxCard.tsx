@@ -45,7 +45,7 @@ const CheckBoxCard: FC<CheckBoxCardProps> = ({
             </label>
           </div>
         </div>
-        {text && <p className={styles.text}>{text}</p>}
+        {text !== '' && <p className={styles.text}>{text}</p>}
       </div>
     </div>
   );

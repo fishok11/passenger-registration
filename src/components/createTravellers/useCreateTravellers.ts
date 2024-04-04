@@ -33,7 +33,8 @@ export const useCreateTravellers = () => {
     'Dec',
   ];
   const [month, setMonth] = useState('');
-  // const [expireDatePasport, setExpireDatePasport] = usemainState('');
+  const [checkExpireDatePasport, setCheckExpireDatePasport] = useState(false);
+  // const [expireDatePasport, setExpireDatePasport] = useState('');
   const traveller = {
     name: name,
     surname: surname,
@@ -42,11 +43,9 @@ export const useCreateTravellers = () => {
     passport: passport,
     // expireDatePasport: expireDatePasport,
   };
-
   const handleHideAddTravellerWindow = () => {
     dispatch(hideAddTravellerWindow());
   };
-
   const handleAddTraveller = () => {
     if (name === '') {
       setErrorName(true);
@@ -58,6 +57,9 @@ export const useCreateTravellers = () => {
     }
     dispatch(addTraveller(traveller));
     dispatch(hideAddTravellerWindow());
+  };
+  const handleChangeCheckExpireDatePasport = () => {
+    setCheckExpireDatePasport(!checkExpireDatePasport);
   };
 
   useEffect(() => {
@@ -92,6 +94,8 @@ export const useCreateTravellers = () => {
     months,
     month,
     setMonth,
+    checkExpireDatePasport,
+    handleChangeCheckExpireDatePasport,
     // expireDatePasport,
     // setExpireDatePasport,
     handleAddTraveller,
