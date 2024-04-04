@@ -35,11 +35,15 @@ const PassangerDetails: FC = () => {
             </div>
             <div className={styles.travellerCardItem}>
               <p>Cbin bag</p>
-              <p className={styles.highlightedText}>{}</p>
+              <p className={styles.highlightedText}>
+                USD {registrationProcessState.selectedCabinBag?.price}
+              </p>
             </div>
             <div className={styles.travellerCardItem}>
               <p>Checked bag</p>
-              <p className={styles.highlightedText}></p>
+              <p className={styles.highlightedText}>
+                USD {registrationProcessState.selectedCheckedBag?.price}
+              </p>
             </div>
             <div className={styles.travellerCardItem}>
               <p>Seat selection</p>
