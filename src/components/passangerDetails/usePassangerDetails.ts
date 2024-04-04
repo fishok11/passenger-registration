@@ -11,7 +11,6 @@ export const usePassangerDetails = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
-
   const hanldeHidePassangerDetailsWindow = () => {
     dispatch(hidePassangerDetailsWindow());
   };
