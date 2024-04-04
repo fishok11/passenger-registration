@@ -71,18 +71,23 @@ export const useStepNavigation = () => {
     registrationProcessState.ticketPrice *
     registrationProcessState.selectedTravellers.length;
 
-  let baggagePrice = 0;
-  registrationProcessState.selectedBaggages.forEach((item) => {
-    if (item.price) {
-      baggagePrice +=
-        item.price * registrationProcessState.selectedTravellers.length;
-    }
-  });
+  const cabinBagPrice = registrationProcessState.selectedCabinBag?.price
+    ? registrationProcessState.selectedCabinBag?.price *
+      registrationProcessState.selectedTravellers.length
+    : 0;
+
+  const checkedBagPrice = registrationProcessState.selectedCheckedBag?.price
+    ? registrationProcessState.selectedCheckedBag?.price *
+      registrationProcessState.selectedTravellers.length
+    : 0;
 
   const insurancePrice = registrationProcessState.selectedInsurance?.price
     ? registrationProcessState.selectedInsurance.price *
       registrationProcessState.selectedTravellers.length
     : 0;
+
+  const totalPrice =
+    ticketsPrice + cabinBagPrice + checkedBagPrice + insurancePrice;
 
   return {
     registrationProcessState,
@@ -90,7 +95,9 @@ export const useStepNavigation = () => {
     isOpenInfo,
     handleOpenInfo,
     ticketsPrice,
-    baggagePrice,
+    cabinBagPrice,
+    checkedBagPrice,
     insurancePrice,
+    totalPrice,
   };
 };

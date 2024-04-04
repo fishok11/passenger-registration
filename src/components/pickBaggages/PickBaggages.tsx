@@ -5,52 +5,80 @@ import { usePickBaggages } from './usePickBaggages';
 import Box from '../../UI/box/Box';
 
 const PickBaggages = () => {
-  const { mainState, registrationProcessState, handleSelectBag } =
-    usePickBaggages();
+  const {
+    mainState,
+    registrationProcessState,
+    handleSelectCabinBag,
+    handleSelectCheckedBag,
+  } = usePickBaggages();
 
   return (
     <Box isVisible={mainState.step === 2}>
       <div className={styles.container}>
-        {mainState.baggageCategories.map((category) => (
-          <form className={styles.element} key={category.id}>
-            <div>
-              <h3 className={styles.sectionTitle}>{category.title}</h3>
-              <p className={styles.sectionDescription}>
-                {category.description}
-              </p>
-            </div>
-            {mainState.baggageVariants
-              .filter((variant) => variant.categoryId == category.id)
-              .map((variant) => (
-                <RadioCard
-                  key={variant.id}
-                  id={variant.id}
-                  name={'baggageVariants'}
-                  label={variant.title}
-                  onChange={() => handleSelectBag(variant)}
-                  checked={registrationProcessState.selectedBaggages
-                    .map((bag) => bag.id)
-                    .includes(variant.id)}
-                >
-                  <div className={styles.variantDescription}>
-                    {variant.description && <p>{variant.description}</p>}
-                    {variant.price !== null && (
-                      <>
-                        {variant.price !== 0 && (
-                          <div className={styles.price}>
-                            USD {variant.price}
-                          </div>
-                        )}
-                        {variant.price === 0 && (
-                          <div className={styles.priceFree}>Free</div>
-                        )}
-                      </>
+        <form className={styles.element}>
+          <div>
+            <h3 className={styles.sectionTitle}>Cabin bag</h3>
+            <p className={styles.sectionDescription}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+          {mainState.cabinBaggageVariants.map((variant) => (
+            <RadioCard
+              key={variant.id}
+              id={variant.id}
+              name={'cabinBaggageVariants'}
+              label={variant.title}
+              onChange={() => handleSelectCabinBag(variant)}
+              checked={variant === registrationProcessState.selectedCabinBag}
+            >
+              <div className={styles.variantDescription}>
+                {variant.description && <p>{variant.description}</p>}
+                {variant.price !== null && (
+                  <>
+                    {variant.price !== 0 && (
+                      <div className={styles.price}>USD {variant.price}</div>
                     )}
-                  </div>
-                </RadioCard>
-              ))}
-          </form>
-        ))}
+                    {variant.price === 0 && (
+                      <div className={styles.priceFree}>Free</div>
+                    )}
+                  </>
+                )}
+              </div>
+            </RadioCard>
+          ))}
+        </form>
+        <form className={styles.element}>
+          <div>
+            <h3 className={styles.sectionTitle}>Checked baggages</h3>
+            <p className={styles.sectionDescription}>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            </p>
+          </div>
+          {mainState.checkedBaggageVariants.map((variant) => (
+            <RadioCard
+              key={variant.id}
+              id={variant.id}
+              name={'checkedBaggageVariants'}
+              label={variant.title}
+              onChange={() => handleSelectCheckedBag(variant)}
+              checked={variant === registrationProcessState.selectedCheckedBag}
+            >
+              <div className={styles.variantDescription}>
+                {variant.description && <p>{variant.description}</p>}
+                {variant.price !== null && (
+                  <>
+                    {variant.price !== 0 && (
+                      <div className={styles.price}>USD {variant.price}</div>
+                    )}
+                    {variant.price === 0 && (
+                      <div className={styles.priceFree}>Free</div>
+                    )}
+                  </>
+                )}
+              </div>
+            </RadioCard>
+          ))}
+        </form>
       </div>
     </Box>
   );

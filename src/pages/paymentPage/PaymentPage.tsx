@@ -17,7 +17,7 @@ const PaymentPage: FC = () => {
     handleShowPassangerDetailsWindow,
     handleResetState,
     ticketsPrice,
-    baggagePrice,
+    cabinBagPrice,
     insurancePrice,
     totalPrice,
     handleSelectPayVariant,
@@ -88,7 +88,7 @@ const PaymentPage: FC = () => {
             </div>
             <div className={styles.infoText}>
               <p>Baggage</p>
-              <p>USD {baggagePrice}</p>
+              <p>USD {cabinBagPrice}</p>
             </div>
             <div className={styles.line} />
             <div className={styles.infoText}>

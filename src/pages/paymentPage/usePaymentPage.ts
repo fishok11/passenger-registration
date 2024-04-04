@@ -31,20 +31,23 @@ export const usePaymentPage = () => {
     registrationProcessState.ticketPrice *
     registrationProcessState.selectedTravellers.length;
 
-  let baggagePrice = 0;
-  registrationProcessState.selectedBaggages.forEach((item) => {
-    if (item.price) {
-      baggagePrice +=
-        item.price * registrationProcessState.selectedTravellers.length;
-    }
-  });
+  const cabinBagPrice = registrationProcessState.selectedCabinBag?.price
+    ? registrationProcessState.selectedCabinBag?.price *
+      registrationProcessState.selectedTravellers.length
+    : 0;
+
+  const checkedBagPrice = registrationProcessState.selectedCheckedBag?.price
+    ? registrationProcessState.selectedCheckedBag?.price *
+      registrationProcessState.selectedTravellers.length
+    : 0;
 
   const insurancePrice = registrationProcessState.selectedInsurance?.price
     ? registrationProcessState.selectedInsurance.price *
       registrationProcessState.selectedTravellers.length
     : 0;
 
-  const totalPrice = ticketsPrice + baggagePrice + insurancePrice;
+  const totalPrice =
+    ticketsPrice + cabinBagPrice + checkedBagPrice + insurancePrice;
 
   useEffect(() => {
     if (payVariant === 'card') {
@@ -64,7 +67,7 @@ export const usePaymentPage = () => {
     handleShowPassangerDetailsWindow,
     handleResetState,
     ticketsPrice,
-    baggagePrice,
+    cabinBagPrice,
     insurancePrice,
     totalPrice,
     handleSelectPayVariant,

@@ -23,50 +23,36 @@
       "id": "CbdiYAc"
     }
   ],
-  "baggageVariants": [
+  "cabinBaggageVariants": [
     {
       "id": "decd",
       "title": "8kg - cabin bag",
       "description": "55 * 20 * 40 sm",
       "additionalInformation": null,
-      "price": 0,
-      "categoryId": "qwsc"
+      "price": 0
     },
     {
       "id": "rta5",
       "title": "8kg - cabin bag",
       "description": "55 * 20 * 40 sm",
       "additionalInformation": "Free priority boarding",
-      "price": 145,
-      "categoryId": "qwsc"
-    },
+      "price": 145
+    }
+  ],
+  "checkedBaggageVariants": [
     {
       "id": "6542",
       "title": "No baggage to check in",
       "description": null,
       "additionalInformation": null,
-      "price": null,
-      "categoryId": "rfad"
+      "price": null
     },
     {
       "id": "nhf5",
       "title": "15kg - Checked baggage",
       "description": "78 * 28 * 52 sm",
       "additionalInformation": "",
-      "price": 267,
-      "categoryId": "rfad"
-    }
-  ],
-  "baggageCategories": [
-    {
-      "id": "qwsc",
-      "title": "Cabin bag",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
-    },
-    {
-      "id": "rfad",
-      "title": "Checked baggages",
-      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+      "price": 267
     }
   ],
   "insurances": [

@@ -16,8 +16,8 @@ type InitialState = {
   travellerId: string;
   traveller: Traveller;
   travellers: Traveller[];
-  baggageCategories: BaggageCategory[];
-  baggageVariants: BaggageVariant[];
+  cabinBaggageVariants: BaggageVariant[];
+  checkedBaggageVariants: BaggageVariant[];
   insurances: Insurance[];
   interiorConfiguration: InteriorConfiguration;
   visibilityAddTravellerWindow: boolean;
@@ -38,8 +38,8 @@ const initialState: InitialState = {
     passport: '',
   },
   travellers: [],
-  baggageCategories: [],
-  baggageVariants: [],
+  cabinBaggageVariants: [],
+  checkedBaggageVariants: [],
   insurances: [],
   interiorConfiguration: { id: '', interior: [] },
   visibilityAddTravellerWindow: false,
@@ -107,13 +107,15 @@ export const getTravellers = createAsyncThunk<
   }
 });
 
-export const getBaggageCategories = createAsyncThunk<
-  BaggageCategory[],
+export const getCabinBaggageVariants = createAsyncThunk<
+  BaggageVariant[],
   undefined,
   { rejectValue: string }
->('getBaggageCategories', async (_, { rejectWithValue }) => {
+>('getCabinBaggageVariants', async (_, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get('http://localhost:3002/baggageCategories');
+    const { data } = await axios.get(
+      'http://localhost:3002/cabinBaggageVariants',
+    );
 
     return data;
   } catch (error) {
@@ -121,13 +123,15 @@ export const getBaggageCategories = createAsyncThunk<
   }
 });
 
-export const getBaggageVariants = createAsyncThunk<
+export const getCheckedBaggageVariants = createAsyncThunk<
   BaggageVariant[],
   undefined,
   { rejectValue: string }
->('getBaggageVariants', async (_, { rejectWithValue }) => {
+>('getCheckedBaggageVariants', async (_, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get('http://localhost:3002/baggageVariants');
+    const { data } = await axios.get(
+      'http://localhost:3002/checkedBaggageVariants',
+    );
 
     return data;
   } catch (error) {
@@ -267,23 +271,23 @@ export const mainSlice = createSlice({
           state.isLoading = false;
         },
       )
-      .addCase(getBaggageCategories.pending, (state) => {
+      .addCase(getCabinBaggageVariants.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(
-        getBaggageCategories.fulfilled,
-        (state, action: PayloadAction<BaggageCategory[]>) => {
-          state.baggageCategories = action.payload;
+        getCabinBaggageVariants.fulfilled,
+        (state, action: PayloadAction<BaggageVariant[]>) => {
+          state.cabinBaggageVariants = action.payload;
           state.isLoading = false;
         },
       )
-      .addCase(getBaggageVariants.pending, (state) => {
+      .addCase(getCheckedBaggageVariants.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(
-        getBaggageVariants.fulfilled,
+        getCheckedBaggageVariants.fulfilled,
         (state, action: PayloadAction<BaggageVariant[]>) => {
-          state.baggageVariants = action.payload;
+          state.checkedBaggageVariants = action.payload;
           state.isLoading = false;
         },
       )
