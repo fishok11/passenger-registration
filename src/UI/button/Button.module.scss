@@ -5,3 +5,7 @@
 .buttonSecondary {
   @apply w-full h-10 bg-violet-100 text-violet-700 font-[500] p-2 rounded-lg duration-200 hover:bg-violet-200;
 }
+
+.buttonThird {
+  @apply w-full h-10 bg-black text-white font-[500] p-2 rounded-lg;
+}

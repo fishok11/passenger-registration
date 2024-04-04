@@ -169,7 +169,7 @@ const PaymentPage: FC = () => {
           <Button
             text={buttonText}
             onClick={() => console.log(1)}
-            variant={'primary'}
+            variant={payVariant == 'applePay' ? 'third' : 'primary'}
           />
         </div>
       </Box>
