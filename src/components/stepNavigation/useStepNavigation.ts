@@ -19,39 +19,39 @@ export const useStepNavigation = () => {
     setIsOpenInfo(!isOpenInfo);
   };
   const handleNextStep = () => {
-    // if (
-    //   mainState.step === 1 &&
-    //   registrationProcessState.selectedTravellers.length === 0
-    // ) {
-    //   toast.error('Choose traveller(s)');
-    //   return;
-    // }
-    // if (
-    //   mainState.step === 2 &&
-    //   (registrationProcessState.selectedCabinBag === null ||
-    //     registrationProcessState.selectedCheckedBag === null)
-    // ) {
-    //   toast.error('Pick baggages');
-    //   return;
-    // }
-    // if (
-    //   mainState.step === 3 &&
-    //   registrationProcessState.selectedInsurance === null
-    // ) {
-    //   toast.error('Choose insurance');
-    //   return;
-    // }
-    // if (
-    //   mainState.step === 4 &&
-    //   checkingSelectionSeats() !==
-    //     registrationProcessState.selectedTravellers.length
-    // ) {
-    //   toast.error('Choose seats for traveller(s)');
-    //   return;
-    // }
-    // if (mainState.step === 4) {
-    //   dispatch(changeInteriorConfiguration(mainState.interiorConfiguration));
-    // }
+    if (
+      mainState.step === 1 &&
+      registrationProcessState.selectedTravellers.length === 0
+    ) {
+      toast.error('Choose traveller(s)');
+      return;
+    }
+    if (
+      mainState.step === 2 &&
+      (registrationProcessState.selectedCabinBag === null ||
+        registrationProcessState.selectedCheckedBag === null)
+    ) {
+      toast.error('Pick baggages');
+      return;
+    }
+    if (
+      mainState.step === 3 &&
+      registrationProcessState.selectedInsurance === null
+    ) {
+      toast.error('Choose insurance');
+      return;
+    }
+    if (
+      mainState.step === 4 &&
+      checkingSelectionSeats() !==
+        registrationProcessState.selectedTravellers.length
+    ) {
+      toast.error('Choose seats for traveller(s)');
+      return;
+    }
+    if (mainState.step === 4) {
+      dispatch(changeInteriorConfiguration(mainState.interiorConfiguration));
+    }
     dispatch(nextStep());
   };
 
