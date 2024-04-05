@@ -5,6 +5,7 @@ import {
   showPassangerDetailsWindow,
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
+import toast from 'react-hot-toast';
 
 export const usePaymentPage = () => {
   const dispatch = useAppDispatch();
@@ -35,6 +36,10 @@ export const usePaymentPage = () => {
     setCheckUserPolicy(!checkUserPolicy);
   };
   const hanldeGoToTheFinishPage = () => {
+    if (checkUserPolicy === false) {
+      toast.error('Сonfirm the user policy');
+      return;
+    }
     dispatch(goToTheFinishPage());
   };
 
