@@ -36,13 +36,13 @@ const PassangerDetails: FC = () => {
             <div className={styles.travellerCardItem}>
               <p>Cbin bag</p>
               <p className={styles.highlightedText}>
-                USD {registrationProcessState.selectedCabinBag?.price}
+                {registrationProcessState.selectedCabinBag?.title}
               </p>
             </div>
             <div className={styles.travellerCardItem}>
               <p>Checked bag</p>
               <p className={styles.highlightedText}>
-                USD {registrationProcessState.selectedCheckedBag?.price}
+                {registrationProcessState.selectedCheckedBag?.title}
               </p>
             </div>
             <div className={styles.travellerCardItem}>
