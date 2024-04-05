@@ -1,0 +1,10 @@
+.wrapper {
+  @apply w-full h-full flex items-center justify-center;
+
+  .container {
+    @apply w-full flex flex-col items-center justify-center gap-3;
+    .title {
+      @apply font-bold text-2xl;
+    }
+  }
+}

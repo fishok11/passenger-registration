@@ -3,7 +3,6 @@ import { RootState } from './store';
 import axios from 'axios';
 import {
   AddTraveller,
-  BaggageCategory,
   BaggageVariant,
   Insurance,
   InteriorConfiguration,
@@ -13,6 +12,7 @@ import {
 type InitialState = {
   step: number;
   stepsQuantity: number;
+  finalPage: boolean;
   travellerId: string;
   traveller: Traveller;
   travellers: Traveller[];
@@ -28,6 +28,7 @@ type InitialState = {
 const initialState: InitialState = {
   step: 1,
   stepsQuantity: 5,
+  finalPage: false,
   travellerId: '',
   traveller: {
     id: '',
@@ -205,6 +206,14 @@ export const mainSlice = createSlice({
       }
       state.movingForwardInSteps = false;
     },
+    goToTheFinishPage: (state) => {
+      state.finalPage = true;
+      state.movingForwardInSteps = true;
+    },
+    leaveTheFinishPage: (state) => {
+      state.finalPage = true;
+      state.movingForwardInSteps = false;
+    },
     openAddTravellerWindow: (state) => {
       state.visibilityAddTravellerWindow = true;
     },
@@ -323,6 +332,8 @@ export const mainSlice = createSlice({
 export const {
   nextStep,
   prevStep,
+  goToTheFinishPage,
+  leaveTheFinishPage,
   openAddTravellerWindow,
   hideAddTravellerWindow,
   setTravellerId,

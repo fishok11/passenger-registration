@@ -16,7 +16,6 @@ const PaymentPage: FC = () => {
     mainState,
     registrationProcessState,
     handleShowPassangerDetailsWindow,
-    handleResetState,
     ticketsPrice,
     cabinBagPrice,
     insurancePrice,
@@ -32,6 +31,7 @@ const PaymentPage: FC = () => {
     checkUserPolicy,
     handleChangeCheckUserPolicy,
     buttonText,
+    hanldeGoToTheFinishPage,
   } = usePaymentPage();
 
   return (
@@ -226,18 +226,11 @@ const PaymentPage: FC = () => {
           />
           <Button
             text={buttonText}
-            onClick={() => console.log(1)}
+            onClick={() => hanldeGoToTheFinishPage()}
             variant={payVariant == 'applePay' ? 'third' : 'primary'}
           />
         </div>
       </Box>
-      {/* <Box isVisible={mainState.step === mainState.stepsQuantity}>
-        <Button
-          text={'Done'}
-          onClick={() => handleReserState()}
-          variant={'primary'}
-        />
-      </Box> */}
       <PassangerDetails />
     </div>
   );

@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { resetMainState, stateMainSlice } from '../../app/mainSlice';
+import { goToTheFinishPage, stateMainSlice } from '../../app/mainSlice';
 import {
-  resetRegistrationProcessState,
   showPassangerDetailsWindow,
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
@@ -35,10 +34,8 @@ export const usePaymentPage = () => {
   const handleChangeCheckUserPolicy = () => {
     setCheckUserPolicy(!checkUserPolicy);
   };
-
-  const handleResetState = () => {
-    dispatch(resetMainState());
-    dispatch(resetRegistrationProcessState());
+  const hanldeGoToTheFinishPage = () => {
+    dispatch(goToTheFinishPage());
   };
 
   const ticketsPrice =
@@ -79,7 +76,6 @@ export const usePaymentPage = () => {
     mainState,
     registrationProcessState,
     handleShowPassangerDetailsWindow,
-    handleResetState,
     ticketsPrice,
     cabinBagPrice,
     insurancePrice,
@@ -95,5 +91,6 @@ export const usePaymentPage = () => {
     checkUserPolicy,
     handleChangeCheckUserPolicy,
     buttonText,
+    hanldeGoToTheFinishPage,
   };
 };
