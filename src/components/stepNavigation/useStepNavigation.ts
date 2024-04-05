@@ -28,12 +28,16 @@ export const useStepNavigation = () => {
     // }
     // if (
     //   mainState.step === 2 &&
-    //   registrationProcessState.selectedBaggages.length !== 2
+    //   (registrationProcessState.selectedCabinBag === null ||
+    //     registrationProcessState.selectedCheckedBag === null)
     // ) {
     //   toast.error('Pick baggages');
     //   return;
     // }
-    // if (mainState.step === 3 && !registrationProcessState.selectedInsurance) {
+    // if (
+    //   mainState.step === 3 &&
+    //   registrationProcessState.selectedInsurance === null
+    // ) {
     //   toast.error('Choose insurance');
     //   return;
     // }
