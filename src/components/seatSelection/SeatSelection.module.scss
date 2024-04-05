@@ -60,7 +60,7 @@
         @apply border-inherit bg-gray-200 p-3 text-sm text-gray-400;
       }
 
-      .seatOccupiedCurrentTravellerTwoInterio {
+      .seatOccupiedCurrentTravellerTwoInterior {
         @include defaultSeatStylesTwoInterior;
         @apply border-inherit bg-blue-800 p-3 text-sm text-white;
       }
