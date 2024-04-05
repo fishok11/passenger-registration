@@ -1,5 +1,9 @@
-@mixin defaultSeatStyles {
+@mixin defaultSeatStylesFirstInterior {
   @apply flex justify-center items-center w-10 h-8 border rounded-full;
+}
+
+@mixin defaultSeatStylesTwoInterior {
+  @apply flex justify-center items-center w-7 h-8 border rounded-full;
 }
 
 .container {
@@ -31,18 +35,33 @@
         @apply flex justify-center items-center text-xs h-8;
       }
 
-      .seat {
-        @include defaultSeatStyles;
+      .seatFirstInterior {
+        @include defaultSeatStylesFirstInterior;
         @apply border-blue-800 bg-gray-100 p-3;
       }
 
-      .seatOccupied {
-        @include defaultSeatStyles;
+      .seatOccupiedFirstInterior {
+        @include defaultSeatStylesFirstInterior;
         @apply border-inherit bg-gray-200 p-3 text-sm text-gray-400;
       }
 
-      .seatOccupiedCurrentTraveller {
-        @include defaultSeatStyles;
+      .seatOccupiedCurrentTravellerFirstInterior {
+        @include defaultSeatStylesFirstInterior;
+        @apply border-inherit bg-blue-800 p-3 text-sm text-white;
+      }
+
+      .seatTwoInterior {
+        @include defaultSeatStylesTwoInterior;
+        @apply border-blue-800 bg-gray-100 p-3;
+      }
+
+      .seatOccupiedTwoInterior {
+        @include defaultSeatStylesTwoInterior;
+        @apply border-inherit bg-gray-200 p-3 text-sm text-gray-400;
+      }
+
+      .seatOccupiedCurrentTravellerTwoInterio {
+        @include defaultSeatStylesTwoInterior;
         @apply border-inherit bg-blue-800 p-3 text-sm text-white;
       }
     }
@@ -51,7 +70,7 @@
       @apply flex flex-col gap-2 justify-center items-center w-10 h-full text-xs;
 
       .item {
-        @include defaultSeatStyles;
+        @include defaultSeatStylesFirstInterior;
         @apply border-hidden;
 
         .space {

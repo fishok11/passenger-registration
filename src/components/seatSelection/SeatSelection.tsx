@@ -50,13 +50,27 @@ const SeatSelection: FC = () => {
                   {interior.row.map((seat) => (
                     <React.Fragment key={seat.id}>
                       {checkOccupiedSeat(seat.id) && (
-                        <div className={styles.seatOccupiedCurrentTraveller}>
+                        <div
+                          className={
+                            mainState.interiorConfiguration.interior.length ===
+                            6
+                              ? styles.seatOccupiedCurrentTravellerFirstInterior
+                              : styles.seatOccupiedCurrentTravellerTwoInterior
+                          }
+                        >
                           <FontAwesomeIcon icon={faCheck} />
                         </div>
                       )}
                       {seat.travellerId !== null &&
                         !checkOccupiedSeat(seat.id) && (
-                          <div className={styles.seatOccupied}>
+                          <div
+                            className={
+                              mainState.interiorConfiguration.interior
+                                .length === 6
+                                ? styles.seatOccupiedFirstInterior
+                                : styles.seatOccupiedTwoInterior
+                            }
+                          >
                             <FontAwesomeIcon icon={faXmark} />
                           </div>
                         )}
@@ -69,27 +83,50 @@ const SeatSelection: FC = () => {
                               seat.id,
                             )
                           }
-                          className={styles.seat}
+                          className={
+                            mainState.interiorConfiguration.interior.length ===
+                            6
+                              ? styles.seatFirstInterior
+                              : styles.seatTwoInterior
+                          }
                         />
                       )}
                     </React.Fragment>
                   ))}
                 </div>
-                {indexInterior + 1 >= 3 && indexInterior + 1 < 4 && (
-                  <div className={styles.spaceContainer}>
-                    <div className={styles.item}>
-                      <div className={styles.space} />
-                    </div>
-                    {Array.from({
-                      length:
-                        mainState.interiorConfiguration.interior[0].row.length,
-                    }).map((_, index) => (
-                      <div key={index} className={styles.item}>
-                        {index + 1}
+                {mainState.interiorConfiguration.interior.length === 6
+                  ? indexInterior + 1 === 3 && (
+                      <div className={styles.spaceContainer}>
+                        <div className={styles.item}>
+                          <div className={styles.space} />
+                        </div>
+                        {Array.from({
+                          length:
+                            mainState.interiorConfiguration.interior[0].row
+                              .length,
+                        }).map((_, index) => (
+                          <div key={index} className={styles.item}>
+                            {index + 1}
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                )}
+                    )
+                  : (indexInterior + 1 === 2 || indexInterior + 1 === 5) && (
+                      <div className={styles.spaceContainer}>
+                        <div className={styles.item}>
+                          <div className={styles.space} />
+                        </div>
+                        {Array.from({
+                          length:
+                            mainState.interiorConfiguration.interior[0].row
+                              .length,
+                        }).map((_, index) => (
+                          <div key={index} className={styles.item}>
+                            {index + 1}
+                          </div>
+                        ))}
+                      </div>
+                    )}
               </React.Fragment>
             ),
           )}
