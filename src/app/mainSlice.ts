@@ -164,7 +164,7 @@ export const getInteriorConfiguration = createAsyncThunk<
       'http://localhost:3002/interiorConfigurations',
     );
 
-    return data[0];
+    return data[1];
   } catch (error) {
     return rejectWithValue('Server error!');
   }

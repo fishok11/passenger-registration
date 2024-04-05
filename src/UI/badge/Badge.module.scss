@@ -1,3 +1,7 @@
+@mixin mainBgBlue {
+  @apply bg-blue-800;
+}
+
 .baseContainer {
   @apply flex justify-center items-center bg-white border border-gray-300 rounded-full w-max h-max py-1 px-2 cursor-pointer;
 
@@ -5,11 +9,13 @@
     @apply flex justify-center items-center text-sm text-gray-400;
 
     .check {
-      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white bg-blue-800 mr-2;
+      @include mainBgBlue;
+      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white mr-2;
     }
 
     .space {
-      @apply w-1 h-1 rounded-full bg-blue-800 mx-2;
+      @include mainBgBlue;
+      @apply w-1 h-1 rounded-full mx-2;
     }
   }
 
@@ -17,27 +23,31 @@
     @apply flex justify-center items-center text-sm text-blue-800;
 
     .check {
-      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white bg-blue-800 mr-2;
+      @include mainBgBlue;
+      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white mr-2;
     }
 
     .space {
-      @apply w-1 h-1 rounded-full bg-blue-800 mx-2;
+      @include mainBgBlue;
+      @apply w-1 h-1 rounded-full mx-2;
     }
   }
 }
 
 .selectedContainer {
-  @apply flex justify-center items-center bg-violet-100 border border-blue-800 rounded-full w-max h-max py-1 px-2 cursor-pointer;
+  @apply flex justify-center items-center bg-blue-100 border border-blue-800 rounded-full w-max h-max py-1 px-2 cursor-pointer;
 
   .text {
     @apply flex justify-center items-center text-sm text-blue-800;
 
     .check {
-      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white bg-blue-800 mr-2;
+      @include mainBgBlue;
+      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white mr-2;
     }
 
     .space {
-      @apply w-1 h-1 rounded-full bg-blue-800 mx-2;
+      @include mainBgBlue;
+      @apply w-1 h-1 rounded-full mx-2;
     }
   }
 
@@ -45,11 +55,13 @@
     @apply flex justify-center items-center text-sm text-blue-800;
 
     .check {
-      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white bg-blue-800 mr-2;
+      @include mainBgBlue;
+      @apply flex justify-center items-center w-4 h-4 p-[4px] border rounded-full cursor-pointer text-xs text-white mr-2;
     }
 
     .space {
-      @apply w-1 h-1 rounded-full bg-blue-800 mx-2;
+      @include mainBgBlue;
+      @apply w-1 h-1 rounded-full mx-2;
     }
   }
 }

@@ -9,7 +9,7 @@
     }
 
     .input:checked {
-      @apply w-4 h-4 border-violet-500 bg-violet-500 focus:ring-[none] ring-offset-[none];
+      @apply w-4 h-4 border-blue-800 bg-blue-800 focus:ring-[none] ring-offset-[none];
     }
 
     .label {
@@ -27,5 +27,5 @@
 }
 
 .checkedContainer {
-  @apply baseContainer border-violet-500;
+  @apply baseContainer border-blue-800;
 }
