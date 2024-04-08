@@ -3,7 +3,6 @@ import styles from './StepNavigation.module.scss';
 import Button from '../../UI/button/Button';
 import { useStepNavigation } from './useStepNavigation';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
 const StepNavigation: FC = () => {
   const {
@@ -16,9 +15,10 @@ const StepNavigation: FC = () => {
     checkedBagPrice,
     insurancePrice,
     totalPrice,
+    t,
   } = useStepNavigation();
 
-  const { t } = useTranslation();
+
 
   return (
     <AnimatePresence>

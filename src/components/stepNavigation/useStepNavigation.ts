@@ -7,6 +7,7 @@ import {
 } from '../../app/mainSlice';
 import { stateRegistrationProcessSlice } from '../../app/registrationProcessSlice';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 export const useStepNavigation = () => {
   const mainState = useAppSelector(stateMainSlice);
@@ -14,6 +15,7 @@ export const useStepNavigation = () => {
     stateRegistrationProcessSlice,
   );
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const [isOpenInfo, setIsOpenInfo] = useState(false);
   const handleOpenInfo = () => {
     setIsOpenInfo(!isOpenInfo);
@@ -103,5 +105,6 @@ export const useStepNavigation = () => {
     checkedBagPrice,
     insurancePrice,
     totalPrice,
+    t,
   };
 };
