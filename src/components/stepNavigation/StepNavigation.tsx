@@ -18,8 +18,6 @@ const StepNavigation: FC = () => {
     t,
   } = useStepNavigation();
 
-
-
   return (
     <AnimatePresence>
       <motion.div
