@@ -1,0 +1,18 @@
+{
+  "header": {
+    "textStep1": "Choose traveller(s)",
+    "textStep2": "Pick your baggages",
+    "textStep3": "Travel insurance",
+    "textStep4": "Seat selector",
+    "textStep5": "Payment"
+  },
+  "stepsNavigation": {
+    "passengers": "Adult",
+    "baggage": "Baggage",
+    "fare": "Base fare",
+    "service": "Our service fee",
+    "otherFees": "Other fees and taxes",
+    "total": "Total due",
+    "button": "Continue"
+  }
+}

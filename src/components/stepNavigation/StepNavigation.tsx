@@ -3,6 +3,7 @@ import styles from './StepNavigation.module.scss';
 import Button from '../../UI/button/Button';
 import { useStepNavigation } from './useStepNavigation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const StepNavigation: FC = () => {
   const {
@@ -16,6 +17,8 @@ const StepNavigation: FC = () => {
     insurancePrice,
     totalPrice,
   } = useStepNavigation();
+
+  const { t } = useTranslation();
 
   return (
     <AnimatePresence>
@@ -52,42 +55,43 @@ const StepNavigation: FC = () => {
             >
               <motion.div className={styles.infoText}>
                 <motion.p>
-                  {registrationProcessState.selectedTravellers.length}x Adult
+                  {registrationProcessState.selectedTravellers.length}x{' '}
+                  {t('stepsNavigation.passengers')}
                 </motion.p>
                 <motion.p className={styles.price}>USD {ticketsPrice}</motion.p>
               </motion.div>
               <motion.div className={styles.infoText}>
-                <motion.p>Baggage</motion.p>
+                <motion.p>{t('stepsNavigation.baggage')}</motion.p>
                 <motion.p className={styles.price}>
                   USD {cabinBagPrice + checkedBagPrice}
                 </motion.p>
               </motion.div>
               <motion.div className={styles.line} />
               <motion.div className={styles.infoText}>
-                <motion.p>Base fare</motion.p>
+                <motion.p>{t('stepsNavigation.fare')}</motion.p>
                 <motion.p className={styles.price}>
                   USD {insurancePrice || 0}
                 </motion.p>
               </motion.div>
               <motion.div className={styles.infoText}>
-                <motion.p>Our service fee</motion.p>
+                <motion.p>{t('stepsNavigation.service')}</motion.p>
                 <motion.p className={styles.price}>USD 0</motion.p>
               </motion.div>
               <motion.div className={styles.infoText}>
-                <motion.p>Other fees and taxes</motion.p>
+                <motion.p>{t('stepsNavigation.otherFees')}</motion.p>
                 <motion.p className={styles.price}>USD 0</motion.p>
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
         <div className={styles.textContainer}>
-          <p>Total due</p>
+          <p>{t('stepsNavigation.total')}</p>
           <p>
             <b>USD {totalPrice}</b>
           </p>
         </div>
         <Button
-          text={'Continue'}
+          text={t('stepsNavigation.button')}
           onClick={() => handleNextStep()}
           variant={'primary'}
         />
