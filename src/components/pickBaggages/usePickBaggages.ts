@@ -11,6 +11,7 @@ import {
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
 import { BaggageVariant } from '../../app/types';
+import { useTranslation } from 'react-i18next';
 
 export const usePickBaggages = () => {
   const mainState = useAppSelector(stateMainSlice);
@@ -18,6 +19,7 @@ export const usePickBaggages = () => {
     stateRegistrationProcessSlice,
   );
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const handleSelectCabinBag = (cabinBag: BaggageVariant) => {
     dispatch(selectCabinBag(cabinBag));
   };
@@ -33,6 +35,7 @@ export const usePickBaggages = () => {
   return {
     mainState,
     registrationProcessState,
+    t,
     handleSelectCabinBag,
     handleSelectCheckedBag,
   };

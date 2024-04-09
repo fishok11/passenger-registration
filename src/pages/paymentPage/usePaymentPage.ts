@@ -6,6 +6,7 @@ import {
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
 import toast from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 
 export const usePaymentPage = () => {
   const dispatch = useAppDispatch();
@@ -13,6 +14,7 @@ export const usePaymentPage = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
+  const { t } = useTranslation();
   const [buttonText, setButtonText] = useState('');
   const [payVariant, setPayVariant] = useState('card');
   const [isOpenPromoInput, setIsOpenPromoInput] = useState(false);
@@ -80,6 +82,7 @@ export const usePaymentPage = () => {
   return {
     mainState,
     registrationProcessState,
+    t,
     handleShowPassangerDetailsWindow,
     ticketsPrice,
     cabinBagPrice,

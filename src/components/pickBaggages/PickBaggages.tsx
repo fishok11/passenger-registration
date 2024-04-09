@@ -10,6 +10,7 @@ const PickBaggages = () => {
     registrationProcessState,
     handleSelectCabinBag,
     handleSelectCheckedBag,
+    t,
   } = usePickBaggages();
 
   return (
@@ -17,9 +18,11 @@ const PickBaggages = () => {
       <div className={styles.container}>
         <form className={styles.element}>
           <div>
-            <h3 className={styles.sectionTitle}>Cabin bag</h3>
+            <h3 className={styles.sectionTitle}>
+              {t('pickBaggages.cabinBag.title')}
+            </h3>
             <p className={styles.sectionDescription}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              {t('pickBaggages.cabinBag.description')}
             </p>
           </div>
           {mainState.cabinBaggageVariants.map((variant) => (
@@ -49,9 +52,11 @@ const PickBaggages = () => {
         </form>
         <form className={styles.element}>
           <div>
-            <h3 className={styles.sectionTitle}>Checked baggages</h3>
+            <h3 className={styles.sectionTitle}>
+              {t('pickBaggages.checkedBag.title')}
+            </h3>
             <p className={styles.sectionDescription}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              {t('pickBaggages.checkedBag.description')}
             </p>
           </div>
           {mainState.checkedBaggageVariants.map((variant) => (

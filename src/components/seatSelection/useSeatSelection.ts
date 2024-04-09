@@ -9,6 +9,7 @@ import {
   selectTravellerIdForSeat,
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
+import { useTranslation } from 'react-i18next';
 
 export const useSeatSelection = () => {
   const mainState = useAppSelector(stateMainSlice);
@@ -16,6 +17,7 @@ export const useSeatSelection = () => {
     stateRegistrationProcessSlice,
   );
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const handleSelectTravellerIdForseat = (travellerdId: string) => {
     dispatch(selectTravellerIdForSeat(travellerdId));
   };
@@ -48,6 +50,7 @@ export const useSeatSelection = () => {
   return {
     mainState,
     registrationProcessState,
+    t,
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
     checkOccupiedSeat,

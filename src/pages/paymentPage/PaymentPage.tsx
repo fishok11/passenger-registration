@@ -15,6 +15,7 @@ const PaymentPage: FC = () => {
   const {
     mainState,
     registrationProcessState,
+    t,
     handleShowPassangerDetailsWindow,
     ticketsPrice,
     cabinBagPrice,
@@ -38,30 +39,33 @@ const PaymentPage: FC = () => {
     <div className={styles.wrapper}>
       <Box isVisible={mainState.step === mainState.stepsQuantity}>
         <div className={styles.container}>
-          <p className={styles.descriptionText}>
-            Please secure your booking within
-          </p>
+          <p className={styles.descriptionText}>{t('payment.description')}</p>
           <div className={styles.promoContainer}>
             <button
               className={styles.promoButton}
               onClick={() => handleShowPassangerDetailsWindow()}
             >
-              <span className={styles.promoText}>Passanger details</span>
+              <span className={styles.promoText}>
+                {t('payment.passengerDetailsButtonText')}
+              </span>
               <FontAwesomeIcon icon={faAngleRight} />
             </button>
           </div>
           <div className={styles.contactDetails}>
-            <h3 className={styles.title}>Contact details</h3>
+            <h3 className={styles.title}>
+              {t('payment.contactDetails.title')}
+            </h3>
             <p className={styles.text}>
-              This information will be used to message you about any changes or
-              update
+              {t('payment.contactDetails.description')}
             </p>
             <div className={styles.contactDetailFields}>
               <div>
                 <Input
                   id={'email'}
                   type={'text'}
-                  placeholder={'Email'}
+                  placeholder={t(
+                    'payment.contactDetails.inputs.inputEmailPlaceholder',
+                  )}
                   // value={}
                   // onChange={}
                 />
@@ -71,7 +75,9 @@ const PaymentPage: FC = () => {
                   <Input
                     id={'code'}
                     type={'text'}
-                    placeholder={'Code'}
+                    placeholder={t(
+                      'payment.contactDetails.inputs.inputCodePlaceholder',
+                    )}
                     // value={}
                     // onChange={}
                   />
@@ -80,7 +86,9 @@ const PaymentPage: FC = () => {
                   <Input
                     id={'phoneNumber'}
                     type={'text'}
-                    placeholder={'Phone number'}
+                    placeholder={t(
+                      'payment.contactDetails.inputs.inputEmailPlainputPhonePlaceholderceholder',
+                    )}
                     // value={}
                     // onChange={}
                   />
@@ -93,7 +101,9 @@ const PaymentPage: FC = () => {
               className={styles.promoButton}
               onClick={() => handleOpenPromoInput()}
             >
-              <span className={styles.promoText}>Promo code</span>
+              <span className={styles.promoText}>
+                {t('payment.promoCode.promoCodeButtonText')}
+              </span>
               <FontAwesomeIcon icon={faAngleRight} />
             </button>
             {isOpenPromoInput && (
@@ -101,7 +111,7 @@ const PaymentPage: FC = () => {
                 <Input
                   id={'promo'}
                   type={'text'}
-                  placeholder={'Promo code'}
+                  placeholder={t('payment.promoCode.promoCodeInputPlaceholder')}
                   value={promoCode}
                   onChange={(e) => handleSetPromoCode(e.target.value)}
                   // error={errorName}
@@ -116,24 +126,27 @@ const PaymentPage: FC = () => {
           </div>
           <div className={styles.infoContainer}>
             <div className={styles.infoText}>
-              <p>{registrationProcessState.selectedTravellers.length}x Adult</p>
+              <p>
+                {registrationProcessState.selectedTravellers.length}x{' '}
+                {t('payment.info.passengers')}
+              </p>
               <p>USD {ticketsPrice}</p>
             </div>
             <div className={styles.infoText}>
-              <p>Baggage</p>
+              <p>{t('payment.info.baggage')}</p>
               <p>USD {cabinBagPrice}</p>
             </div>
             <div className={styles.line} />
             <div className={styles.infoText}>
-              <p>Base fare</p>
+              <p>{t('payment.info.fare')}</p>
               <p>USD {insurancePrice || 0}</p>
             </div>
             <div className={styles.infoText}>
-              <p>Our service fee</p>
+              <p>{t('payment.info.service')}</p>
               <p>USD 0</p>
             </div>
             <div className={styles.infoText}>
-              <p>Other fees and taxes</p>
+              <p>{t('payment.info.otherFees')}</p>
               <p>USD 0</p>
             </div>
             <div className={styles.line} />
@@ -149,7 +162,7 @@ const PaymentPage: FC = () => {
               </>
             )}
             <div className={styles.totalPriceText}>
-              <b>Total price</b>
+              <b>{t('payment.info.total')}</b>
               <p>
                 USD{' '}
                 {promoCode === promoCodeName
@@ -170,7 +183,7 @@ const PaymentPage: FC = () => {
                   onChange={(e) => handleSelectPayVariant(e.target.value)}
                 />
                 <label htmlFor={'applePay'} className={styles.label}>
-                  Apple pay
+                  {t('payment.payVariants.apple')}
                 </label>
               </div>
               <FontAwesomeIcon
@@ -189,7 +202,7 @@ const PaymentPage: FC = () => {
                   onChange={(e) => handleSelectPayVariant(e.target.value)}
                 />
                 <label htmlFor={'paypal'} className={styles.label}>
-                  Paypal
+                  {t('payment.payVariants.paypal')}
                 </label>
               </div>
               <FontAwesomeIcon
@@ -209,7 +222,7 @@ const PaymentPage: FC = () => {
                   checked={payVariant === 'card'}
                 />
                 <label htmlFor={'card'} className={styles.label}>
-                  Credit / Debit card
+                  {t('payment.payVariants.card')}
                 </label>
               </div>
               <FontAwesomeIcon icon={faCreditCard} className={styles.card} />
@@ -217,10 +230,8 @@ const PaymentPage: FC = () => {
           </form>
           <CheckBoxCard
             id={'userPolicy'}
-            label={'User policy'}
-            text={
-              'I have read and accept the Terms & Conditions and Privacy Policy, as well as the conditions of the carriers in my booking, and i acknowledge I cant withdraw from this service agreement due to its immediate performance.'
-            }
+            label={t('payment.userPolicy.title')}
+            text={t('payment.userPolicy.description')}
             onChange={() => handleChangeCheckUserPolicy()}
             checked={checkUserPolicy}
           />

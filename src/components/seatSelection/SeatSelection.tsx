@@ -11,6 +11,7 @@ const SeatSelection: FC = () => {
   const {
     mainState,
     registrationProcessState,
+    t,
     handleSelectTravellerIdForseat,
     handleSelectSeatTraveller,
     checkOccupiedSeat,
@@ -20,10 +21,8 @@ const SeatSelection: FC = () => {
     <Box isVisible={mainState.step === 4}>
       <div className={styles.container}>
         <div className={styles.textContainer}>
-          <h2 className={styles.title}>Passangers</h2>
-          <p className={styles.text}>
-            Pick your seat selection for each passanger
-          </p>
+          <h2 className={styles.title}>{t('seatSelection.title')}</h2>
+          <p className={styles.text}>{t('seatSelection.description')}</p>
         </div>
         <div className={styles.passangersContainer}>
           {registrationProcessState.selectedTravellers.map((traveller) => (

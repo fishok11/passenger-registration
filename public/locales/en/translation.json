@@ -62,5 +62,53 @@
       "checkBoxLabel": "Document has expire date"
     },
     "confirmButton": "Confirm traveller"
+  },
+  "pickBaggages": {
+    "cabinBag": {
+      "title": "Cabin bag",
+      "description": "Choose the baggage items you would like to take into the cabin with you and as a checked bag"
+    },
+    "checkedBag": {
+      "title": "Checked baggages",
+      "description": "Save by adding checked baggage now and take everything you need for the trip"
+    }
+  },
+  "seatSelection": {
+    "title": "Passengers",
+    "description": "Pick your seat selection for each passenger"
+  },
+  "payment": {
+    "description": "Please secure your booking within",
+    "passengerDetailsButtonText": "Passenger details",
+    "contactDetails": {
+      "title": "Contact details",
+      "description": "This information will be used to message you about any changes or update",
+      "inputs": {
+        "inputEmailPlaceholder": "Email",
+        "inputCodePlaceholder": "Code",
+        "inputPhonePlaceholder": "Phone number"
+      }
+    },
+    "promoCode": {
+      "promoCodeButtonText": "Promo code",
+      "promoCodeInputPlaceholder": "Promo code"
+    },
+    "info": {
+      "passengers": "Adult",
+      "baggage": "Baggage",
+      "fare": "Base fare",
+      "service": "Our service fee",
+      "otherFees": "Other fees and taxes",
+      "total": "Total price"
+    },
+    "payVariants": {
+      "apple": "Apple pay",
+      "paypal": "Paypal",
+      "card": "Credit / Debit card"
+    },
+    "userPolicy": {
+      "title": "User policy",
+      "description": "I have read and accept the Terms & Conditions and Privacy Policy, as well as the conditions of the carriers in my booking, and i acknowledge I cant withdraw from this service agreement due to its immediate performance."
+    }
   }
 }
