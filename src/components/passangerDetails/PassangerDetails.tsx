@@ -8,6 +8,7 @@ const PassangerDetails: FC = () => {
   const {
     mainState,
     registrationProcessState,
+    t,
     hanldeHidePassangerDetailsWindow,
   } = usePassangerDetails();
 
@@ -24,29 +25,33 @@ const PassangerDetails: FC = () => {
               {traveller.name + ' ' + traveller.surname}
             </h2>
             <div className={styles.travellerCardItem}>
-              <p>PersonalID</p>
+              <p>{t('passengerDetails.personalID.title')}</p>
               <p className={styles.highlightedText}>
-                {traveller.passport ? traveller.passport : 'Miss'}
+                {traveller.passport
+                  ? traveller.passport
+                  : t('passengerDetails.personalID.miss')}
               </p>
             </div>
             <div className={styles.travellerCardItem}>
-              <p>Class</p>
-              <p className={styles.highlightedText}>Economy</p>
+              <p>{t('passengerDetails.class.title')}</p>
+              <p className={styles.highlightedText}>
+                {t('passengerDetails.class.text')}
+              </p>
             </div>
             <div className={styles.travellerCardItem}>
-              <p>Cbin bag</p>
+              <p>{t('passengerDetails.cabinBag')}</p>
               <p className={styles.highlightedText}>
                 {registrationProcessState.selectedCabinBag?.title}
               </p>
             </div>
             <div className={styles.travellerCardItem}>
-              <p>Checked bag</p>
+              <p>{t('passengerDetails.checkedBag')}</p>
               <p className={styles.highlightedText}>
                 {registrationProcessState.selectedCheckedBag?.title}
               </p>
             </div>
             <div className={styles.travellerCardItem}>
-              <p>Seat selection</p>
+              <p>{t('passengerDetails.seatSelection')}</p>
               <p className={styles.highlightedText}>
                 {findingSeatTraveller(
                   mainState.interiorConfiguration.interior,

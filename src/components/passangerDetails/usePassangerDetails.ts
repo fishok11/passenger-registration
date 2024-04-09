@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { stateMainSlice } from '../../app/mainSlice';
 import {
@@ -11,6 +12,7 @@ export const usePassangerDetails = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
+  const { t } = useTranslation();
   const hanldeHidePassangerDetailsWindow = () => {
     dispatch(hidePassangerDetailsWindow());
   };
@@ -18,6 +20,7 @@ export const usePassangerDetails = () => {
   return {
     mainState,
     registrationProcessState,
+    t,
     hanldeHidePassangerDetailsWindow,
   };
 };

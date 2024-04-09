@@ -110,5 +110,18 @@
       "title": "User policy",
       "description": "I have read and accept the Terms & Conditions and Privacy Policy, as well as the conditions of the carriers in my booking, and i acknowledge I cant withdraw from this service agreement due to its immediate performance."
     }
+  },
+  "passengerDetails": {
+    "personalID": {
+      "title": "Personal ID",
+      "miss": "Miss"
+    },
+    "class": {
+      "title": "Class",
+      "text": "Economy"
+    },
+    "cabinBag": "Cabin bag",
+    "checkedBag": "Checked bag",
+    "seatSelection": "Seat selection"
   }
 }
