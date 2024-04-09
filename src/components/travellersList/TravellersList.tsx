@@ -11,6 +11,7 @@ const TravellersList: FC = () => {
     registrationProcessState,
     handleOpenAddTravellersWindow,
     handleSelectTraveller,
+    t,
   } = useTravellersList();
 
   return (
@@ -30,7 +31,7 @@ const TravellersList: FC = () => {
           />
         ))}
         <Button
-          text={'+ Create traveller'}
+          text={`+ ${t('travellersList.buttonText')}`}
           onClick={() => handleOpenAddTravellersWindow()}
           variant={'secondary'}
         />

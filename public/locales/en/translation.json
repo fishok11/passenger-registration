@@ -14,5 +14,53 @@
     "otherFees": "Other fees and taxes",
     "total": "Total due",
     "button": "Continue"
+  },
+  "stepper": {
+    "textStep1": "Provide the person who will travel for this flight",
+    "textStep2": "Choose the baggage items you would like to take into the cabin with you and as a checked bag",
+    "textStep3": "Protect yourself on travel by ABC Assistance",
+    "textStep4": "Peeck your seat before flight and pay less"
+  },
+  "travellersList": {
+    "buttonText": "Create traveller"
+  },
+  "travellerCard": {
+    "passportIDText": "Passport ID:",
+    "passportIDMissText": "Missing information",
+    "editButonText": "Edit"
+  },
+  "createTravellers": {
+    "title": "Add traveller",
+    "travellerInformation": {
+      "title": "Traveller information",
+      "nameInput": {
+        "placeholder": "Given name(s)",
+        "helperText": "As in passport/ID"
+      },
+      "surnanameInput": {
+        "placeholder": "Given surname(s)",
+        "helperText": "As in passport/ID"
+      }
+    },
+    "gender": {
+      "title": "Gender",
+      "radio": {
+        "male": "Male",
+        "female": "Female"
+      }
+    },
+    "nationality": {
+      "title": "Nationality",
+      "countryInput": "Select country"
+    },
+    "documentInformation": {
+      "title": "Document information",
+      "passportInput": {
+        "placeholder": "Passport or ID number",
+        "helperText": "Reqired field"
+      },
+      "checkBoxLabel": "Document has expire date"
+    },
+    "confirmButton": "Confirm traveller"
   }
 }

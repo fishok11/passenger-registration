@@ -21,7 +21,7 @@ const TravellerCard: FC<TravellerCardProps> = ({
   onChange,
   checked,
 }) => {
-  const { handleEditTraveller } = useTravellerCard();
+  const { handleEditTraveller, t } = useTravellerCard();
 
   return (
     <div
@@ -48,7 +48,9 @@ const TravellerCard: FC<TravellerCardProps> = ({
             {name + ' ' + surname}
           </label>
           <p className={passport ? styles.textPassport : styles.textWarning}>
-            {passport ? 'Passport ID:' + ' ' + passport : 'Missing information'}
+            {passport
+              ? t('travellerCard.passportIDText') + ' ' + passport
+              : t('travellerCard.passportIDMissText')}
           </p>
         </div>
       </div>
@@ -56,7 +58,7 @@ const TravellerCard: FC<TravellerCardProps> = ({
         className={styles.editButton}
         onClick={() => handleEditTraveller(id)}
       >
-        <FontAwesomeIcon icon={faPen} /> Edit
+        <FontAwesomeIcon icon={faPen} /> {t('travellerCard.editButonText')}
       </button>
     </div>
   );

@@ -1,9 +1,9 @@
 {
   "header": {
-    "textStep1": "Выбирите путешественников",
-    "textStep2": "Выбирите свой багаж",
+    "textStep1": "Выберите путешественников",
+    "textStep2": "Выберите свой багаж",
     "textStep3": "Страховка путешественников",
-    "textStep4": "Выбирите мста",
+    "textStep4": "Выберите мста",
     "textStep5": "Оплата"
   },
   "stepsNavigation": {
@@ -14,5 +14,53 @@
     "otherFees": "Прочие сборы и налоги",
     "total": "Итого",
     "button": "Далее"
+  },
+  "stepper": {
+    "textStep1": "Выберите имена людей, которые будут лететь этим рейсом",
+    "textStep2": "Выберите предметы багажа, которые вы хотели бы взять с собой в салон самолета и в качестве зарегистрированной сумки",
+    "textStep3": "Защитите себя в путешествии с помощью ABC Assistance",
+    "textStep4": "Выберите места перед полетом и заплатите меньше"
+  },
+  "travellersList": {
+    "buttonText": "Создать путешественника"
+  },
+  "travellerCard": {
+    "passportIDText": "Паспорт:",
+    "passportIDMissText": "Нет информации",
+    "editButonText": "Редактировать"
+  },
+  "createTravellers": {
+    "title": "Добавить путешественника",
+    "travellerInformation": {
+      "title": "Информация о путешественнике",
+      "nameInput": {
+        "placeholder": "Имя",
+        "helperText": "Как в паспорте"
+      },
+      "surnanameInput": {
+        "placeholder": "Фамилия",
+        "helperText": "Как в паспорте"
+      }
+    },
+    "gender": {
+      "title": "Пол",
+      "radio": {
+        "male": "Мужской",
+        "female": "Женский"
+      }
+    },
+    "nationality": {
+      "title": "Национальность",
+      "countryInput": "Выберите страну"
+    },
+    "documentInformation": {
+      "title": "Информация о документе",
+      "passportInput": {
+        "placeholder": "Паспорт",
+        "helperText": "Обязательное поле"
+      },
+      "checkBoxLabel": "У документа есть срок годности"
+    },
+    "confirmButton": "Подтвердите путешественника"
   }
 }

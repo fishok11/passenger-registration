@@ -11,6 +11,7 @@ import {
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
 import { Traveller } from '../../app/types';
+import { useTranslation } from 'react-i18next';
 
 export const useTravellersList = () => {
   const dispatch = useAppDispatch();
@@ -18,6 +19,7 @@ export const useTravellersList = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
+  const { t } = useTranslation();
   const handleOpenAddTravellersWindow = () => {
     dispatch(openAddTravellerWindow());
   };
@@ -38,5 +40,6 @@ export const useTravellersList = () => {
     registrationProcessState,
     handleOpenAddTravellersWindow,
     handleSelectTraveller,
+    t,
   };
 };

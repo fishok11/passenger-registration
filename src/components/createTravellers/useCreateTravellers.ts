@@ -6,10 +6,12 @@ import {
   hideAddTravellerWindow,
   stateMainSlice,
 } from '../../app/mainSlice';
+import { useTranslation } from 'react-i18next';
 
 export const useCreateTravellers = () => {
   const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [errorName, setErrorName] = useState(false);
@@ -78,6 +80,7 @@ export const useCreateTravellers = () => {
 
   return {
     mainState,
+    t,
     name,
     setName,
     surname,

@@ -3,30 +3,21 @@ import { useStepper } from './useStepper';
 import styles from './Stepper.module.scss';
 
 const Stepper: FC = () => {
-  const { mainState } = useStepper();
+  const { mainState, t } = useStepper();
 
   return (
     <div className={styles.container}>
       {mainState.step === 1 && (
-        <p className={styles.text}>
-          Provide the person who will travel for this flight
-        </p>
+        <p className={styles.text}>{t('stepper.textStep1')}</p>
       )}
       {mainState.step === 2 && (
-        <p className={styles.text}>
-          Choose the baggage items you would like to take into the cabin with
-          you and as a checked bag
-        </p>
+        <p className={styles.text}>{t('stepper.textStep2')}</p>
       )}
       {mainState.step === 3 && (
-        <p className={styles.text}>
-          Protect yourself on travel by ABC Assistance
-        </p>
+        <p className={styles.text}>{t('stepper.textStep3')}</p>
       )}
       {mainState.step === 4 && (
-        <p className={styles.text}>
-          Peeck your seat before flight and pay less
-        </p>
+        <p className={styles.text}>{t('stepper.textStep4')}</p>
       )}
       <div className={styles.stepper}>
         {Array.from({ length: mainState.stepsQuantity }).map((_, index) => (
