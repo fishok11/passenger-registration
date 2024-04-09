@@ -87,7 +87,7 @@ const PaymentPage: FC = () => {
                     id={'phoneNumber'}
                     type={'text'}
                     placeholder={t(
-                      'payment.contactDetails.inputs.inputEmailPlainputPhonePlaceholderceholder',
+                      'payment.contactDetails.inputs.inputPhonePlaceholder',
                     )}
                     // value={}
                     // onChange={}

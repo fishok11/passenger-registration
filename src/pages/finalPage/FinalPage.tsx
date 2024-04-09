@@ -8,7 +8,7 @@ import { faPlane } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
 const FinalPage: FC = () => {
-  const { mainState, handleResetState } = useFinalPage();
+  const { mainState, t, handleResetState } = useFinalPage();
 
   return (
     <div className={styles.wrapper}>
@@ -27,9 +27,9 @@ const FinalPage: FC = () => {
           >
             <FontAwesomeIcon icon={faPlane} />
           </motion.div>
-          <h1 className={styles.title}>Payment Completed</h1>
+          <h1 className={styles.title}>{t('finalPage.text')}</h1>
           <Button
-            text={'Done'}
+            text={t('finalPage.buttonText')}
             onClick={() => handleResetState()}
             variant={'primary'}
           />

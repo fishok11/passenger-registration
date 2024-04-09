@@ -123,5 +123,9 @@
     "cabinBag": "Cabin bag",
     "checkedBag": "Checked bag",
     "seatSelection": "Seat selection"
+  },
+  "finalPage": {
+    "text": "Payment Completed",
+    "buttonText": "Done"
   }
 }
