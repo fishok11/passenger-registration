@@ -6,19 +6,17 @@ import { useState } from 'react';
 export const useHeader = () => {
   const mainState = useAppSelector(stateMainSlice);
   const dispatch = useAppDispatch();
-  const [lang, setLang] = useState('ru');
   const { t, i18n } = useTranslation();
   const handlePrevStep = () => {
     dispatch(prevStep());
   };
   const handleTranslate = () => {
-    i18n.changeLanguage(lang);
-    if (lang === 'ru') {
-      setLang('en');
+    if (i18n.language === 'ru') {
+      i18n.changeLanguage('en');
       return;
     }
-    if (lang === 'en') {
-      setLang('ru');
+    if (i18n.language === 'en') {
+      i18n.changeLanguage('ru');
       return;
     }
   };
@@ -28,5 +26,6 @@ export const useHeader = () => {
     handlePrevStep,
     t,
     handleTranslate,
+    i18n,
   };
 };

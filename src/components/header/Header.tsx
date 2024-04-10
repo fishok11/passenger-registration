@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Header: FC = () => {
-  const { mainState, handlePrevStep, t, handleTranslate } = useHeader();
+  const { mainState, handlePrevStep, t, i18n, handleTranslate } = useHeader();
 
   return (
     <header className={styles.header}>
@@ -19,7 +19,7 @@ const Header: FC = () => {
         {mainState.step === 4 && t('header.textStep4')}
         {mainState.step === 5 && t('header.textStep5')}
       </h2>
-      <button onClick={() => handleTranslate()}>translate</button>
+      <button className={styles.translateButton} onClick={() => handleTranslate()}>{i18n.language}</button>
     </header>
   );
 };
