@@ -29,14 +29,17 @@
 }
 
 
-.app::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 4px;
+  height: 4px;
 }
 
-.app::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: rgba(254, 254, 255, 0);
 }
 
-.app::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: rgba(129, 123, 123, 0.349);
+  width: 4px;
+  height: 4px;
 }

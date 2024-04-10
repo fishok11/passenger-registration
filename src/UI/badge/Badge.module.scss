@@ -3,7 +3,7 @@
 }
 
 .baseContainer {
-  @apply flex justify-center items-center bg-white border border-gray-300 rounded-full w-max h-max py-1 px-2 cursor-pointer;
+  @apply flex justify-center items-center bg-white border border-gray-300 rounded-full w-max h-max py-1 px-2 cursor-pointer text-nowrap;
 
   .text {
     @apply flex justify-center items-center text-sm text-gray-400;
@@ -35,7 +35,7 @@
 }
 
 .selectedContainer {
-  @apply flex justify-center items-center bg-blue-100 border border-blue-800 rounded-full w-max h-max py-1 px-2 cursor-pointer;
+  @apply flex justify-center items-center bg-blue-100 border border-blue-800 rounded-full w-max h-max py-1 px-2 cursor-pointer text-nowrap;
 
   .text {
     @apply flex justify-center items-center text-sm text-blue-800;

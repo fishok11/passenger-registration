@@ -22,7 +22,7 @@
   }
 
   .passangersContainer {
-    @apply w-max flex gap-2;
+    @apply w-full flex gap-2 overflow-x-auto py-1;
   }
 
   .seatsContainer {
