@@ -58,7 +58,7 @@ const PassangerDetails: FC = () => {
                 {/* {registrationProcessState.selectedCheckedBag?.title} */}
                 {registrationProcessState.selectedCheckedBag !== null
                   ? findBagVariantTitle(
-                      mainState.cabinBaggageVariants[i18n.language],
+                      mainState.checkedBaggageVariants[i18n.language],
                       registrationProcessState.selectedCheckedBag,
                     )
                   : ''}
