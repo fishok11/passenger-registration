@@ -3,6 +3,7 @@ import styles from './PickBaggages.module.scss';
 import RadioCard from '../../UI/radioCard/RadioCard';
 import { usePickBaggages } from './usePickBaggages';
 import Box from '../../UI/box/Box';
+import { BaggageVariant } from '../../app/types';
 
 const PickBaggages = () => {
   const {
@@ -11,7 +12,14 @@ const PickBaggages = () => {
     handleSelectCabinBag,
     handleSelectCheckedBag,
     t,
+    i18n,
   } = usePickBaggages();
+
+  const cabinBags: BaggageVariant[] =
+    mainState.cabinBaggageVariants[i18n.language];
+
+  const checkedBags: BaggageVariant[] =
+    mainState.checkedBaggageVariants[i18n.language];
 
   return (
     <Box isVisible={mainState.step === 2}>
@@ -25,7 +33,7 @@ const PickBaggages = () => {
               {t('pickBaggages.cabinBag.description')}
             </p>
           </div>
-          {mainState.cabinBaggageVariants.map((variant) => (
+          {cabinBags.map((variant) => (
             <RadioCard
               key={variant.id}
               id={variant.id}
@@ -59,7 +67,7 @@ const PickBaggages = () => {
               {t('pickBaggages.checkedBag.description')}
             </p>
           </div>
-          {mainState.checkedBaggageVariants.map((variant) => (
+          {checkedBags.map((variant) => (
             <RadioCard
               key={variant.id}
               id={variant.id}

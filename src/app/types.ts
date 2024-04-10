@@ -10,12 +10,6 @@ export type Traveller = {
 
 export type AddTraveller = Omit<Traveller, 'id'>;
 
-export type BaggageCategory = {
-  id: string;
-  title: string;
-  description: string;
-};
-
 export type BaggageVariant = {
   id: string;
   title: string;
@@ -24,11 +18,19 @@ export type BaggageVariant = {
   price: number | null;
 };
 
+export type DataBaggageVariants = {
+  [key: string]: BaggageVariant[];
+};
+
 export type Insurance = {
   id: string;
   title: string;
   description: string[] | null;
   price: number | null;
+};
+
+export type DataInsurances = {
+  [key: string]: Insurance[];
 };
 
 export type InteriorConfiguration = {

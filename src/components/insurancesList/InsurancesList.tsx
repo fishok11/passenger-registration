@@ -3,15 +3,18 @@ import styles from './InsurancesList.module.scss';
 import { useInsurancesList } from './useInsurancesList';
 import RadioCard from '../../UI/radioCard/RadioCard';
 import Box from '../../UI/box/Box';
+import { Insurance } from '../../app/types';
 
 const InsurancesList: FC = () => {
-  const { mainState, registrationProcessState, handleSelectInsurance } =
+  const { mainState, registrationProcessState, handleSelectInsurance, i18n } =
     useInsurancesList();
+
+  const insurances: Insurance[] = mainState.insurances[i18n.language];
 
   return (
     <Box isVisible={mainState.step === 3}>
       <form className={styles.container}>
-        {mainState.insurances.map((insurance) => (
+        {insurances.map((insurance) => (
           <RadioCard
             key={insurance.id}
             id={insurance.id}

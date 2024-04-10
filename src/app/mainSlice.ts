@@ -3,8 +3,8 @@ import { RootState } from './store';
 import axios from 'axios';
 import {
   AddTraveller,
-  BaggageVariant,
-  Insurance,
+  DataBaggageVariants,
+  DataInsurances,
   InteriorConfiguration,
   Traveller,
 } from './types';
@@ -16,9 +16,9 @@ type InitialState = {
   travellerId: string;
   traveller: Traveller;
   travellers: Traveller[];
-  cabinBaggageVariants: BaggageVariant[];
-  checkedBaggageVariants: BaggageVariant[];
-  insurances: Insurance[];
+  cabinBaggageVariants: DataBaggageVariants;
+  checkedBaggageVariants: DataBaggageVariants;
+  insurances: DataInsurances;
   interiorConfiguration: InteriorConfiguration;
   visibilityAddTravellerWindow: boolean;
   movingForwardInSteps: boolean;
@@ -39,9 +39,9 @@ const initialState: InitialState = {
     passport: '',
   },
   travellers: [],
-  cabinBaggageVariants: [],
-  checkedBaggageVariants: [],
-  insurances: [],
+  cabinBaggageVariants: { en: [], ru: [] },
+  checkedBaggageVariants: { en: [], ru: [] },
+  insurances: { en: [], ru: [] },
   interiorConfiguration: { id: '', interior: [] },
   visibilityAddTravellerWindow: false,
   movingForwardInSteps: true,
@@ -109,7 +109,7 @@ export const getTravellers = createAsyncThunk<
 });
 
 export const getCabinBaggageVariants = createAsyncThunk<
-  BaggageVariant[],
+  DataBaggageVariants,
   undefined,
   { rejectValue: string }
 >('getCabinBaggageVariants', async (_, { rejectWithValue }) => {
@@ -125,13 +125,13 @@ export const getCabinBaggageVariants = createAsyncThunk<
 });
 
 export const getCheckedBaggageVariants = createAsyncThunk<
-  BaggageVariant[],
+  DataBaggageVariants,
   undefined,
   { rejectValue: string }
 >('getCheckedBaggageVariants', async (_, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      'http://localhost:3002/checkedBaggageVariants',
+      `http://localhost:3002/checkedBaggageVariants`,
     );
 
     return data;
@@ -141,7 +141,7 @@ export const getCheckedBaggageVariants = createAsyncThunk<
 });
 
 export const getInsurances = createAsyncThunk<
-  Insurance[],
+  DataInsurances,
   undefined,
   { rejectValue: string }
 >('getInsurances', async (_, { rejectWithValue }) => {
@@ -285,7 +285,7 @@ export const mainSlice = createSlice({
       })
       .addCase(
         getCabinBaggageVariants.fulfilled,
-        (state, action: PayloadAction<BaggageVariant[]>) => {
+        (state, action: PayloadAction<DataBaggageVariants>) => {
           state.cabinBaggageVariants = action.payload;
           state.isLoading = false;
         },
@@ -295,7 +295,7 @@ export const mainSlice = createSlice({
       })
       .addCase(
         getCheckedBaggageVariants.fulfilled,
-        (state, action: PayloadAction<BaggageVariant[]>) => {
+        (state, action: PayloadAction<DataBaggageVariants>) => {
           state.checkedBaggageVariants = action.payload;
           state.isLoading = false;
         },
@@ -305,7 +305,7 @@ export const mainSlice = createSlice({
       })
       .addCase(
         getInsurances.fulfilled,
-        (state, action: PayloadAction<Insurance[]>) => {
+        (state, action: PayloadAction<DataInsurances>) => {
           state.insurances = action.payload;
           state.isLoading = false;
         },

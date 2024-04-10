@@ -6,6 +6,7 @@ import {
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
 import { Insurance } from '../../app/types';
+import { useTranslation } from 'react-i18next';
 
 export const useInsurancesList = () => {
   const mainState = useAppSelector(stateMainSlice);
@@ -13,6 +14,7 @@ export const useInsurancesList = () => {
     stateRegistrationProcessSlice,
   );
   const dispatch = useAppDispatch();
+  const { t, i18n } = useTranslation();
   const handleSelectInsurance = (insurance: Insurance) => {
     dispatch(selectInsurance(insurance));
   };
@@ -25,5 +27,7 @@ export const useInsurancesList = () => {
     mainState,
     registrationProcessState,
     handleSelectInsurance,
+    t,
+    i18n,
   };
 };

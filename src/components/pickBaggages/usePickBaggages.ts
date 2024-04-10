@@ -19,7 +19,7 @@ export const usePickBaggages = () => {
     stateRegistrationProcessSlice,
   );
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const handleSelectCabinBag = (cabinBag: BaggageVariant) => {
     dispatch(selectCabinBag(cabinBag));
   };
@@ -36,6 +36,7 @@ export const usePickBaggages = () => {
     mainState,
     registrationProcessState,
     t,
+    i18n,
     handleSelectCabinBag,
     handleSelectCheckedBag,
   };
