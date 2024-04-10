@@ -40,7 +40,9 @@ const PickBaggages = () => {
               name={'cabinBaggageVariants'}
               label={variant.title}
               onChange={() => handleSelectCabinBag(variant)}
-              checked={variant === registrationProcessState.selectedCabinBag}
+              checked={
+                variant.id === registrationProcessState.selectedCabinBag?.id
+              }
             >
               <div className={styles.variantDescription}>
                 {variant.description && <p>{variant.description}</p>}
@@ -50,7 +52,9 @@ const PickBaggages = () => {
                       <div className={styles.price}>USD {variant.price}</div>
                     )}
                     {variant.price === 0 && (
-                      <div className={styles.priceFree}>Free</div>
+                      <div className={styles.priceFree}>
+                        {t('pickBaggages.free')}
+                      </div>
                     )}
                   </>
                 )}
@@ -74,7 +78,9 @@ const PickBaggages = () => {
               name={'checkedBaggageVariants'}
               label={variant.title}
               onChange={() => handleSelectCheckedBag(variant)}
-              checked={variant === registrationProcessState.selectedCheckedBag}
+              checked={
+                variant.id === registrationProcessState.selectedCheckedBag?.id
+              }
             >
               <div className={styles.variantDescription}>
                 {variant.description && <p>{variant.description}</p>}
@@ -84,7 +90,9 @@ const PickBaggages = () => {
                       <div className={styles.price}>USD {variant.price}</div>
                     )}
                     {variant.price === 0 && (
-                      <div className={styles.priceFree}>Free</div>
+                      <div className={styles.priceFree}>
+                        {t('pickBaggages.free')}
+                      </div>
                     )}
                   </>
                 )}

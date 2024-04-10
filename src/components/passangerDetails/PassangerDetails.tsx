@@ -9,7 +9,9 @@ const PassangerDetails: FC = () => {
     mainState,
     registrationProcessState,
     t,
+    i18n,
     hanldeHidePassangerDetailsWindow,
+    findBagVariantTitle,
   } = usePassangerDetails();
 
   return (
@@ -41,13 +43,25 @@ const PassangerDetails: FC = () => {
             <div className={styles.travellerCardItem}>
               <p>{t('passengerDetails.cabinBag')}</p>
               <p className={styles.highlightedText}>
-                {registrationProcessState.selectedCabinBag?.title}
+                {/* {registrationProcessState.selectedCabinBag?.title} */}
+                {registrationProcessState.selectedCabinBag !== null
+                  ? findBagVariantTitle(
+                      mainState.cabinBaggageVariants[i18n.language],
+                      registrationProcessState.selectedCabinBag,
+                    )
+                  : ''}
               </p>
             </div>
             <div className={styles.travellerCardItem}>
               <p>{t('passengerDetails.checkedBag')}</p>
               <p className={styles.highlightedText}>
-                {registrationProcessState.selectedCheckedBag?.title}
+                {/* {registrationProcessState.selectedCheckedBag?.title} */}
+                {registrationProcessState.selectedCheckedBag !== null
+                  ? findBagVariantTitle(
+                      mainState.cabinBaggageVariants[i18n.language],
+                      registrationProcessState.selectedCheckedBag,
+                    )
+                  : ''}
               </p>
             </div>
             <div className={styles.travellerCardItem}>

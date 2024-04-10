@@ -14,7 +14,7 @@ export const usePaymentPage = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [buttonText, setButtonText] = useState('');
   const [payVariant, setPayVariant] = useState('card');
   const [isOpenPromoInput, setIsOpenPromoInput] = useState(false);
@@ -69,15 +69,23 @@ export const usePaymentPage = () => {
 
   useEffect(() => {
     if (payVariant === 'card') {
-      setButtonText('Pay with Credit / Debit card');
+      setButtonText(t('payment.button.card'));
     }
     if (payVariant === 'applePay') {
-      setButtonText(`Pay USD ${totalPrice} with Apple Pay`);
+      setButtonText(
+        t('payment.button.apple', {
+          price: totalPrice,
+        }),
+      );
     }
     if (payVariant === 'paypal') {
-      setButtonText(`Pay USD ${totalPrice} with Paypal`);
+      setButtonText(
+        t('payment.button.paypal', {
+          price: totalPrice,
+        }),
+      );
     }
-  }, [payVariant]);
+  }, [payVariant, i18n.language]);
 
   return {
     mainState,

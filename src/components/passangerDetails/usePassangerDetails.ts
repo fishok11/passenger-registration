@@ -5,6 +5,7 @@ import {
   hidePassangerDetailsWindow,
   stateRegistrationProcessSlice,
 } from '../../app/registrationProcessSlice';
+import { BaggageVariant } from '../../app/types';
 
 export const usePassangerDetails = () => {
   const dispatch = useAppDispatch();
@@ -12,15 +13,33 @@ export const usePassangerDetails = () => {
   const registrationProcessState = useAppSelector(
     stateRegistrationProcessSlice,
   );
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const hanldeHidePassangerDetailsWindow = () => {
     dispatch(hidePassangerDetailsWindow());
+  };
+
+  const findBagVariantTitle = (
+    arr: BaggageVariant[],
+    selectedVariant: BaggageVariant,
+  ) => {
+    let title = '';
+
+    arr.forEach((item) => {
+      if (item.id === selectedVariant.id) {
+        title = item.title;
+        return;
+      }
+    });
+
+    return title;
   };
 
   return {
     mainState,
     registrationProcessState,
     t,
+    i18n,
     hanldeHidePassangerDetailsWindow,
+    findBagVariantTitle,
   };
 };

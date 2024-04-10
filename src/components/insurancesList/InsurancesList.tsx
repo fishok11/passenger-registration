@@ -22,9 +22,7 @@ const InsurancesList: FC = () => {
             label={insurance.title}
             onChange={() => handleSelectInsurance(insurance)}
             checked={
-              registrationProcessState.selectedInsurance === insurance
-              // ? true
-              // : insurance.price === 0 || insurance.price === null
+              insurance.id === registrationProcessState.selectedInsurance?.id
             }
           >
             <div className={styles.descriptionContainer}>
