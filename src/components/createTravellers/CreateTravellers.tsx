@@ -127,39 +127,44 @@ const CreateTravellers: FC = () => {
         </h2>
         <Input
           id={'passport'}
-          type={'text'}
+          type={'number'}
           placeholder={t(
             'createTravellers.documentInformation.passportInput.placeholder',
           )}
           helperText={t(
             'createTravellers.documentInformation.passportInput.helperText',
           )}
+          min={0}
           value={passport}
           onChange={(e) => setPassport(e.target.value)}
         />
-        <CheckBoxCard
-          id={'expireDate'}
-          label={t('createTravellers.documentInformation.checkBoxLabel')}
-          onChange={() => handleChangeCheckExpireDatePasport()}
-          text={''}
-          checked={checkExpireDatePasport}
-        />
-        {checkExpireDatePasport && (
+        {passport !== '' && (
           <>
-            <h3 className={styles.formTitle}>Expire date</h3>
-            <div className={styles.expireDateContainer}>
-              <Input id={'day'} type={'text'} placeholder={'Day'} />
-              <Dropdown placeholder={'Month'} value={month}>
-                {months.map((month) => (
-                  <DropdownItem
-                    key={month}
-                    text={month}
-                    onClick={() => setMonth(month)}
-                  />
-                ))}
-              </Dropdown>
-              <Input id={'year'} type={'text'} placeholder={'Year'} />
-            </div>
+            <CheckBoxCard
+              id={'expireDate'}
+              label={t('createTravellers.documentInformation.checkBoxLabel')}
+              onChange={() => handleChangeCheckExpireDatePasport()}
+              text={''}
+              checked={checkExpireDatePasport}
+            />
+            {checkExpireDatePasport && (
+              <>
+                <h3 className={styles.formTitle}>Expire date</h3>
+                <div className={styles.expireDateContainer}>
+                  <Input id={'day'} type={'text'} placeholder={'Day'} />
+                  <Dropdown placeholder={'Month'} value={month}>
+                    {months.map((month) => (
+                      <DropdownItem
+                        key={month}
+                        text={month}
+                        onClick={() => setMonth(month)}
+                      />
+                    ))}
+                  </Dropdown>
+                  <Input id={'year'} type={'text'} placeholder={'Year'} />
+                </div>
+              </>
+            )}
           </>
         )}
         <Button

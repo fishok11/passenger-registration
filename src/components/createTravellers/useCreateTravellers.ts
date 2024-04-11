@@ -47,6 +47,11 @@ export const useCreateTravellers = () => {
   };
   const handleHideAddTravellerWindow = () => {
     dispatch(hideAddTravellerWindow());
+    setName('');
+    setSurname('');
+    setGender('');
+    setNationality('');
+    setPassport('');
   };
   const handleAddTraveller = () => {
     if (name === '') {
@@ -59,6 +64,11 @@ export const useCreateTravellers = () => {
     }
     dispatch(addTraveller(traveller));
     dispatch(hideAddTravellerWindow());
+    setName('');
+    setSurname('');
+    setGender('');
+    setNationality('');
+    setPassport('');
   };
   const handleChangeCheckExpireDatePasport = () => {
     setCheckExpireDatePasport(!checkExpireDatePasport);

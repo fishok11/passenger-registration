@@ -27,15 +27,15 @@ const SlideWindow: FC<SlideWindowProps> = ({
           transition={{ stiffness: 300, damping: 30, duration: 0.2 }}
           className={styles.container}
         >
-          <div className={styles.element}>
-            <div className={styles.titleContainer}>
-              <button onClick={() => onClickClose()}>
+          <motion.div className={styles.element}>
+            <motion.div className={styles.titleContainer}>
+              <motion.button onClick={() => onClickClose()}>
                 <FontAwesomeIcon icon={faXmark} />
-              </button>
-              <h2 className={styles.title}>{title}</h2>
-            </div>
-          </div>
-          <div className={styles.childrenContainer}>{children}</div>
+              </motion.button>
+              <motion.h2 className={styles.title}>{title}</motion.h2>
+            </motion.div>
+          </motion.div>
+          <motion.div className={styles.childrenContainer}>{children}</motion.div>
         </motion.div>
       )}
     </AnimatePresence>
