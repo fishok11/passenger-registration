@@ -35,7 +35,9 @@ const SlideWindow: FC<SlideWindowProps> = ({
               <motion.h2 className={styles.title}>{title}</motion.h2>
             </motion.div>
           </motion.div>
-          <motion.div className={styles.childrenContainer}>{children}</motion.div>
+          <motion.div className={styles.childrenContainer}>
+            {children}
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>

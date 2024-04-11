@@ -2,10 +2,14 @@ import React, { FC } from 'react';
 import styles from './Header.module.scss';
 import { useHeader } from './useHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChevronLeft,
+  faEarthEurope,
+} from '@fortawesome/free-solid-svg-icons';
 
 const Header: FC = () => {
-  const { mainState, handlePrevStep, t, i18n, handleTranslate } = useHeader();
+  const { mainState, handlePrevStep, t, handleTranslate, textButton } =
+    useHeader();
 
   return (
     <header className={styles.header}>
@@ -19,7 +23,13 @@ const Header: FC = () => {
         {mainState.step === 4 && t('header.textStep4')}
         {mainState.step === 5 && t('header.textStep5')}
       </h2>
-      <button className={styles.translateButton} onClick={() => handleTranslate()}>{i18n.language}</button>
+      <button
+        className={styles.translateButton}
+        onClick={() => handleTranslate()}
+      >
+        <FontAwesomeIcon icon={faEarthEurope} />
+        {textButton}
+      </button>
     </header>
   );
 };

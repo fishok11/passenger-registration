@@ -35,9 +35,9 @@
 }
 
 .checkedContainer {
-  @apply baseContainer border-green-500;
+  @apply baseContainer border-[#25A531];
 
   .customCheckboxChecked {
-    @apply flex justify-center items-center w-4 h-4 mt-1 border rounded-full cursor-pointer text-xs text-white bg-green-500 border-green-500;
+    @apply flex justify-center items-center w-4 h-4 mt-1 border rounded-full cursor-pointer text-xs text-white bg-[#25A531] border-[#25A531];
   }
 }

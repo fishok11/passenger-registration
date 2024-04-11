@@ -4,7 +4,8 @@
   .title {
     @apply font-bold flex-auto;
   }
+
   .translateButton {
-    @apply flex justify-center items-center border border-gray-400 rounded-lg px-1 bg-white text-gray-600;
+    @apply flex justify-center items-center gap-1  rounded-lg px-1 bg-[#F2EFFF] text-[#3E18DA];
   }
 }
