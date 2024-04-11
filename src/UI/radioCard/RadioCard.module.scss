@@ -1,3 +1,15 @@
+@mixin defaultTextColor {
+  @apply text-[#3E18DA];
+}
+
+@mixin defaultBorderColor {
+  @apply border-[#3E18DA];
+}
+
+@mixin defaultBGColor {
+  @apply bg-[#3E18DA];
+}
+
 .baseContainer {
   @apply flex flex-col justify-start items-start gap-1 p-3 border rounded-lg;
 
@@ -9,7 +21,9 @@
     }
 
     .input:checked {
-      @apply w-4 h-4 border-blue-800 bg-blue-800 focus:ring-[none] ring-offset-[none];
+      @include defaultBorderColor;
+      @include defaultBGColor;
+      @apply w-4 h-4 focus:ring-[none] ring-offset-[none];
     }
 
     .label {
@@ -27,5 +41,6 @@
 }
 
 .checkedContainer {
-  @apply baseContainer border-blue-800;
+  @include defaultBorderColor;
+  @apply baseContainer;
 }

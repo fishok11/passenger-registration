@@ -22,12 +22,21 @@
   .radioContainer {
     @apply flex flex-col border border-gray-300 rounded-lg;
 
+    .radioItem:first-child {
+      @apply border-b border-gray-300;
+    }
+
     .radioItem {
       @apply w-full flex items-center gap-2 px-3 py-3 cursor-pointer;
 
       .radioInput {
         @apply w-4 h-4 cursor-pointer;
       }
+
+      .radioInput:checked {
+        @apply w-4 h-4 border-[#3E18DA] bg-[#3E18DA] focus:ring-[none] ring-offset-[none] cursor-pointer;
+      }
+
       .radioLabel {
         @apply cursor-pointer;
       }

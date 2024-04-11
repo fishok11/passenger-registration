@@ -6,6 +6,14 @@
   @apply flex justify-center items-center w-7 h-8 border rounded-full;
 }
 
+@mixin defaultBorderColor {
+  @apply border-[#3E18DA];
+}
+
+@mixin defaultBGColor {
+  @apply bg-[#3E18DA];
+}
+
 .container {
   @apply w-full flex flex-col gap-2;
 
@@ -37,7 +45,8 @@
 
       .seatFirstInterior {
         @include defaultSeatStylesFirstInterior;
-        @apply border-blue-800 bg-gray-100 p-3;
+        @include defaultBorderColor;
+        @apply bg-gray-100 p-3;
       }
 
       .seatOccupiedFirstInterior {
@@ -47,12 +56,14 @@
 
       .seatOccupiedCurrentTravellerFirstInterior {
         @include defaultSeatStylesFirstInterior;
-        @apply border-inherit bg-blue-800 p-3 text-sm text-white;
+        @include defaultBGColor;
+        @apply border-inherit p-3 text-sm text-white;
       }
 
       .seatTwoInterior {
         @include defaultSeatStylesTwoInterior;
-        @apply border-blue-800 bg-gray-100 p-3;
+        @include defaultBorderColor;
+        @apply bg-gray-100 p-3;
       }
 
       .seatOccupiedTwoInterior {
@@ -62,7 +73,8 @@
 
       .seatOccupiedCurrentTravellerTwoInterior {
         @include defaultSeatStylesTwoInterior;
-        @apply border-inherit bg-blue-800 p-3 text-sm text-white;
+        @include defaultBGColor;
+        @apply border-inherit p-3 text-sm text-white;
       }
     }
 

@@ -2,6 +2,14 @@
   @apply bg-blue-800;
 }
 
+@mixin defaultTextColor {
+  @apply text-[#3E18DA];
+}
+
+@mixin defaultBorderColor {
+  @apply border-[#3E18DA];
+}
+
 .baseContainer {
   @apply flex justify-center items-center bg-white border border-gray-300 rounded-full w-max h-max py-1 px-2 cursor-pointer text-nowrap;
 
@@ -20,7 +28,8 @@
   }
 
   .seatIsSelectedText {
-    @apply flex justify-center items-center text-sm text-blue-800;
+    @include defaultTextColor;
+    @apply flex justify-center items-center text-sm;
 
     .check {
       @include mainBgBlue;
@@ -35,10 +44,12 @@
 }
 
 .selectedContainer {
-  @apply flex justify-center items-center bg-blue-100 border border-blue-800 rounded-full w-max h-max py-1 px-2 cursor-pointer text-nowrap;
+  @include defaultBorderColor;
+  @apply flex justify-center items-center bg-blue-100 border rounded-full w-max h-max py-1 px-2 cursor-pointer text-nowrap;
 
   .text {
-    @apply flex justify-center items-center text-sm text-blue-800;
+    @include defaultTextColor;
+    @apply flex justify-center items-center text-sm ;
 
     .check {
       @include mainBgBlue;
@@ -52,7 +63,8 @@
   }
 
   .seatIsSelectedText {
-    @apply flex justify-center items-center text-sm text-blue-800;
+    @include defaultTextColor;
+    @apply flex justify-center items-center text-sm;
 
     .check {
       @include mainBgBlue;

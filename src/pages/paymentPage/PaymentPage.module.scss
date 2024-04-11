@@ -85,7 +85,7 @@
           }
 
           .input:checked {
-            @apply w-4 h-4 border-blue-800 bg-blue-800 focus:ring-[none] ring-offset-[none] cursor-pointer;
+            @apply w-4 h-4 border-[#3E18DA] bg-[#3E18DA] focus:ring-[none] ring-offset-[none] cursor-pointer;
           }
 
           .label {
@@ -98,7 +98,7 @@
         }
 
         .paypal {
-          @apply text-blue-700;
+          @apply text-[#3E18DA];
         }
 
         .card {

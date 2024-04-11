@@ -2,14 +2,24 @@
   @apply w-full h-10 font-[500] p-2 rounded-lg duration-200;
 }
 
+@mixin defaultTextColor {
+  @apply text-[#3E18DA];
+}
+
+@mixin defaultBGColor {
+  @apply bg-[#3E18DA];
+}
+
 .buttonPrimary {
   @include buttonDefaultStyles;
-  @apply bg-blue-800 text-white hover:bg-blue-700;
+  @include defaultBGColor;
+  @apply text-white;
 }
 
 .buttonSecondary {
   @include buttonDefaultStyles;
-  @apply bg-blue-100 text-blue-800 hover:bg-blue-200;
+  @include defaultTextColor;
+  @apply bg-[#F2EFFF];
 }
 
 .buttonThird {
