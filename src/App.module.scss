@@ -1,5 +1,5 @@
-.app {
-  @apply flex flex-col gap-4 items-center w-[390px] h-[844px] relative top-0 overflow-y-auto;
+@mixin appDefaultStyles {
+  @apply flex flex-col gap-4 items-center w-[390px] h-[844px] relative top-0;
 
   .bgGradient {
     position: absolute;
@@ -28,6 +28,15 @@
   }
 }
 
+.app {
+  @include appDefaultStyles;
+  @apply overflow-y-auto;
+}
+
+.appWithoutScroll {
+  @include appDefaultStyles;
+  @apply overflow-hidden;
+}
 
 *::-webkit-scrollbar {
   width: 4px;

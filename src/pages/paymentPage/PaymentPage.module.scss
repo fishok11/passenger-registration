@@ -1,8 +1,8 @@
 .wrapper {
-  @apply flex flex-col justify-start items-center w-full h-full;
+  @apply flex flex-col justify-start items-center w-full h-max;
 
   .container {
-    @apply flex flex-col gap-3 justify-start items-center w-full h-full;
+    @apply flex flex-col gap-3 justify-start items-center w-full h-max;
 
     .descriptionText {
       @apply w-full text-left;

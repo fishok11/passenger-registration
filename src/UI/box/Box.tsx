@@ -16,7 +16,7 @@ const Box: FC<BoxProps> = ({ children, isVisible }) => {
     opacity: 0,
   };
   const animate = { x: '0%', opacity: 1 };
-  const exit = { opacity: 0 };
+  const exit = { display: 'none' };
 
   return (
     <AnimatePresence>
