@@ -13,7 +13,13 @@
     "service": "Our service fee",
     "otherFees": "Other fees and taxes",
     "total": "Total due",
-    "button": "Continue"
+    "button": "Continue",
+    "toasts": {
+      "step1": "Choose traveller(s)",
+      "step2": "Pick baggages",
+      "step3": "Choose insurance",
+      "step4": "Choose seats for traveller(s)"
+    }
   },
   "stepper": {
     "textStep1": "Provide the person who will travel for this flight",

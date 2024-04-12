@@ -25,7 +25,7 @@ export const useStepNavigation = () => {
       mainState.step === 1 &&
       registrationProcessState.selectedTravellers.length === 0
     ) {
-      toast.error('Choose traveller(s)');
+      toast.error(t('stepsNavigation.toasts.step1'));
       return;
     }
     if (
@@ -33,14 +33,14 @@ export const useStepNavigation = () => {
       (registrationProcessState.selectedCabinBag === null ||
         registrationProcessState.selectedCheckedBag === null)
     ) {
-      toast.error('Pick baggages');
+      toast.error(t('stepsNavigation.toasts.step2'));
       return;
     }
     if (
       mainState.step === 3 &&
       registrationProcessState.selectedInsurance === null
     ) {
-      toast.error('Choose insurance');
+      toast.error(t('stepsNavigation.toasts.step3'));
       return;
     }
     if (
@@ -48,7 +48,7 @@ export const useStepNavigation = () => {
       checkingSelectionSeats() !==
         registrationProcessState.selectedTravellers.length
     ) {
-      toast.error('Choose seats for traveller(s)');
+      toast.error(t('stepsNavigation.toasts.step4'));
       return;
     }
     if (mainState.step === 4) {
