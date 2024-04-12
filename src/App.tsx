@@ -51,7 +51,12 @@ function App() {
         {mainState.step === mainState.stepsQuantity &&
           mainState.finalPage === false && <PaymentPage />}
         {mainState.finalPage && <FinalPage />}
-        <Toaster position="top-center" />
+        <Toaster
+          position="top-center"
+          containerStyle={{
+            position: 'absolute',
+          }}
+        />
       </div>
     </>
   );
