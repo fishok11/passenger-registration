@@ -124,6 +124,7 @@
     }
   },
   "passengerDetails": {
+    "title": "Passengers details",
     "personalID": {
       "title": "Personal ID",
       "miss": "Miss"

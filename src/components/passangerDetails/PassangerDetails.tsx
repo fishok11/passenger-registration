@@ -17,7 +17,7 @@ const PassangerDetails: FC = () => {
   return (
     <SlideWindow
       isOpen={registrationProcessState.visibilityPassangerDetailsWindow}
-      title={'Passanger details'}
+      title={t('passengerDetails.title')}
       onClickClose={() => hanldeHidePassangerDetailsWindow()}
     >
       <div className={styles.container}>
