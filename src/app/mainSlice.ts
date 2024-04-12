@@ -37,6 +37,7 @@ const initialState: InitialState = {
     gender: '',
     nationality: '',
     passport: '',
+    expireDatePasport: null,
   },
   travellers: [],
   cabinBaggageVariants: { en: [], ru: [] },

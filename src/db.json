@@ -6,6 +6,7 @@
       "gender": "male",
       "nationality": "",
       "passport": "124141411",
+      "expireDatePasport": "2024-06-03T21:00:00.000Z",
       "id": "0868"
     },
     {
@@ -14,12 +15,16 @@
       "gender": "male",
       "nationality": "",
       "passport": "",
+      "expireDatePasport": null,
       "id": "b6af"
     },
     {
       "name": "Homer",
       "surname": "Simpson",
       "gender": "male",
+      "nationality": "",
+      "passport": "",
+      "expireDatePasport": null,
       "id": "CbdiYAc"
     }
   ],

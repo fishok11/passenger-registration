@@ -5,7 +5,7 @@ export type Traveller = {
   gender: string;
   nationality: string;
   passport: string;
-  // expireDatePasport: expireDatePasport,
+  expireDatePasport: Date | null,
 };
 
 export type AddTraveller = Omit<Traveller, 'id'>;

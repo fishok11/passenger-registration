@@ -34,24 +34,35 @@ export const useCreateTravellers = () => {
     'Nov',
     'Dec',
   ];
+  const [day, setDay] = useState('');
   const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
   const [checkExpireDatePasport, setCheckExpireDatePasport] = useState(false);
-  // const [expireDatePasport, setExpireDatePasport] = useState('');
   const traveller = {
     name: name,
     surname: surname,
     gender: gender,
     nationality: nationality,
     passport: passport,
-    // expireDatePasport: expireDatePasport,
+    expireDatePasport:
+      day !== '' && month !== '' && year !== ''
+        ? new Date(parseInt(year), months.indexOf(month), parseInt(day))
+        : null,
   };
-  const handleHideAddTravellerWindow = () => {
-    dispatch(hideAddTravellerWindow());
+  const resetTravellerFields = () => {
     setName('');
     setSurname('');
     setGender('');
     setNationality('');
     setPassport('');
+    setDay('');
+    setMonth('');
+    setYear('');
+    setCheckExpireDatePasport(false);
+  };
+  const handleHideAddTravellerWindow = () => {
+    dispatch(hideAddTravellerWindow());
+    resetTravellerFields();
   };
   const handleAddTraveller = () => {
     if (name === '') {
@@ -64,11 +75,7 @@ export const useCreateTravellers = () => {
     }
     dispatch(addTraveller(traveller));
     dispatch(hideAddTravellerWindow());
-    setName('');
-    setSurname('');
-    setGender('');
-    setNationality('');
-    setPassport('');
+    resetTravellerFields();
   };
   const handleChangeCheckExpireDatePasport = () => {
     setCheckExpireDatePasport(!checkExpireDatePasport);
@@ -86,6 +93,13 @@ export const useCreateTravellers = () => {
     setGender(mainState.traveller.gender);
     setNationality(mainState.traveller.nationality);
     setPassport(mainState.traveller.passport);
+    if (mainState.traveller.expireDatePasport !== null) {
+      const expireDate = new Date(mainState.traveller.expireDatePasport);
+      setDay(expireDate.getDate().toString());
+      setMonth(months[expireDate.getMonth()]);
+      setYear(expireDate.getFullYear().toString());
+      setCheckExpireDatePasport(true);
+    }
   }, [mainState.traveller]);
 
   return {
@@ -104,13 +118,15 @@ export const useCreateTravellers = () => {
     setNationality,
     passport,
     setPassport,
+    day,
+    setDay,
     months,
     month,
     setMonth,
+    year,
+    setYear,
     checkExpireDatePasport,
     handleChangeCheckExpireDatePasport,
-    // expireDatePasport,
-    // setExpireDatePasport,
     handleAddTraveller,
     handleHideAddTravellerWindow,
   };

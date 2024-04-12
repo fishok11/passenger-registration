@@ -25,9 +25,13 @@ const CreateTravellers: FC = () => {
     setNationality,
     passport,
     setPassport,
+    day,
+    setDay,
     months,
     month,
     setMonth,
+    year,
+    setYear,
     checkExpireDatePasport,
     handleChangeCheckExpireDatePasport,
     // expireDatePasport,
@@ -151,7 +155,15 @@ const CreateTravellers: FC = () => {
               <>
                 <h3 className={styles.formTitle}>Expire date</h3>
                 <div className={styles.expireDateContainer}>
-                  <Input id={'day'} type={'text'} placeholder={'Day'} />
+                  <Dropdown placeholder={'Day'} value={day}>
+                    {Array.from({ length: 31 }).map((_, index) => (
+                      <DropdownItem
+                        key={index}
+                        text={(index + 1).toString()}
+                        onClick={() => setDay((index + 1).toString())}
+                      />
+                    ))}
+                  </Dropdown>
                   <Dropdown placeholder={'Month'} value={month}>
                     {months.map((month) => (
                       <DropdownItem
@@ -161,7 +173,13 @@ const CreateTravellers: FC = () => {
                       />
                     ))}
                   </Dropdown>
-                  <Input id={'year'} type={'text'} placeholder={'Year'} />
+                  <Input
+                    id={'year'}
+                    type={'number'}
+                    placeholder={'Year'}
+                    value={year}
+                    onChange={(e) => setYear(e.target.value)}
+                  />
                 </div>
               </>
             )}
