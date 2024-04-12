@@ -42,11 +42,11 @@ const SeatSelection: FC = () => {
         </div>
         <div className={styles.seatsContainer}>
           {mainState.interiorConfiguration.interior.map(
-            (interior, indexInterior) => (
-              <React.Fragment key={interior.rowId}>
+            (rowData, indexRowData) => (
+              <React.Fragment key={rowData.rowId}>
                 <div className={styles.rowContainer}>
-                  <p className={styles.rowName}>{interior.rowId}</p>
-                  {interior.row.map((seat) => (
+                  <p className={styles.rowName}>{rowData.rowId}</p>
+                  {rowData.row.map((seat) => (
                     <React.Fragment key={seat.id}>
                       {checkOccupiedSeat(seat.id) && (
                         <div
@@ -94,7 +94,7 @@ const SeatSelection: FC = () => {
                   ))}
                 </div>
                 {mainState.interiorConfiguration.interior.length === 6
-                  ? indexInterior + 1 === 3 && (
+                  ? indexRowData + 1 === 3 && (
                       <div className={styles.spaceContainer}>
                         <div className={styles.item}>
                           <div className={styles.space} />
@@ -110,7 +110,7 @@ const SeatSelection: FC = () => {
                         ))}
                       </div>
                     )
-                  : (indexInterior + 1 === 2 || indexInterior + 1 === 5) && (
+                  : (indexRowData + 1 === 2 || indexRowData + 1 === 5) && (
                       <div className={styles.spaceContainer}>
                         <div className={styles.item}>
                           <div className={styles.space} />
